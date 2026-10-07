@@ -82,7 +82,7 @@ select lives_ok(
   $$select public.admin_set_user_role('00000000-0000-0000-0000-0000000000a2', 'officer', true)$$,
   'admin can grant officer to another user');
 select ok(
-  public.has_role('00000000-0000-0000-0000-0000000000a2', 'officer'), 'officer role was granted');
+  exists (select 1 from public.user_roles where user_id = '00000000-0000-0000-0000-0000000000a2' and role = 'officer'), 'officer role was granted');
 
 -- 16: grant was audited and admin can read it
 select ok(
