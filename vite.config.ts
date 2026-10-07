@@ -14,6 +14,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
     include: ["src/**/*.test.{ts,tsx}"],
+    testTimeout: 30_000,
+    hookTimeout: 120_000,
     env: {
       VITE_SUPABASE_URL: "http://localhost:54321",
       VITE_SUPABASE_ANON_KEY: "test-anon-key",

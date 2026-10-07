@@ -14,7 +14,10 @@
     "check:secrets": "node scripts/check-secrets.mjs",
     "seed:dev": "tsx scripts/seed-dev-users.ts",
     "verify:m1": "tsx scripts/verify-m1.ts",
-    "validate": "npm run lint && npm run typecheck && npm run test && npm run build && npm run check:secrets"
+    "validate": "npm run lint && npm run typecheck && npm run test && npm run build && npm run check:secrets",
+    "synth:export": "tsx scripts/export-synthetic.ts",
+    "seed:synthetic": "tsx scripts/seed-synthetic.ts",
+    "verify:m2": "tsx scripts/verify-m2.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -73,6 +76,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@eslint/js": "^9.32.0",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^7.0.1",
