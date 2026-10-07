@@ -57,6 +57,11 @@ async function main() {
     return;
   }
 
+  if (arg("persist")) {
+    await persistResults(cfgHash);
+    return;
+  }
+
   const split = arg("split") ?? "dev";
 
   if (split === "dev") {
@@ -144,6 +149,40 @@ async function main() {
     return;
   }
   throw new Error(`unknown split '${split}'`);
+}
+
+// Stores the held-out evaluation artefact in evaluation_runs / evaluation_event_results (admin-readable only).
+// Ground truth itself is never written to the database; only the scored outcomes are.
+async function persistResults(cfgHash: string) {
+  const { createClient } = await import("@supabase/supabase-js");
+  for (const line of (existsSync(".env.local") ? readFileSync(".env.local", "utf8") : "").split(/\r?\n/)) {
+    const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
+    if (m && !(m[1] in process.env)) process.env[m[1]] = m[2];
+  }
+  const url = process.env.SUPABASE_URL ?? process.env.VITE_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) throw new Error("Need SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in .env.local");
+  const db = createClient(url, key, { auth: { autoRefreshToken: false, persistSession: false } });
+  const r = JSON.parse(readFileSync(RESULT_FILE, "utf8"));
+  if (r.detector.config_hash !== cfgHash) throw new Error("evaluation artefact was produced by a different config");
+  const base = { detector_version: r.detector.version, config_hash: cfgHash, matching_rules_version: r.matching_rules_version };
+  const rows = [
+    { ...base, kind: "primary", dataset_ref: "m2-odisha-v1", dataset_hash: r.hashes.m2_manifest_reports_sha256, ground_truth_hash: r.hashes.m2_ground_truth_sha256, n_datasets: 1, metrics: r.primary_m2_dataset.summary },
+    { ...base, kind: "held_out_replicates", dataset_ref: `replicates:${r.seeds.test_replicates.join("-")}`, n_datasets: r.held_out_replicates.n, metrics: { summary: r.held_out_replicates.summary, decoy_gate_proof: r.held_out_replicates.decoy_gate_proof } },
+    { ...base, kind: "null_calibration", dataset_ref: `null:${r.seeds.test_null.join("-")}`, n_datasets: r.null_calibration.n, metrics: r.null_calibration.summary },
+  ];
+  const { data, error } = await db.from("evaluation_runs").upsert(rows, { onConflict: "kind,config_hash,matching_rules_version,dataset_ref" }).select("id, kind");
+  if (error) throw new Error(error.message);
+  const primaryId = data!.find((x) => x.kind === "primary")!.id;
+  const events = r.primary_m2_dataset.events.map((e: Record<string, unknown>) => ({
+    evaluation_run_id: primaryId, event_id: e.id, kind: e.kind, evaluable: e.evaluable, detected: e.detected, late_detected: e.late_detected,
+    credited_date: e.credited_day === null ? null : new Date(Date.UTC(2026, 5, 15 + (e.credited_day as number))).toISOString().slice(0, 10),
+    delay_days: e.delay_days, localization: e.localization, decoy_alerted: e.decoy_alerted ?? null,
+    gate_reasons: (e.decoy_gate_proof as { reasons?: string[] } | undefined)?.reasons ?? [],
+  }));
+  const ev = await db.from("evaluation_event_results").upsert(events, { onConflict: "evaluation_run_id,event_id" });
+  if (ev.error) throw new Error(ev.error.message);
+  console.log(`persisted ${rows.length} evaluation runs and ${events.length} primary event results`);
 }
 
 main().catch((e) => {
