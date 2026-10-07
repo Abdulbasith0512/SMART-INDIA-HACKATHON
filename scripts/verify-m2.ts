@@ -353,7 +353,18 @@ async function cleanup() {
   if (createdObservations.length) await service.from("deidentified_observations").delete().in("id", createdObservations);
   // Observations derived from test reports that were deidentified but whose raw rows are now gone.
   if (createdSignals.length) await service.from("signal_candidates").delete().in("id", createdSignals);
-  if (createdEvidence.length) await service.from("evidence_items").delete().in("id", createdEvidence);
+  if (createdEvidence.length) {
+    // Since M4 the evidence item has a version (on delete restrict): remove versions and chunks first.
+    const vs = await service.from("evidence_versions").select("id").in("evidence_item_id", createdEvidence);
+    const vIds = (vs.data ?? []).map((v) => v.id as string);
+    if (vIds.length) await service.from("evidence_chunks").delete().in("version_id", vIds);
+    await service.from("evidence_versions").delete().in("evidence_item_id", createdEvidence);
+    const del = await service.from("evidence_items").delete().in("id", createdEvidence);
+    if (del.error) {
+      console.error(`CLEANUP FAILED: test evidence rows were NOT removed (${del.error.message})`);
+      process.exitCode = 1;
+    }
+  }
   for (const id of createdUsers) await service.auth.admin.deleteUser(id).catch(() => undefined);
 }
 
@@ -362,5 +373,5 @@ main()
   .finally(async () => {
     await cleanup();
     console.log(`\n${passed}/${passed + failed} checks passed. Test users, signals and evidence removed (audit rows remain by design).`);
-    process.exit(failed ? 1 : 0);
+    process.exit(failed || process.exitCode ? 1 : 0);
   });

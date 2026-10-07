@@ -851,6 +851,7 @@ export type Database = {
           is_current: boolean
           licence_note: string | null
           retrieved_at: string | null
+          source_hash: string | null
           source_last_modified: string | null
           version_label: string
         }
@@ -864,6 +865,7 @@ export type Database = {
           is_current?: boolean
           licence_note?: string | null
           retrieved_at?: string | null
+          source_hash?: string | null
           source_last_modified?: string | null
           version_label: string
         }
@@ -877,6 +879,7 @@ export type Database = {
           is_current?: boolean
           licence_note?: string | null
           retrieved_at?: string | null
+          source_hash?: string | null
           source_last_modified?: string | null
           version_label?: string
         }

@@ -1,0 +1,40 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-unverified-forum-post",
+  "version_label": "1",
+  "title": "Synthetic anonymous forum post about cluster causes",
+  "publisher": "Synthetic Unverified Web Source",
+  "source_type": "other",
+  "source_class": "unverified",
+  "evidence_kind": "operational_guidance",
+  "topics": [
+    "outbreak_investigation"
+  ],
+  "syndromes": [],
+  "geo_scope": "national",
+  "geo_region_code": null,
+  "language": "en",
+  "publication_date": "2025-03-01",
+  "valid_from": "2025-03-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-unverified-forum-post",
+  "citation": "SYNTHETIC-syn-unverified-forum-post",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "unreviewed",
+  "declared_status": "draft",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] A fictional anonymous post. Its issuer cannot be verified, so it is never eligible for retrieval.",
+  "excerpts": [
+    {
+      "text": "An anonymous synthetic poster claims a cause with no source."
+    }
+  ],
+  "translations": [],
+  "notes": null
+}

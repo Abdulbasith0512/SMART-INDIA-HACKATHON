@@ -1,0 +1,43 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-ads-verification-guidance-2025",
+  "version_label": "1",
+  "title": "Synthetic procedure for verifying a diarrhoeal illness cluster (2025 edition)",
+  "publisher": "Synthetic National Health Ministry",
+  "source_type": "government_advisory",
+  "source_class": "national_government_health_agency",
+  "evidence_kind": "operational_guidance",
+  "topics": [
+    "outbreak_investigation",
+    "surveillance_methods"
+  ],
+  "syndromes": [
+    "acute_diarrhoeal_illness"
+  ],
+  "geo_scope": "national",
+  "geo_region_code": null,
+  "language": "en",
+  "publication_date": "2025-04-01",
+  "valid_from": "2025-04-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-ads-verification-guidance-2025",
+  "citation": "SYNTHETIC-syn-ads-verification-guidance-2025",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "trusted",
+  "declared_status": "current",
+  "supersedes": "syn-ads-verification-guidance-2022",
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] The current edition of a fictional verification procedure; it replaces the 2022 edition.",
+  "excerpts": [
+    {
+      "text": "The 2025 synthetic procedure adds a step to compare the counts with the expected seasonal level before concluding that an increase is unusual."
+    }
+  ],
+  "translations": [],
+  "notes": null
+}

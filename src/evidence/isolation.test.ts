@@ -36,8 +36,24 @@ describe("evidence engine / statistical engine isolation", () => {
     expect(offenders).toEqual([]);
   });
 
+  it("browser-reachable code never imports the evidence engine (fetcher, ingestion and corpus tooling are server/CLI only)", () => {
+    const ui = ["components", "pages", "features", "hooks", "lib"].flatMap((d) => sources(join("src", d)));
+    const files = [...ui, join(ROOT, "src", "App.tsx"), join(ROOT, "src", "main.tsx")];
+    const offenders = files.filter((f) => importsOf(f).some((i) => /(^|\/)evidence(\/|$)/.test(i))).map((f) => relative(ROOT, f));
+    expect(offenders).toEqual([]);
+  });
+
+  it("only the net layer, CLI scripts and tests import the SSRF-safe fetcher", () => {
+    const files = [...sources("src"), ...walk(join(ROOT, "scripts")).filter((f) => /\.tsx?$/.test(f))].filter((f) => !f.includes(join("src", "legacy")));
+    const offenders = files
+      .filter((f) => importsOf(f).some((i) => /net\/fetcher|\.\/fetcher/.test(i)))
+      .map((f) => relative(ROOT, f))
+      .filter((f) => !f.startsWith(join("src", "evidence", "net")) && !f.startsWith("scripts") && !/\.test\.tsx?$/.test(f));
+    expect(offenders).toEqual([]);
+  });
+
   it("retrieval and ingestion modules never import generation or the LLM", () => {
-    const dirs = ["retrieval", "ingest", "rank", "bundle"].map((d) => join("src", "evidence", d));
+    const dirs = ["retrieval", "ingest", "rank", "bundle", "net", "devcorpus"].map((d) => join("src", "evidence", d));
     const files = sources("src/evidence").filter((f) => dirs.some((d) => relative(ROOT, f).startsWith(d)));
     const offenders = files.filter((f) => importsOf(f).some((i) => /generation|llm/.test(i))).map((f) => relative(ROOT, f));
     expect(offenders).toEqual([]);

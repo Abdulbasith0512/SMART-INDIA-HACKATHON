@@ -1,0 +1,41 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-professional-cluster-reporting-statement",
+  "version_label": "1",
+  "title": "Synthetic professional statement on reporting clusters",
+  "publisher": "Synthetic Society of Public Health Physicians",
+  "source_type": "guideline",
+  "source_class": "professional_society_guideline",
+  "evidence_kind": "operational_guidance",
+  "topics": [
+    "outbreak_response",
+    "surveillance_methods"
+  ],
+  "syndromes": [],
+  "geo_scope": "national",
+  "geo_region_code": null,
+  "language": "en",
+  "publication_date": "2025-03-01",
+  "valid_from": "2025-03-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-professional-cluster-reporting-statement",
+  "citation": "SYNTHETIC-syn-professional-cluster-reporting-statement",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "trusted",
+  "declared_status": "current",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] A fictional statement from a professional society about timely reporting of unusual clusters.",
+  "excerpts": [
+    {
+      "text": "Clinicians are encouraged to report unusual clusters to the surveillance office without waiting for laboratory results."
+    }
+  ],
+  "translations": [],
+  "notes": null
+}

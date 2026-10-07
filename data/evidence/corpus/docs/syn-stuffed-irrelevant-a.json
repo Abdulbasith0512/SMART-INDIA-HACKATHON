@@ -1,0 +1,40 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-stuffed-irrelevant-a",
+  "version_label": "1",
+  "title": "Synthetic keyword-stuffed page about cooking",
+  "publisher": "Synthetic Community Health Network",
+  "source_type": "other",
+  "source_class": "other_verified",
+  "evidence_kind": "operational_guidance",
+  "topics": [
+    "surveillance_methods"
+  ],
+  "syndromes": [],
+  "geo_scope": "national",
+  "geo_region_code": null,
+  "language": "en",
+  "publication_date": "2025-03-01",
+  "valid_from": "2025-03-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-stuffed-irrelevant-a",
+  "citation": "SYNTHETIC-syn-stuffed-irrelevant-a",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "reviewed",
+  "declared_status": "current",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] Cooking and kitchen tips. diarrhoeal disease outbreak diarrhoea cluster verification guidance fever rash jaundice respiratory surveillance outbreak outbreak diarrhoea diarrhoea.",
+  "excerpts": [
+    {
+      "text": "Best soup recipes for the rainy season, with outbreak outbreak diarrhoea diarrhoea fever surveillance verification words repeated for ranking."
+    }
+  ],
+  "translations": [],
+  "notes": null
+}

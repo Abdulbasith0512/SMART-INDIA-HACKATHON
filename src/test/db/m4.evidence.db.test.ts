@@ -184,11 +184,11 @@ describe("versions and chunks", () => {
 
   it("abstract and chunk text are plain text only (no markup, control or invisible characters)", async () => {
     const id = await item();
-    for (const bad of ["<script>alert(1)</script>", "see <a href=x>link</a>", "<!-- hidden -->", "bell\u0007char", "zero​width", "bidi‮override", "bom﻿char"]) {
+    for (const bad of ["<script>alert(1)</script>", "see <a href=x>link</a>", "<!-- hidden -->", "bell\u0007char", "zero\u200bwidth", "bidi\u202eoverride", "bom\ufeffchar"]) {
       expect(code(await run(db, `insert into public.evidence_versions (evidence_item_id, version_label, content_hash, abstract) values ('${id}', 'bad-${bad.length}', '${HASH("e")}', $1)`, [bad])), JSON.stringify(bad)).toBe("23514");
     }
     const v = await version(id);
-    for (const bad of ["<script>x</script>", "<img src=x onerror=1>", "ctrl\u0001char", "inv⁠isible", "x".repeat(1501), ""]) {
+    for (const bad of ["<script>x</script>", "<img src=x onerror=1>", "ctrl\u0001char", "inv\u2060isible", "x".repeat(1501), ""]) {
       expect(code(await chunk(v, 99, bad)), JSON.stringify(bad.slice(0, 20))).toBe("23514");
     }
     for (const ok of ["Hospital pH < 7 reported", "ଝାଡ଼ା ଏବଂ ବାନ୍ତି ପାଇଁ ସତର୍କତା", "दस्त के मामलों की जाँच करें", "Counts rose 3 > 2 over the week"]) {

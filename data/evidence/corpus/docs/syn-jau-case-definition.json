@@ -1,0 +1,46 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-jau-case-definition",
+  "version_label": "1",
+  "title": "Synthetic working case definition: acute jaundice",
+  "publisher": "Synthetic Global Health Authority",
+  "source_type": "guideline",
+  "source_class": "intergovernmental_health_authority",
+  "evidence_kind": "case_definition",
+  "topics": [
+    "case_definition",
+    "jaundice_hepatitis"
+  ],
+  "syndromes": [
+    "jaundice"
+  ],
+  "geo_scope": "global",
+  "geo_region_code": null,
+  "language": "en",
+  "publication_date": "2025-03-01",
+  "valid_from": "2025-03-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-jau-case-definition",
+  "citation": "SYNTHETIC-syn-jau-case-definition",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "trusted",
+  "declared_status": "current",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] A synthetic working case definition for acute jaundice, used only to exercise retrieval and filtering. It is not a real case definition.",
+  "excerpts": [
+    {
+      "text": "A synthetic suspected case of acute jaundice is a person with yellowing of the eyes or skin of recent onset, reported by a health facility within the surveillance window."
+    },
+    {
+      "text": "A synthetic cluster is two or more suspected cases that are linked by place and by time."
+    }
+  ],
+  "translations": [],
+  "notes": null
+}

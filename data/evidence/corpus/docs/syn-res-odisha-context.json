@@ -1,0 +1,42 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-res-odisha-context",
+  "version_label": "1",
+  "title": "Synthetic Odisha seasonal context for acute respiratory illness",
+  "publisher": "Synthetic Odisha State Health Department",
+  "source_type": "government_advisory",
+  "source_class": "state_government_health_agency",
+  "evidence_kind": "operational_guidance",
+  "topics": [
+    "monsoon_seasonality"
+  ],
+  "syndromes": [
+    "respiratory_illness"
+  ],
+  "geo_scope": "state",
+  "geo_region_code": "SYN-OD",
+  "language": "en",
+  "publication_date": "2025-03-01",
+  "valid_from": "2025-03-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-res-odisha-context",
+  "citation": "SYNTHETIC-syn-res-odisha-context",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "trusted",
+  "declared_status": "current",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] A fictional note on seasonal factors that local teams in Odisha consider when reviewing acute respiratory illness reports during the monsoon months.",
+  "excerpts": [
+    {
+      "text": "During the synthetic monsoon period local teams review water safety, drainage and sanitation when acute respiratory illness reports rise."
+    }
+  ],
+  "translations": [],
+  "notes": null
+}

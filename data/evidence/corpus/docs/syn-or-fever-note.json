@@ -1,0 +1,42 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-or-fever-note",
+  "version_label": "1",
+  "title": "ଜ୍ୱର ମାମଲା ନୋଟ୍ (Synthetic Odia sample)",
+  "publisher": "Synthetic National Health Ministry",
+  "source_type": "government_advisory",
+  "source_class": "national_government_health_agency",
+  "evidence_kind": "operational_guidance",
+  "topics": [
+    "fever_illness"
+  ],
+  "syndromes": [
+    "fever"
+  ],
+  "geo_scope": "national",
+  "geo_region_code": null,
+  "language": "or",
+  "publication_date": "2025-03-01",
+  "valid_from": "2025-03-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-or-fever-note",
+  "citation": "SYNTHETIC-syn-or-fever-note",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "trusted",
+  "declared_status": "current",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[କୃତ୍ରିମ ପରୀକ୍ଷା ଦସ୍ତାବିଜ] ଏହା କେବଳ ସଫ୍ଟୱେର ପରୀକ୍ଷା ପାଇଁ ଏକ କାଳ୍ପନିକ ଦସ୍ତାବିଜ।",
+  "excerpts": [
+    {
+      "text": "ଜ୍ୱର ମାମଲାର ସଂଖ୍ୟା ଯାଞ୍ଚ କରନ୍ତୁ।"
+    }
+  ],
+  "translations": [],
+  "notes": "Odia sample written for tokenisation and metadata handling only; not reviewed by a native speaker."
+}

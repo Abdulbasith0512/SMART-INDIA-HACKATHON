@@ -1,0 +1,40 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-conflict-reporting-deadline-b",
+  "version_label": "1",
+  "title": "Synthetic reporting deadline rule (version B)",
+  "publisher": "Synthetic Institute of Epidemiology",
+  "source_type": "situation_report",
+  "source_class": "recognized_institution",
+  "evidence_kind": "operational_guidance",
+  "topics": [
+    "outbreak_response"
+  ],
+  "syndromes": [],
+  "geo_scope": "national",
+  "geo_region_code": null,
+  "language": "en",
+  "publication_date": "2025-03-01",
+  "valid_from": "2025-03-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-conflict-reporting-deadline-b",
+  "citation": "SYNTHETIC-syn-conflict-reporting-deadline-b",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "trusted",
+  "declared_status": "current",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] Another fictional rule about how quickly a suspected cluster must be reported.",
+  "excerpts": [
+    {
+      "text": "Under this synthetic rule a suspected cluster must be reported within 72 hours of recognition."
+    }
+  ],
+  "translations": [],
+  "notes": "Deliberately conflicts with syn-conflict-reporting-deadline-a."
+}

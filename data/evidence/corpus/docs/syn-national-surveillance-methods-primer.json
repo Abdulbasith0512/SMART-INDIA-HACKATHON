@@ -1,0 +1,40 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-national-surveillance-methods-primer",
+  "version_label": "1",
+  "title": "Synthetic primer on syndromic surveillance methods",
+  "publisher": "Synthetic Institute of Epidemiology",
+  "source_type": "situation_report",
+  "source_class": "recognized_institution",
+  "evidence_kind": "research",
+  "topics": [
+    "surveillance_methods"
+  ],
+  "syndromes": [],
+  "geo_scope": "national",
+  "geo_region_code": null,
+  "language": "en",
+  "publication_date": "2024-02-10",
+  "valid_from": "2024-02-10",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-national-surveillance-methods-primer",
+  "citation": "SYNTHETIC-syn-national-surveillance-methods-primer",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "trusted",
+  "declared_status": "current",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] A fictional primer describing how syndromic surveillance counts are compared with a seasonal baseline.",
+  "excerpts": [
+    {
+      "text": "A syndromic signal is a statistical flag that needs verification by public-health staff and is never a confirmation by itself."
+    }
+  ],
+  "translations": [],
+  "notes": null
+}

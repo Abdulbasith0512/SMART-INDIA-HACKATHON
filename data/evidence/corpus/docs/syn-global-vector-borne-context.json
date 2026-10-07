@@ -1,0 +1,46 @@
+{
+  "schema": "evidence-doc/1",
+  "canonical_id": "syn-global-vector-borne-context",
+  "version_label": "1",
+  "title": "Synthetic overview of vector-borne context for fever",
+  "publisher": "Synthetic Global Health Authority",
+  "source_type": "guideline",
+  "source_class": "intergovernmental_health_authority",
+  "evidence_kind": "clinical_epidemiology_reference",
+  "topics": [
+    "vector_borne_context",
+    "fever_illness"
+  ],
+  "syndromes": [
+    "fever"
+  ],
+  "geo_scope": "global",
+  "geo_region_code": null,
+  "language": "en",
+  "publication_date": "2025-03-01",
+  "valid_from": "2025-03-01",
+  "valid_until": null,
+  "review_due": "2027-03-01",
+  "reference_url": "https://corpus.synthetic-health.invalid/syn-global-vector-borne-context",
+  "citation": "SYNTHETIC-syn-global-vector-borne-context",
+  "licence": "SYNTHETIC test data - no real licence",
+  "source_domain": "corpus.synthetic-health.invalid",
+  "verification_basis": [],
+  "is_synthetic": true,
+  "trust_level": "trusted",
+  "declared_status": "current",
+  "supersedes": null,
+  "curator_reviewed": null,
+  "source_content_hash": null,
+  "abstract": "[SYNTHETIC TEST DOCUMENT] A fictional overview of how mosquito-borne factors are considered when fever reports rise.",
+  "excerpts": [
+    {
+      "text": "Stagnant water, recent rainfall and local vector control activity are considered alongside fever reports."
+    },
+    {
+      "text": "The overview gives context only and does not identify a cause."
+    }
+  ],
+  "translations": [],
+  "notes": null
+}

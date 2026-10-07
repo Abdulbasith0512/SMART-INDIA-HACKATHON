@@ -20,7 +20,13 @@
     "verify:m2": "tsx scripts/verify-m2.ts",
     "eval:detector": "tsx scripts/eval-detector.ts",
     "detect": "tsx scripts/run-detector.ts",
-    "verify:m3": "tsx scripts/verify-m3.ts"
+    "verify:m3": "tsx scripts/verify-m3.ts",
+    "evidence:build": "tsx scripts/build-dev-corpus.ts",
+    "evidence:verify": "tsx scripts/verify-evidence-corpus.ts",
+    "evidence:ingest": "tsx scripts/ingest-evidence.ts",
+    "evidence:fetch": "tsx scripts/fetch-evidence-source.ts",
+    "evidence:linkcheck": "tsx scripts/check-evidence-links.ts",
+    "verify:m41": "tsx scripts/verify-m4-1.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

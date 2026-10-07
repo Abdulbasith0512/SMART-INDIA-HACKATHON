@@ -1,0 +1,1590 @@
+{
+  "schema": "corpus-manifest/1",
+  "corpus_name": "jansanket-dev-corpus",
+  "sanitiser_version": "sanitise/1.0.0",
+  "scanner_version": "inject-scan/1.0.0",
+  "trust_rules_version": "trust-rules/1.0.0",
+  "counts": {
+    "documents": 60,
+    "chunks": 148,
+    "synthetic": 60,
+    "by_status": {
+      "current": 47,
+      "superseded": 1,
+      "quarantined": 8,
+      "withdrawn": 1,
+      "historical": 1,
+      "draft": 2
+    }
+  },
+  "entries": [
+    {
+      "canonical_id": "syn-ads-case-definition",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "intergovernmental_health_authority",
+      "evidence_kind": "case_definition",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "907924218941125a29a084bf7623269f4289a2dc71e43074f29ee2069d2c1fbf",
+      "metadata_hash": "42d32cb0cd031d6ee7add3eca827ca6da4130bd3a245a42f11b59bb135d41d5c",
+      "chunk_hashes": [
+        "712fd9b9bd83357f5f6dd4c29636cb937406901db68667af9cf058b2567be574",
+        "ab6f6dd4af011b70026d7c79fc0af5d1272b22ee863b45085eca2776a1e891f9",
+        "7135c2bd5895542b13c3a96d5197a61f6d2cb451d946a4992b3de4662c7bac4c"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ads-clinical-reference",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "peer_reviewed_literature",
+      "evidence_kind": "clinical_epidemiology_reference",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "da2f9ff4404849dd62a80009b04dd94ed060312e1d08e8fb489f2a2af4335d6c",
+      "metadata_hash": "2c972fba8c4111f03c5e4b95ff6deca2acfbaa165355a12c5c992371d65f4c71",
+      "chunk_hashes": [
+        "51257f92e14effd476a58b5570f0f6906319546fe80d7b43bde957d2ee9a7867",
+        "709e5f08a409d33a921f9064f86c6398ee2c735dbd2178a42f6acf2d2e97c15f",
+        "0477b62b8e1ca3b65fed9fa987401605eeb50a8a47ab40c08172d5740f30fb5e"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ads-odisha-context",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "state_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "state",
+      "geo_region_code": "SYN-OD",
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "6b958da54c4ca893d703300eea321116a62ae3272e7dd57fea975caebf262015",
+      "metadata_hash": "515d04b4798bcdd1850a7ada275a2484204888bef2706b29dddacef6b8685cba",
+      "chunk_hashes": [
+        "dcb251974cf5dff816fae10681f63eda6c157a043273148107885b2f6749d1bc",
+        "72985c1508bd0d768cf96acbdb1414c8f2cc47712ae98a41fee1977810916086"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ads-situation-report",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "situation_report",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "caeea93f87cbf6610575a2ed9fe6da9a50537b31fef2312cb598eab3d0e9e9dd",
+      "metadata_hash": "305282edb864568e098590d81c6e3537e384ed1176c93c483946b359db5b5a04",
+      "chunk_hashes": [
+        "932d4240d6d31fe762ece614a89ffa8ef8597b7c6ec62f8f92c457bf08d7564b",
+        "798082ddac8e4d1590cb1ff174b685280ad0898b8c83e943a2a03d21ef382f34"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ads-verification-exact-copy",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "reviewed",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "20f1492db324ee6785bd80f4e0032efbfedbdd2dac8b1e5b24d01be01a9c03f8",
+      "metadata_hash": "2171dfd7be87fdba2ad8289fe968a4dd7d9a6157d4a03c5e8b93242a28a903cc",
+      "chunk_hashes": [
+        "30c923525cf078791f0a4be82af08e2600e7ad9fb5d660074bb0bdc7c6af7a3e",
+        "44e528141459932d4f325f3fc8c167dbfe96bcf1e7a24e38749f00b236c29b85",
+        "1e9e91fb73652d53ad4305de7312aecc5d197b0d6ccee33fad254ec204497394",
+        "3b51c1417b8a67dace375158ab7c9067a1700c7e313026f98e64b0b99ec2c88e"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ads-verification-guidance",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "20f1492db324ee6785bd80f4e0032efbfedbdd2dac8b1e5b24d01be01a9c03f8",
+      "metadata_hash": "40e77ac69f8c8cba216ba2db8aff4caa6a496095bb5f8ffa30c23b5d2fd75ace",
+      "chunk_hashes": [
+        "30c923525cf078791f0a4be82af08e2600e7ad9fb5d660074bb0bdc7c6af7a3e",
+        "44e528141459932d4f325f3fc8c167dbfe96bcf1e7a24e38749f00b236c29b85",
+        "1e9e91fb73652d53ad4305de7312aecc5d197b0d6ccee33fad254ec204497394",
+        "3b51c1417b8a67dace375158ab7c9067a1700c7e313026f98e64b0b99ec2c88e"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ads-verification-guidance-2022",
+      "version_label": "1",
+      "status": "superseded",
+      "declared_status": "superseded",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "eea54c56374a5c4b0741c7dc87dd6ab49feec5cbde65dea28a1bd02013b42e93",
+      "metadata_hash": "32ab26fe4bd483961ce9869f9915dac7285cf9583b01c8134916c8577e99da7a",
+      "chunk_hashes": [
+        "74668806e688af507b56fd4d7ec2686aa54de4b34d8c8f51035814e3d4be6d82",
+        "a9ae646777afc63337e689f18b4c863ec288a89a2234b9b819a0ad761ec42359"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ads-verification-guidance-2025",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": "syn-ads-verification-guidance-2022",
+      "content_hash": "faf64713d612c0550bdf5fe53c5790caf35bd5c1e2172644d054694762b112da",
+      "metadata_hash": "58fc9e354aa1c801905f1393b97d628ed0617520abdc49d7a74f3278c72bebcf",
+      "chunk_hashes": [
+        "6b8cee46504b156964f6e87fe610562561faa7b9afe794cbe6e664a7ce4c5cb2",
+        "40e0e37fa27b044e1caaff705787776aaf4f11d691f2bae89109c3dc4481af23"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ads-verification-near-duplicate",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "8e11112ed2834b46f6c3c83d374b1619ce96906fed11fd4c44e7c1498da37dad",
+      "metadata_hash": "1d9b7c883248df9e737adf62131f2a4491d08fc901ad2784199024c17a73ce75",
+      "chunk_hashes": [
+        "601cf173106db934518d120dcee82311f1c43d09add5dc5988821f61e4bc5532",
+        "d9eb1ec3e76d00bd07388579c4d64c3a7b4d27c8dd4a7c311641abccbe3d3ccb",
+        "99b6ab66f8ca452194cebee1d0e40f298e2bb2f520f4000a346247d0ef9a1f1c"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-adv-encoded-blob",
+      "version_label": "1",
+      "status": "quarantined",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "efdff0573d8a777e13d5ef102050aa96745cba8f3aeb1bdaffce14eceaca4f37",
+      "metadata_hash": "63a7a8fd3ea3f2dd1a426c046afc745b382d79532fd8e3815a3ddcf6a0a0f8fb",
+      "chunk_hashes": [
+        "2d3623f84ed31c94922f7f69587b1cb6377d5c6afb3e9873655294086ab7e601",
+        "aee672dcfc3f0b52fde219ce5f96dbf6306ab796d197b0349900525eb7b05651"
+      ],
+      "scan": {
+        "verdict": "quarantine",
+        "rules": [
+          "encoded_blob"
+        ]
+      },
+      "decision_reasons": [
+        "scan_quarantine:encoded_blob"
+      ]
+    },
+    {
+      "canonical_id": "syn-adv-forced-conclusion",
+      "version_label": "1",
+      "status": "quarantined",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "84e8d7a133638f139f875002927105afbb3ec502ea0965d06b55775104ebda62",
+      "metadata_hash": "f71987df662ed9bbac9476844f2086cbe5b49105f931f2123ada1eef360b0634",
+      "chunk_hashes": [
+        "708cab668c73c1ed95f5bc4c07912d6854b5a69f9d545b75342c376944491266",
+        "a6d557016bdd210707abe1a4cef81d533fb86ff4e8ac526143015be42e81b0c7"
+      ],
+      "scan": {
+        "verdict": "quarantine",
+        "rules": [
+          "forced_conclusion"
+        ]
+      },
+      "decision_reasons": [
+        "scan_quarantine:forced_conclusion"
+      ]
+    },
+    {
+      "canonical_id": "syn-adv-hidden-invisible-chars",
+      "version_label": "1",
+      "status": "quarantined",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "99d206a5bbeb1b9736d8d2267ad0d425083bc65ac329eee83956913441711cf3",
+      "metadata_hash": "510e00c3ff14d409a3aeeabb5550e84d93f7ef9dd30609765ae0f019ac14aacb",
+      "chunk_hashes": [
+        "becde3a1bf3eb92560294c5caf9595ab1e2ee265dd1626e85be206ca1658bb1f",
+        "98a472e808ef64af9c06229051aa81bbfebfd4538be71eaeff59abc912162b73"
+      ],
+      "scan": {
+        "verdict": "quarantine",
+        "rules": [
+          "bidi_controls",
+          "invisible_characters"
+        ]
+      },
+      "decision_reasons": [
+        "scan_quarantine:bidi_controls+invisible_characters"
+      ]
+    },
+    {
+      "canonical_id": "syn-adv-html-hidden-content",
+      "version_label": "1",
+      "status": "quarantined",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "d18e140f67b5908ef3719676f9b271bd9a66c2ef1c54e41bd93b8e8dc674a7c8",
+      "metadata_hash": "f9ad680aa853261b5a0e896606e24f73018475519a197f0d3317479f518f1544",
+      "chunk_hashes": [
+        "a214374916381038453dfaca349c2152564b0f8b761fe2e134f7d1c2c0be910f",
+        "77792cdefb5b617950c4cc8945f0d915e4346acf08dd944bc39036a8c79ffe4b"
+      ],
+      "scan": {
+        "verdict": "quarantine",
+        "rules": [
+          "forced_conclusion",
+          "hidden_content",
+          "html_comment",
+          "instruction_override"
+        ]
+      },
+      "decision_reasons": [
+        "scan_quarantine:forced_conclusion+hidden_content+html_comment+instruction_override"
+      ]
+    },
+    {
+      "canonical_id": "syn-adv-instruction-override",
+      "version_label": "1",
+      "status": "quarantined",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "68a9acd5d3a68a36617a810fc829cf5c738876e5d4465ba86a28ebf4d2dfd248",
+      "metadata_hash": "e4b81f8e66eb0312f15a4b4cccf39fb2ed8188c364ede1b47151ca9e489c3d2d",
+      "chunk_hashes": [
+        "334ad049d67b26c7dbd56375e89027f4cfff60d391e88a8bec9b1e7c48290228",
+        "bb7257555652b26667850549572ddbfbe234c873e5be5203108a0117df7f62c6"
+      ],
+      "scan": {
+        "verdict": "quarantine",
+        "rules": [
+          "instruction_override"
+        ]
+      },
+      "decision_reasons": [
+        "scan_quarantine:instruction_override"
+      ]
+    },
+    {
+      "canonical_id": "syn-adv-markdown-exfil",
+      "version_label": "1",
+      "status": "quarantined",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "6b1c90adc7acff862ed171531d190aea99fe64a38be01d26d73fe6fd1f3eb734",
+      "metadata_hash": "7280677e910f054f4535e28fff106b8c4420aaca9b5c1f7059a23697716708d0",
+      "chunk_hashes": [
+        "ef97240c2cb0182ff38a3eeaba262c246912f5513a0485bf03a43721564c1f6b",
+        "ed99ec455710d7dcc7e33aeb5eaea1e820f2371a670d203fa7b87d1202c3f880"
+      ],
+      "scan": {
+        "verdict": "quarantine",
+        "rules": [
+          "markdown_image",
+          "markdown_link",
+          "url_in_text"
+        ]
+      },
+      "decision_reasons": [
+        "scan_quarantine:markdown_image+markdown_link+url_in_text"
+      ]
+    },
+    {
+      "canonical_id": "syn-adv-mixed-script",
+      "version_label": "1",
+      "status": "quarantined",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "9622489f73a86f787085d0b99cc853c82bbd743fb34949ba0656afef21b1f8d8",
+      "metadata_hash": "0a7526c7d8f06c5cdb4e6dcef9c187bbb23178d68166865c53e041075a58f8d8",
+      "chunk_hashes": [
+        "370b0cb6a89b33f0a1edab729f4b7af60c92107915e0bfef0a3f329eee2ebf38",
+        "5e7111fed5adcf2f6b0c6d869054783ddea9dfaf0b1d04589cf4fd2eec66fc19"
+      ],
+      "scan": {
+        "verdict": "quarantine",
+        "rules": [
+          "mixed_script_latin_cyrillic"
+        ]
+      },
+      "decision_reasons": [
+        "scan_quarantine:mixed_script_latin_cyrillic"
+      ]
+    },
+    {
+      "canonical_id": "syn-adv-role-marker",
+      "version_label": "1",
+      "status": "quarantined",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "7828460f47a713e9be482190852066a9fdb19832c9996a70d75d511f906b74f6",
+      "metadata_hash": "f55730c68fc19ab6f0113a03030abf78703a79786a64dd13ff5788f8a7c933a0",
+      "chunk_hashes": [
+        "c1c7eb0d2d6fef01cc7699b1545d0908c4fb7c047dcf6a2dfe2d495e69418d67",
+        "c84e370f9130c6e0b8c996b0430161f10d2d83f6052da44b45fa6dd51ae56e15"
+      ],
+      "scan": {
+        "verdict": "quarantine",
+        "rules": [
+          "role_marker_privileged",
+          "role_reassignment"
+        ]
+      },
+      "decision_reasons": [
+        "scan_quarantine:role_marker_privileged+role_reassignment"
+      ]
+    },
+    {
+      "canonical_id": "syn-community-health-worker-notes",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "reviewed",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "5650f9d7af6f6e193762451455e5d8eaeb31f45fe00c7702e725772052cdfba4",
+      "metadata_hash": "eab86554a1d7b434ac257a16ee6510e56443ad4e8a042a5f75d9f7afba0ee9a8",
+      "chunk_hashes": [
+        "a3583e0de37ed0a36571f4fefb159686a8be191b7327099fdc0304aa814e754f",
+        "358647968018ec7db4e30fe2d323309340ca503442a9bc11e8fc43708e567252"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-conflict-reporting-deadline-a",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "530ad2721f0381585cd853d69c1dcd9739cfdfcb3c5e329d411a78513c4d848e",
+      "metadata_hash": "6576ed8c238ab5036fe2279cf89b2b052cd9664cab49287f10032ef1f50bfcab",
+      "chunk_hashes": [
+        "1370fa0877f12edc7cca0811f93c2c953797a1087961471cba555b39e8c7cc3f",
+        "8e72f72fd5e6306afd026f5090c813e409c0c3503d924ae0343c90888bebc7ff"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-conflict-reporting-deadline-b",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "fdc30dac81ac0f7ecca8374c9282c3d36428cadc19c000790c4404d900ff4ec3",
+      "metadata_hash": "88ded93390e14fe85170d319347eb125caff933748e9dd9527544b6527d97495",
+      "chunk_hashes": [
+        "6a0dadb803ad91c7ef9776212895dc007ff4733b20373d3310188551a47dd080",
+        "8b0b67a7d465acd998ec2f9571b4f9f8ffbe568c7ab1e20cf334590d8fc14e7b"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-fev-case-definition",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "intergovernmental_health_authority",
+      "evidence_kind": "case_definition",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "e4e8975c7365b9001484bc9e8401eedd8290f51f8b5e6e24c5f52ee421e90448",
+      "metadata_hash": "f61feea40c421fb3ce6435344b8b6a9898f7062f066eb2b7dd91e92158254c05",
+      "chunk_hashes": [
+        "9d4e30fa628fba4b5ba9d7067a5a8049d8e7639ebb9d75cd9dafff93327df4ba",
+        "fd5efbfcbf4cd15af47cb86f70eb3fc5f74dd1713b34a0aec0f52b66876ca861",
+        "7135c2bd5895542b13c3a96d5197a61f6d2cb451d946a4992b3de4662c7bac4c"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-fev-clinical-reference",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "peer_reviewed_literature",
+      "evidence_kind": "clinical_epidemiology_reference",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "134c292b938988074355e48f24f6bf9d8096cc03f6594250fe5fd893aca70616",
+      "metadata_hash": "6f4d2a6326eb89eb64619902b9024d5a06e84e116c2e7bd442e1fe06aa0b96f3",
+      "chunk_hashes": [
+        "a264ed116e4e338d8dae2307838132764926b7bd77cb530071b242c58fc402ba",
+        "63b0f89144b3055efb346ffb0f10b8121b9c99a968458656151233c899e0d2f4",
+        "1506db06f47216fa23f34eb6f3664314e19d2b9f36077459915685860a58fb21"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-fev-guidance-withdrawn",
+      "version_label": "1",
+      "status": "withdrawn",
+      "declared_status": "withdrawn",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "dfd21cd746e3687505db1ba97b9e49d8666bffeb708e6a12897a9d0a59729d64",
+      "metadata_hash": "9c321aa3e1ededa0b1fc87f832bbb4a51c05fd7e8d440f88da123df43778b186",
+      "chunk_hashes": [
+        "ad0d7f89033059eaddb5948f9b5fc1f63be6cc178fada14d8243eb1eb31ff985",
+        "b3139255e78d3a6a1b63e7c90c539c9a384da4cbf1759a359539fcc2af3c7b19"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-fev-odisha-context",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "state_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "state",
+      "geo_region_code": "SYN-OD",
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "116867cf96d5f04f60791ab4435e83f488d68198432ab4b7620b17bbe5ddd2ad",
+      "metadata_hash": "fa046d625913666777463d8ce809514b2a7b43615e3861e00da79fb8e816d5b5",
+      "chunk_hashes": [
+        "8d5c90248e426456fbe90b2b54db0bbcdfab4d3ce837d5e2411f49fc0f0cda2b",
+        "69501700218398f24279f7361043cccd2a726412a9d39da814ffa9a34d678417"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-fev-situation-report",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "situation_report",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "aae29ede8c88e0ee6698496f6e7a2c34326e6a99ab2b41760a67c9ae95f93736",
+      "metadata_hash": "b874de55ee67d9bf04658130d506780964f9eb47ae31982a74e6ea74a194984e",
+      "chunk_hashes": [
+        "932d4240d6d31fe762ece614a89ffa8ef8597b7c6ec62f8f92c457bf08d7564b",
+        "2c77be0df7fa80ef19c3d8a473f4664bd3b4be477a38028119844cb37ecf4128"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-fev-verification-guidance",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "525795e16592b64e525803961a8f7a1400d658a00fc0d2775a22211c237ad216",
+      "metadata_hash": "7defb9b6c392a6b9e6ba6e48cd19a028adbf425f45be4edd167bc82e1ef58bec",
+      "chunk_hashes": [
+        "8d24124dc775e535c2e2abce81b53d0bec610aa7582c60a4ef9eead94a1fdeec",
+        "c40a5978a5a14b049d82814f33700ffbcdbc9c4c566fefabdfefce373534b9e8",
+        "1e9e91fb73652d53ad4305de7312aecc5d197b0d6ccee33fad254ec204497394",
+        "730ce22dba6eb2bf1e51772469289c8f2ca7857da06de68ddc9d86aff4ffab66"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ganjam-water-advisory",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "state_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "district",
+      "geo_region_code": "SYN-OD-GAN",
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "e96c9248302a073ae036066e08f6c3a8d246bfd9380c4c1592f157c50077c5a2",
+      "metadata_hash": "36dd460ce0faee42f695eea1245fca8520ac2d19354c2445aa076b609075c3e8",
+      "chunk_hashes": [
+        "fd01a5855af7ee3af2bd58dc707771faef90ae1f51beb2df6a2086075e7e9799",
+        "577830e462529a8cf5c8919cf36f1fde9839b5f9b589600524773db30ff8bdb1"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-global-outbreak-investigation-checklist",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "intergovernmental_health_authority",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "b63b365bdf46615f148091bd57629e882cb5b8f21952a6ffea582f53d5e4e9b8",
+      "metadata_hash": "0a11b024b26031845b12d0cc0281735ae6399e0973379afab844fe1a4ac46ccd",
+      "chunk_hashes": [
+        "f09818c8445262cbd18259f4494a02ad86407445e95ea6fba8d45b37613dce44",
+        "9f78b091332a70378ae5d5886251aa11022ccb91a010855c0db79edbc45635d8",
+        "d6c639d002a723c65eab684f3fba1664032c055415ada662803c420bb7cefb48"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-global-vector-borne-context",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "intergovernmental_health_authority",
+      "evidence_kind": "clinical_epidemiology_reference",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "3f93e4143e1e39e25f1c8fcd99e1d383bcc06ee2c2d839cb614a09167087fc1a",
+      "metadata_hash": "854aac861fc560edaee642b0ef7153f24424492eed24c0453212d64a5f823814",
+      "chunk_hashes": [
+        "695c83e4f12c38d1adf622bf2d338658f70f968efa22656b8b310a32675f8396",
+        "670a7b547a4caaba26a61be9f7e49c649d42d0cd384ab047bd760d1370f27cbf",
+        "69dd06d90a6d86db345f961a64aac08a4ea7880c71acb8f08377dd2c45e6b2d1"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-hi-ads-verification",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "hi",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "f45ed84949d95dc160214f1512151c61962deba7268d9c031dd4d52a62d26c44",
+      "metadata_hash": "f82ba7dc9db0a06b1504dbb14356d2955e4e25429decf6a4e17ff0fc29c3611d",
+      "chunk_hashes": [
+        "60768dc17718f5727be81c0c98b6ed845449e052a8fc3f69bca6dc650811a394",
+        "07b086db1f81f6b2cdce41a1070ff8a149d582dd04e3b3ed905c7a1c95b7bc8a",
+        "9cd651ce068ed7fa0649d5fbb9a0e146bdd1429b34290b7c8350b3c085abe6f0"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-jau-case-definition",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "intergovernmental_health_authority",
+      "evidence_kind": "case_definition",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "eedb22e4f1db8d306cd580b3c7c951398ce036db52ab9cc7ad6e6ea478ce2f1a",
+      "metadata_hash": "26a45c7a1c5b258302027cbf6166d29d2a08a50aaeecfd9925a59c4bc6904633",
+      "chunk_hashes": [
+        "3d1e86c11b5bfd8bf707f1ddff9352508af62c11844d476be7a5b6d680df8684",
+        "df03180017e2058067cdad52f2d4a9eb853c3f999d47da8a8e237dca57b93eab",
+        "7135c2bd5895542b13c3a96d5197a61f6d2cb451d946a4992b3de4662c7bac4c"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-jau-clinical-reference",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "peer_reviewed_literature",
+      "evidence_kind": "clinical_epidemiology_reference",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "9abd16482d49e338a55788c6796b846642c965d2cb7f5d2f8ce8f58f4198d8e2",
+      "metadata_hash": "9b0c0bed0f3d3017630698f94bb9acdec35a7098e1317a98656897c549342b00",
+      "chunk_hashes": [
+        "1af2af81df93298c9b5ed66604528ed338e9d31018bdcb7c6101aebbfef74bab",
+        "8566f29c698c9a78d6cd9ef2e24e611b546b297b906ee3aa04337cb8cc8bba87",
+        "595ad3be072c304acb4f010d0f03181c048361f1261c83f8bdc599cf07985ca3"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-jau-historical-report",
+      "version_label": "1",
+      "status": "historical",
+      "declared_status": "historical",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "situation_report",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "a275d30f75ea6e6d95380e10208648d79079a3970933a2e30c465f14d13a4921",
+      "metadata_hash": "248f3cf15b4924745273e633c97654fe7264569204aa023f27f144a6551109ea",
+      "chunk_hashes": [
+        "02640241e93524bd5ff68ec446031ee1f5973ca37324f074cc1a2083e5570a6b",
+        "c479606f296758edee1767392744ef50d24149c1eb74df83288df4317ccc561e"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-jau-odisha-context",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "state_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "state",
+      "geo_region_code": "SYN-OD",
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "d0fdf16c6afff846decb5077c6436ece97d75f8ae6024eff2b15d74917c2c796",
+      "metadata_hash": "f30d01c8f1632b4339be03692fe2ad2ce0be5c0b04924c486e83a76c4f938d02",
+      "chunk_hashes": [
+        "099bf636066440e003875770ccfca92a2668b0a02134c4d2aa1a0e069b2b3cd6",
+        "289c04373a9bb87fe5870423d9ad06271dba757c3a8db8bb1232b3c6c04c40c1"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-jau-situation-report",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "situation_report",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "ab5102913e70ed8375b56adf9715aa38e2998cafc490549414785552e7fac373",
+      "metadata_hash": "bc577ff02fcefce3e6b3542fd8433869cc96128598cbea19703c3128c01cec61",
+      "chunk_hashes": [
+        "932d4240d6d31fe762ece614a89ffa8ef8597b7c6ec62f8f92c457bf08d7564b",
+        "c65d917646459f863b640c28dd0b7ec27091b7b8da94728f60f78f23a14c6e58"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-jau-verification-guidance",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "7370da2a38847313e408dad8ecde357def8b18f21d28b69b778c3a266ca3bea0",
+      "metadata_hash": "49c7ab24aa6b13b74195406667cda28cfa3025184c0cf6b046b2880dd12a226d",
+      "chunk_hashes": [
+        "2a1e293847221d8ff06903d71e4327033f2c5d3d3a7e3caae2c07c5cea2a5817",
+        "1900a153edb13ec847ae89d2c396ae3f8d77c0533f58017f8aa0940bd5585dfc",
+        "1e9e91fb73652d53ad4305de7312aecc5d197b0d6ccee33fad254ec204497394",
+        "93314ea0a563728b09b965fe160608350c654b0b803beeabd3404fcbd6e4355d"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-khordha-response-contacts",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "state_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "district",
+      "geo_region_code": "SYN-OD-KHO",
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "292804c6e8a2be49ad50174d9ffe1491a8092084e5c187e45029ab05491606bf",
+      "metadata_hash": "1fcbaa1fd525233cb90794b0d2ad331b248f3d250bfdd12e340a6c1978a1fcbf",
+      "chunk_hashes": [
+        "e2ff0a48bcd10bca1b9528ece14d71de9d7af257949305c6f3f144d9f54b6c95",
+        "90c3f0ee4cd80b87b0760262fc35e4c13d519185d39788bd39b5219a4131e999"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-national-monsoon-seasonality-note",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "clinical_epidemiology_reference",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "a0d35e369c6b66889badef1fd25ef69dcc76d88e8d5c41be80853150f26ba503",
+      "metadata_hash": "b7d989678e411b31985690b2c4b41752a9c124167cde810be64242a9336740d5",
+      "chunk_hashes": [
+        "5184af84fb4d950a0bfc759aafe7d3ab7523967226bd1e51f787a87de57c2f57",
+        "cab16a0b4f074b0442b61e219533b0a952a22da4b217c3f6adf25431a7d4f443"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-national-outbreak-response-reporting",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "4a666dba2cce33400fc7c33cb742fe4d33c2540025a8db9427a9a353b8c6f044",
+      "metadata_hash": "ac51ee2273945983372fc2807b1a31026bf33d9651338ceeadb5ffbd9ce33537",
+      "chunk_hashes": [
+        "035edcef2a8f0d69dece33183c74028cd6e7d139ec9297d92790f20bf52956d3",
+        "dae626d1ca7ad6ac177a928fe55280183706e23b0785bfa2589306ca326ab1cc",
+        "88bacc95c77b3dccef84b09fa268a1adfbeb2bcb49b1b8ffeb47e038863b1069"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-national-surveillance-methods-primer",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "research",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "7ddfd3b0222639b7f4e5b0ccac540584247c7b7e5e05e29c07cd0b2bec555f3a",
+      "metadata_hash": "fdda05bc3383c0deabb2b6f359d603ee2f79cb97b16408eeb037af96fab575a5",
+      "chunk_hashes": [
+        "86c43c71dfe15c05ce6f776b165017937506ddaca0344d620be2e1d0e8b1a665",
+        "a29b1dd8e00d218f03c09c7867fea72fad7b90343bd09d15da8d6a0cd3ecac3c"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-national-surveillance-weekly-summary",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "surveillance_data",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "271f9eb21efb376c4a9a1dc39d9f400d7165c219bb128dd21c2f124f4e364c06",
+      "metadata_hash": "75fb34daedc9c1d57d7f991e793f96b94ccb0a9946bbc27e120abdc87f4a1254",
+      "chunk_hashes": [
+        "97ecc39264801a6063666fc2fe189156f2062b74df76d9e85ca21b21ee1191b8",
+        "40090218e615075d0da887b4c691a5c1295d82b18a05ecd420cf1fd2dc84a050"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-odisha-wash-guidance-monsoon",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "state_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "state",
+      "geo_region_code": "SYN-OD",
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "ebe204b9fa3b9067d514339c57c57e9a94a0b763c82cfbe52af24d9371584f38",
+      "metadata_hash": "7ed68bc11eae69260c163646f20b24d340360be7630f5460cec4536c33f2fbed",
+      "chunk_hashes": [
+        "ea7ce958ca99821111b9fa9e9af9db9fd81aa2d2ee47418924b4881894cbaef2",
+        "cb482ea3766aad856ddef3c0dd3b2613f9b2bcfeed4ba6832c2b3726e1b860f5",
+        "55ae34a8bae4073ead761aa55a97e0cc7f51b9c999c38282fa2db63f6cec2ea8"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-or-fever-note",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "or",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "a70dfe2ab023f4cae6c79bdda0d3b21072dabfa705e333d391cfef374bf00096",
+      "metadata_hash": "ecb1b6001721f071a2fa95a76c206140112817dd011fca44f3d1b06643d1e590",
+      "chunk_hashes": [
+        "13661213e0e2bdd8cee27a3d67f762e33fff183568f3f0a1f3feb1c187bc1ac5",
+        "233e79191ceb58966d1cf72df0fcbff18efc0d91c8ed4ef47d576cf42aca0f10"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-professional-cluster-reporting-statement",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "professional_society_guideline",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "fbf938a452ee7d4dc8bc5710b3fa6938bd7dcc55ec3ea8ec42c25b9826c4debf",
+      "metadata_hash": "71d04320b7f9f5874781dc0ebf8bcba42a67e5c8332db77d94636a9640cdded4",
+      "chunk_hashes": [
+        "9c471cf29e9dd738ed63788e9fd3040765a80501db254c41e33792dfb4091652",
+        "07217a1165e5bd954bcf34dc2e804b3003031a5352f2a1c2564ebe5dd6293f75"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ras-case-definition",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "intergovernmental_health_authority",
+      "evidence_kind": "case_definition",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "901bf29f95038445660ee7a59e9550bb7dfd0d4ec9c5b762a59ac7ed828db1f3",
+      "metadata_hash": "4b65558f870d72c7ff236e183a5e03104c1727430c3f6ce76c2e986641a03ddf",
+      "chunk_hashes": [
+        "b8dc9d054ff0bdba3d458bf304e6f82096234d3a846833ddd256eb470afe1e5c",
+        "996a081eea34973e58c9efe97c2dafd56b526fd7ba5978e3c48ae3d2910d5dbe",
+        "7135c2bd5895542b13c3a96d5197a61f6d2cb451d946a4992b3de4662c7bac4c"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ras-clinical-reference",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "peer_reviewed_literature",
+      "evidence_kind": "clinical_epidemiology_reference",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "0bcf00f0ae4e0057cb7a5625236fbd8ff153a00d0fbfad53ed9ef89c12f40583",
+      "metadata_hash": "22fab604609b2e2d250cf9acb564c6818ba8c40f04469739f766bfb219a79ec1",
+      "chunk_hashes": [
+        "a609c1face326301ba042e16683d193bc56e872d6af5fd9049498e78e9e11df4",
+        "19acf7afcf71b489303fc91e19b4574a140ddf965bd01a2d016cf056e97eaa50",
+        "87adb903d9e4c66baa79b5d0907296b9dd94b40d5e310079ca2e86518a5980ab"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ras-guidance-expired",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "1da9ad3be39283792b9434340da175018f88d1133de70ca837e92256b7097fd5",
+      "metadata_hash": "67146a9ccc1acdfddc26419b32ba741310ef34106bfcd9c22e7a9af09e8b3b8a",
+      "chunk_hashes": [
+        "bd71d0bd6e22bfc859fb1397344a09c9805b2b22f9989d0db926e5996f3814cb",
+        "44b02d87cfdb7ab3481be269f92b256dfefd916775f10a7c79c8e8834a70caa9"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ras-odisha-context",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "state_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "state",
+      "geo_region_code": "SYN-OD",
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "42a908acba91f9e122c1e8e570a7b6e0aacb4378d549b88ee85ca21c80f6620a",
+      "metadata_hash": "de3cd5110ace1112c326c164e3c603a188a012a26893d8c88b44fd84f2c062d5",
+      "chunk_hashes": [
+        "7ec0e697ea3576fea8c3bcb90e995e84964da38ab2007a2a3301714e2b6f8cde",
+        "071d61e9a5ae108dfec7fa31bded44e5888c86ce18978e5db7323789db6e3a0c"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ras-situation-report",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "situation_report",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "25d8c0654ab29fc3c6bae0c27591430442a2ba7228c0f8222d4c5fbb6d0c2baa",
+      "metadata_hash": "7abf9cd374fe154382781764b437b7180fbf66601d1e38d91d30049118a1ce72",
+      "chunk_hashes": [
+        "932d4240d6d31fe762ece614a89ffa8ef8597b7c6ec62f8f92c457bf08d7564b",
+        "44fdbb3bfbcfc3b4af04ff9f026bcd1d51c7b8e0053804a76f681ecdb42b8630"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-ras-verification-guidance",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "6e8e52f14d51e6483d78e91132ae6711b99767e9f57118cd0fb7bdb5f29bf5b2",
+      "metadata_hash": "a305a34a21cfda9b6f49ae0c28d2ed55ded3871e1f3bb52d60219ef0a8dd210f",
+      "chunk_hashes": [
+        "c48ba0f9cceed1f3cf988f494e0cf4ac51be7764764427ef8762e14ad2e2a150",
+        "f91054279a246103aa9d8efc58d71d05506e740b1069166d99888ae56864a336",
+        "1e9e91fb73652d53ad4305de7312aecc5d197b0d6ccee33fad254ec204497394",
+        "1cc38a31c66caf1a999d37c9ff7b6a8251f1c0d1ba15e2a5def6ea278caafa89"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-regional-south-asia-surveillance-note",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "surveillance_data",
+      "geo_scope": "regional",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "d130254c3d87fc7115b2ae872bf80ee8b5c027d8aa734eb97b9f317ff05ae1e3",
+      "metadata_hash": "be5dc4833ce93e3e4bd422ecd21cffe8f5b9da55b3a2a57019081b00236449bc",
+      "chunk_hashes": [
+        "0874082febc5ae82172ad205ec1c31ebf5d07acd78b4cf54d55b91e7c110fe1c",
+        "815ae3f24b4b9b0d7ae397a1b4cb02a5b03bf95e30271eb52247a009ab490ad7"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-res-case-definition",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "intergovernmental_health_authority",
+      "evidence_kind": "case_definition",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "145789cde0d4a8dcdff9c51bbda3909862f665831c70ea57ba0fd1c452607f76",
+      "metadata_hash": "9f79ed5720f6a817c102cbfe1bfe4afdbf81e04769776f0be1022b5823ee5920",
+      "chunk_hashes": [
+        "43af1a93b06d0bb5eae46b684dd18d8e47d1a441d58ccd384609731ec489cecc",
+        "50f1dcaec416183fe41d4e087d5c8368983f1a1458b4d3a4de255297b25bc12e",
+        "7135c2bd5895542b13c3a96d5197a61f6d2cb451d946a4992b3de4662c7bac4c"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-res-clinical-reference",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "peer_reviewed_literature",
+      "evidence_kind": "clinical_epidemiology_reference",
+      "geo_scope": "global",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "32f38b063bd5436591e510d3f4e05c0fce17082cae000385b1a57e0648394c37",
+      "metadata_hash": "8071c226b385f937a3cc08f90b0b6c16fd65eb3d58c38f8fbf2138f00baa6c53",
+      "chunk_hashes": [
+        "84ba9009558be66322961494c334b826d1b29515c65dc5458f5046dfddc5a665",
+        "c6d578ade44cddb27be66d5892228af32c337b8e84090b97bee5874e223fef23",
+        "49e4f69cdfb732b230b6b4d7063d4e9b0ec152b8d64bb428b810f89237d3f669"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-res-draft-notes",
+      "version_label": "1",
+      "status": "draft",
+      "declared_status": "draft",
+      "trust_level": "reviewed",
+      "source_class": "recognized_institution",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "02501ebb091bfc25f58f73eb7b93cecd1347c79c28531268a2c57c405d9fce17",
+      "metadata_hash": "5ed5666d613454d1789a7af869b3a5bdc7ce8e9f5eb2b5f7362c30c568cbf126",
+      "chunk_hashes": [
+        "6551191473faf2f956a6ce0d765a2f0b2f62f5987f62a597cfe900a2760b1640",
+        "c61b326c22d7f2376fcbb30a39c27b2d3cd9f989005de2b841472a6cbe7e38cb"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-res-odisha-context",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "state_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "state",
+      "geo_region_code": "SYN-OD",
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "9da04b320b2eb9894156f6eb802422cb9709d1910b035a83101508ba111638ec",
+      "metadata_hash": "65a989331284f1b7ebb30d1a0a23899c3336e730d2af3822d1482ef5ed10a1ab",
+      "chunk_hashes": [
+        "62031cc2ca69dbaa84233614202253d7023d645668b85a5923a3b39d130d15b8",
+        "9587d32498f1b6d5723699b50f509936a6a1e9344b55e1102ab43b74f968d9d1"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-res-situation-report",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "recognized_institution",
+      "evidence_kind": "situation_report",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "842b32ad56de1042f23fba7bdaba8bb60b17762ca23d9552f317813fa65e87d7",
+      "metadata_hash": "31a5063c7350abb1da206c39c1ddf82a0c2e26831a0f0e8b65ff9755b66d6571",
+      "chunk_hashes": [
+        "932d4240d6d31fe762ece614a89ffa8ef8597b7c6ec62f8f92c457bf08d7564b",
+        "636c49804f6459b6d3615a7f7e06d8fdd658ec1001dd957dd50effc35fbf0256"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-res-verification-guidance",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "trusted",
+      "source_class": "national_government_health_agency",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "cc63f414694be3dcde65e4725598c8855501595f749081e8d27e0a32b1052fff",
+      "metadata_hash": "5aef4b07c13627133700915b261b1e7cbbe4fa87f04f25607790ebec7e078c23",
+      "chunk_hashes": [
+        "11596dbb018614b6054c9f9ab014ac5d76cc4afed9dccdf06ac8ac32c4947b07",
+        "66169580d9a06829bb34d75a002527328a1e1d338c40dbb6279f675e2aee579a",
+        "1e9e91fb73652d53ad4305de7312aecc5d197b0d6ccee33fad254ec204497394",
+        "4c60f429611b7d2f654412cfd9fd9d887f03130a3b9863c8e7d6137f1b010700"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-stuffed-irrelevant-a",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "reviewed",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "aadddba62c0ee34730e9aa000cd1edc2924248d8a5315184285f3a5fa169d2b5",
+      "metadata_hash": "dfe77e3a1ded40769b56fde69f28804b16aaf8068d12046615500db79aad992f",
+      "chunk_hashes": [
+        "fef12e9fdc517bcb2db2c8e41202167d7d414c3dc7e32133fe6c1389e7457cec",
+        "964bd5a068cb060f015afde9c38d88295a47275f827f2d37f4dcdf947da26381"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-stuffed-irrelevant-b",
+      "version_label": "1",
+      "status": "current",
+      "declared_status": "current",
+      "trust_level": "reviewed",
+      "source_class": "other_verified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "40f08e250f44151b3babc743246bc9082da22dd939238aae7d59df1fa74a423f",
+      "metadata_hash": "059bcafc928dab314f7792a495251e672f009694e6b0a9457a09f5c5e8a15677",
+      "chunk_hashes": [
+        "de9eecb0b44bbe4b4103ac306bbd61b1837d866ab8a40bd2dcc72f7dfd8e2b9f",
+        "e2f396616a89b7c161c0a08f87b6f97c408b4dfa8cf1970fc959ce5864a0a107"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    },
+    {
+      "canonical_id": "syn-unverified-forum-post",
+      "version_label": "1",
+      "status": "draft",
+      "declared_status": "draft",
+      "trust_level": "unreviewed",
+      "source_class": "unverified",
+      "evidence_kind": "operational_guidance",
+      "geo_scope": "national",
+      "geo_region_code": null,
+      "language": "en",
+      "is_synthetic": true,
+      "supersedes": null,
+      "content_hash": "ddd7cecb7b5f4d315a9c43ecea60a44719b5f82df780dc0456247af4c3f4550b",
+      "metadata_hash": "11877bdea23c4a048aa64e0573583e435f44e569074c6ec9f5534a894a31fe47",
+      "chunk_hashes": [
+        "a4aa4bff20454457baa19cb9e67600b4dfb6d756ac13880a90de812916cfe081",
+        "976492386d652c29f5deb12559ed3343899e9150d5cd75184be2523fe704df22"
+      ],
+      "scan": {
+        "verdict": "clean",
+        "rules": []
+      },
+      "decision_reasons": []
+    }
+  ],
+  "corpus_hash": "a66e0364a6b0c216381cfa9a6f0db846aa672f4b918587592cbcfe2ddfd497d2"
+}
