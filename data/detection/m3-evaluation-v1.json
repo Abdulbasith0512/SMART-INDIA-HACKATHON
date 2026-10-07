@@ -1,0 +1,3635 @@
+{
+  "artefact": "m3-evaluation-v1",
+  "disclaimer": "Synthetic Poisson benchmark. Validates implementation correctness and calibration; it does NOT estimate real-world epidemiological performance.",
+  "detector": {
+    "version": "windowed-gamma-poisson/1.0.0",
+    "method_code": "windowed_gamma_poisson_v1",
+    "config_hash": "23188f021f80bd84113165469456f72165be682522243f908cbb715793d104ba"
+  },
+  "matching_rules_version": "match/1.0.0",
+  "hashes": {
+    "m2_manifest_reports_sha256": "4016bab33f274a51748ad1be971c19779164a986df285fa352af6f7b4461a9c6",
+    "m2_ground_truth_sha256": "832ff9bad67dd1f5ec33907dcba508ba2cbed5e73ce582f0dbfe17a1df345a0e",
+    "results_summary_sha256": "13c5e6d401c6fac975e0f562a83b1f3abaacb706f7679e7270a780fe9c82619a"
+  },
+  "seeds": {
+    "test_replicates": [
+      1001,
+      1200
+    ],
+    "test_null": [
+      2001,
+      2200
+    ],
+    "primary_seed": 20261007
+  },
+  "primary_m2_dataset": {
+    "note": "Seen by the developers during planning; illustrative, not held-out.",
+    "events": [
+      {
+        "id": "P1",
+        "kind": "true_cluster",
+        "syndrome": "acute_diarrhoeal_illness",
+        "shape": "plateau",
+        "multiplier": 7,
+        "evaluable": true,
+        "realized_reports": 44,
+        "detected": true,
+        "late_detected": false,
+        "credited_day": 72,
+        "delay_days": 2,
+        "normalized_delay": 0.25,
+        "episodes": 1,
+        "localization": {
+          "jaccard": 1,
+          "exact": true,
+          "overreach": 0,
+          "missing": 0
+        }
+      },
+      {
+        "id": "P2",
+        "kind": "true_cluster",
+        "syndrome": "fever_with_rash",
+        "shape": "plateau",
+        "multiplier": 6,
+        "evaluable": true,
+        "realized_reports": 22,
+        "detected": true,
+        "late_detected": false,
+        "credited_day": 46,
+        "delay_days": 6,
+        "normalized_delay": 0.6666666666666666,
+        "episodes": 1,
+        "localization": {
+          "jaccard": 1,
+          "exact": true,
+          "overreach": 0,
+          "missing": 0
+        }
+      },
+      {
+        "id": "P3",
+        "kind": "true_cluster",
+        "syndrome": "jaundice",
+        "shape": "plateau",
+        "multiplier": 15,
+        "evaluable": true,
+        "realized_reports": 9,
+        "detected": false,
+        "late_detected": false,
+        "credited_day": null,
+        "delay_days": null,
+        "normalized_delay": null,
+        "episodes": 0,
+        "localization": null
+      },
+      {
+        "id": "P4",
+        "kind": "true_cluster",
+        "syndrome": "acute_diarrhoeal_illness",
+        "shape": "ramp",
+        "multiplier": 6,
+        "evaluable": true,
+        "realized_reports": 69,
+        "detected": true,
+        "late_detected": false,
+        "credited_day": 30,
+        "delay_days": 2,
+        "normalized_delay": 0.2222222222222222,
+        "episodes": 1,
+        "localization": {
+          "jaccard": 1,
+          "exact": true,
+          "overreach": 0,
+          "missing": 0
+        }
+      },
+      {
+        "id": "D1",
+        "kind": "decoy_reporting_artifact",
+        "syndrome": "fever",
+        "shape": "single_day_burst",
+        "multiplier": null,
+        "evaluable": false,
+        "realized_reports": 43,
+        "detected": false,
+        "late_detected": false,
+        "credited_day": null,
+        "delay_days": null,
+        "normalized_delay": null,
+        "episodes": 0,
+        "localization": null,
+        "decoy_alerted": false,
+        "decoy_gate_proof": {
+          "examined": true,
+          "reasons": [
+            "bulk",
+            "burst",
+            "persistence",
+            "ratio"
+          ]
+        }
+      }
+    ],
+    "summary": {
+      "detector": {
+        "runs": 1,
+        "clusters": {
+          "all": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "evaluable": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 3,
+          "median": 2,
+          "q25": 2,
+          "q75": 4,
+          "mean": 3.33,
+          "normalizedMedian": 0.25
+        },
+        "episodes": {
+          "total": 4,
+          "tp": 3,
+          "fp": 1,
+          "precision": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "falsePerRun": {
+            "mean": 1,
+            "ci95": [
+              1,
+              1
+            ],
+            "max": 1,
+            "runsWithAny": 1
+          },
+          "falseSpurious": 1,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": 0
+        },
+        "units": {
+          "negatives": 5623,
+          "falsePositive": 3,
+          "fpr": 0.0005335230304108127,
+          "fprCi95": [
+            0.0005335230304108127,
+            0.0005335230304108127
+          ],
+          "specificity": 0.9994664769695892,
+          "positiveUnits": 55,
+          "unitSensitivity": 0.4
+        },
+        "decoys": {
+          "all": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "byVariant": {
+            "default": {
+              "k": 1,
+              "n": 1,
+              "value": 1,
+              "ci95": [
+                0.025,
+                1
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 3,
+          "meanJaccard": 1,
+          "exactRate": 1,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 2,
+            "tp": 1,
+            "precision": 0.5
+          },
+          "high": {
+            "episodes": 2,
+            "tp": 2,
+            "precision": 1
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 3,
+            "n": 3,
+            "value": 1,
+            "ci95": [
+              0.2924,
+              1
+            ]
+          },
+          ">=10": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 2,
+            "n": 2,
+            "value": 1,
+            "ci95": [
+              0.1581,
+              1
+            ]
+          },
+          "fever_with_rash": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "jaundice": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        }
+      },
+      "comparator:fixed_threshold": {
+        "runs": 1,
+        "clusters": {
+          "all": {
+            "k": 2,
+            "n": 4,
+            "value": 0.5,
+            "ci95": [
+              0.0676,
+              0.9324
+            ]
+          },
+          "evaluable": {
+            "k": 2,
+            "n": 4,
+            "value": 0.5,
+            "ci95": [
+              0.0676,
+              0.9324
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 2,
+          "median": 3.5,
+          "q25": 2.75,
+          "q75": 4.25,
+          "mean": 3.5,
+          "normalizedMedian": 0.403
+        },
+        "episodes": {
+          "total": 20,
+          "tp": 2,
+          "fp": 18,
+          "precision": {
+            "k": 2,
+            "n": 20,
+            "value": 0.1,
+            "ci95": [
+              0.0123,
+              0.317
+            ]
+          },
+          "falsePerRun": {
+            "mean": 18,
+            "ci95": [
+              18,
+              18
+            ],
+            "max": 18,
+            "runsWithAny": 1
+          },
+          "falseSpurious": 17,
+          "falseDecoy": 1,
+          "fragmentsPerDetected": 0
+        },
+        "units": {
+          "negatives": 5623,
+          "falsePositive": 10,
+          "fpr": 0.0017784101013693758,
+          "fprCi95": [
+            0.0017784101013693758,
+            0.0017784101013693758
+          ],
+          "specificity": 0.9982215898986306,
+          "positiveUnits": 55,
+          "unitSensitivity": 0.2182
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          },
+          "byVariant": {
+            "default": {
+              "k": 0,
+              "n": 1,
+              "value": 0,
+              "ci95": [
+                0,
+                0.975
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 2,
+          "meanJaccard": 0.75,
+          "exactRate": 0.5,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "high": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 2,
+            "n": 3,
+            "value": 0.6667,
+            "ci95": [
+              0.0943,
+              0.9916
+            ]
+          },
+          ">=10": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 2,
+            "n": 2,
+            "value": 1,
+            "ci95": [
+              0.1581,
+              1
+            ]
+          },
+          "fever_with_rash": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          },
+          "jaundice": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        }
+      },
+      "comparator:ears_c2": {
+        "runs": 1,
+        "clusters": {
+          "all": {
+            "k": 2,
+            "n": 4,
+            "value": 0.5,
+            "ci95": [
+              0.0676,
+              0.9324
+            ]
+          },
+          "evaluable": {
+            "k": 2,
+            "n": 4,
+            "value": 0.5,
+            "ci95": [
+              0.0676,
+              0.9324
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 2,
+          "median": 1.5,
+          "q25": 1.25,
+          "q75": 1.75,
+          "mean": 1.5,
+          "normalizedMedian": 0.174
+        },
+        "episodes": {
+          "total": 25,
+          "tp": 2,
+          "fp": 23,
+          "precision": {
+            "k": 2,
+            "n": 25,
+            "value": 0.08,
+            "ci95": [
+              0.0098,
+              0.2603
+            ]
+          },
+          "falsePerRun": {
+            "mean": 23,
+            "ci95": [
+              23,
+              23
+            ],
+            "max": 23,
+            "runsWithAny": 1
+          },
+          "falseSpurious": 22,
+          "falseDecoy": 1,
+          "fragmentsPerDetected": 0
+        },
+        "units": {
+          "negatives": 5623,
+          "falsePositive": 19,
+          "fpr": 0.003378979192601814,
+          "fprCi95": [
+            0.003378979192601814,
+            0.003378979192601814
+          ],
+          "specificity": 0.9966210208073982,
+          "positiveUnits": 55,
+          "unitSensitivity": 0.1273
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          },
+          "byVariant": {
+            "default": {
+              "k": 0,
+              "n": 1,
+              "value": 0,
+              "ci95": [
+                0,
+                0.975
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 2,
+          "meanJaccard": 0.75,
+          "exactRate": 0.5,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "high": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 2,
+            "n": 3,
+            "value": 0.6667,
+            "ci95": [
+              0.0943,
+              0.9916
+            ]
+          },
+          ">=10": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 2,
+            "n": 2,
+            "value": 1,
+            "ci95": [
+              0.1581,
+              1
+            ]
+          },
+          "fever_with_rash": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          },
+          "jaundice": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        }
+      },
+      "ablation:no_gates": {
+        "runs": 1,
+        "clusters": {
+          "all": {
+            "k": 4,
+            "n": 4,
+            "value": 1,
+            "ci95": [
+              0.3976,
+              1
+            ]
+          },
+          "evaluable": {
+            "k": 4,
+            "n": 4,
+            "value": 1,
+            "ci95": [
+              0.3976,
+              1
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 4,
+          "median": 4,
+          "q25": 1.75,
+          "q75": 6.75,
+          "mean": 4.5,
+          "normalizedMedian": 0.444
+        },
+        "episodes": {
+          "total": 6,
+          "tp": 4,
+          "fp": 2,
+          "precision": {
+            "k": 4,
+            "n": 6,
+            "value": 0.6667,
+            "ci95": [
+              0.2228,
+              0.9567
+            ]
+          },
+          "falsePerRun": {
+            "mean": 2,
+            "ci95": [
+              2,
+              2
+            ],
+            "max": 2,
+            "runsWithAny": 1
+          },
+          "falseSpurious": 1,
+          "falseDecoy": 1,
+          "fragmentsPerDetected": 0
+        },
+        "units": {
+          "negatives": 5623,
+          "falsePositive": 18,
+          "fpr": 0.0032011381824648766,
+          "fprCi95": [
+            0.0032011381824648766,
+            0.0032011381824648766
+          ],
+          "specificity": 0.9967988618175351,
+          "positiveUnits": 55,
+          "unitSensitivity": 0.5091
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          },
+          "byVariant": {
+            "default": {
+              "k": 0,
+              "n": 1,
+              "value": 0,
+              "ci95": [
+                0,
+                0.975
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 4,
+          "meanJaccard": 1,
+          "exactRate": 1,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 1,
+            "tp": 0,
+            "precision": 0
+          },
+          "medium": {
+            "episodes": 2,
+            "tp": 1,
+            "precision": 0.5
+          },
+          "high": {
+            "episodes": 3,
+            "tp": 3,
+            "precision": 1
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 3,
+            "n": 3,
+            "value": 1,
+            "ci95": [
+              0.2924,
+              1
+            ]
+          },
+          ">=10": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 2,
+            "n": 2,
+            "value": 1,
+            "ci95": [
+              0.1581,
+              1
+            ]
+          },
+          "fever_with_rash": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "jaundice": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          }
+        }
+      },
+      "ablation:no_bulk_gate": {
+        "runs": 1,
+        "clusters": {
+          "all": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "evaluable": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 3,
+          "median": 2,
+          "q25": 2,
+          "q75": 4,
+          "mean": 3.33,
+          "normalizedMedian": 0.25
+        },
+        "episodes": {
+          "total": 4,
+          "tp": 3,
+          "fp": 1,
+          "precision": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "falsePerRun": {
+            "mean": 1,
+            "ci95": [
+              1,
+              1
+            ],
+            "max": 1,
+            "runsWithAny": 1
+          },
+          "falseSpurious": 1,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": 0
+        },
+        "units": {
+          "negatives": 5623,
+          "falsePositive": 3,
+          "fpr": 0.0005335230304108127,
+          "fprCi95": [
+            0.0005335230304108127,
+            0.0005335230304108127
+          ],
+          "specificity": 0.9994664769695892,
+          "positiveUnits": 55,
+          "unitSensitivity": 0.4
+        },
+        "decoys": {
+          "all": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "byVariant": {
+            "default": {
+              "k": 1,
+              "n": 1,
+              "value": 1,
+              "ci95": [
+                0.025,
+                1
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 3,
+          "meanJaccard": 1,
+          "exactRate": 1,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 2,
+            "tp": 1,
+            "precision": 0.5
+          },
+          "high": {
+            "episodes": 2,
+            "tp": 2,
+            "precision": 1
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 3,
+            "n": 3,
+            "value": 1,
+            "ci95": [
+              0.2924,
+              1
+            ]
+          },
+          ">=10": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 2,
+            "n": 2,
+            "value": 1,
+            "ci95": [
+              0.1581,
+              1
+            ]
+          },
+          "fever_with_rash": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "jaundice": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        }
+      },
+      "ablation:no_burst_persistence_gate": {
+        "runs": 1,
+        "clusters": {
+          "all": {
+            "k": 4,
+            "n": 4,
+            "value": 1,
+            "ci95": [
+              0.3976,
+              1
+            ]
+          },
+          "evaluable": {
+            "k": 4,
+            "n": 4,
+            "value": 1,
+            "ci95": [
+              0.3976,
+              1
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 4,
+          "median": 4,
+          "q25": 1.75,
+          "q75": 6.75,
+          "mean": 4.5,
+          "normalizedMedian": 0.444
+        },
+        "episodes": {
+          "total": 5,
+          "tp": 4,
+          "fp": 1,
+          "precision": {
+            "k": 4,
+            "n": 5,
+            "value": 0.8,
+            "ci95": [
+              0.2836,
+              0.9949
+            ]
+          },
+          "falsePerRun": {
+            "mean": 1,
+            "ci95": [
+              1,
+              1
+            ],
+            "max": 1,
+            "runsWithAny": 1
+          },
+          "falseSpurious": 1,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": 0
+        },
+        "units": {
+          "negatives": 5623,
+          "falsePositive": 5,
+          "fpr": 0.0008892050506846879,
+          "fprCi95": [
+            0.0008892050506846879,
+            0.0008892050506846879
+          ],
+          "specificity": 0.9991107949493153,
+          "positiveUnits": 55,
+          "unitSensitivity": 0.5091
+        },
+        "decoys": {
+          "all": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "byVariant": {
+            "default": {
+              "k": 1,
+              "n": 1,
+              "value": 1,
+              "ci95": [
+                0.025,
+                1
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 4,
+          "meanJaccard": 1,
+          "exactRate": 1,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 2,
+            "tp": 1,
+            "precision": 0.5
+          },
+          "high": {
+            "episodes": 3,
+            "tp": 3,
+            "precision": 1
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 3,
+            "n": 3,
+            "value": 1,
+            "ci95": [
+              0.2924,
+              1
+            ]
+          },
+          ">=10": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 2,
+            "n": 2,
+            "value": 1,
+            "ci95": [
+              0.1581,
+              1
+            ]
+          },
+          "fever_with_rash": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "jaundice": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          }
+        }
+      },
+      "ablation:plugin_poisson": {
+        "runs": 1,
+        "clusters": {
+          "all": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "evaluable": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 3,
+          "median": 2,
+          "q25": 2,
+          "q75": 4,
+          "mean": 3.33,
+          "normalizedMedian": 0.25
+        },
+        "episodes": {
+          "total": 4,
+          "tp": 3,
+          "fp": 1,
+          "precision": {
+            "k": 3,
+            "n": 4,
+            "value": 0.75,
+            "ci95": [
+              0.1941,
+              0.9937
+            ]
+          },
+          "falsePerRun": {
+            "mean": 1,
+            "ci95": [
+              1,
+              1
+            ],
+            "max": 1,
+            "runsWithAny": 1
+          },
+          "falseSpurious": 1,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": 0
+        },
+        "units": {
+          "negatives": 5623,
+          "falsePositive": 3,
+          "fpr": 0.0005335230304108127,
+          "fprCi95": [
+            0.0005335230304108127,
+            0.0005335230304108127
+          ],
+          "specificity": 0.9994664769695892,
+          "positiveUnits": 55,
+          "unitSensitivity": 0.4
+        },
+        "decoys": {
+          "all": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "byVariant": {
+            "default": {
+              "k": 1,
+              "n": 1,
+              "value": 1,
+              "ci95": [
+                0.025,
+                1
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 3,
+          "meanJaccard": 1,
+          "exactRate": 1,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "high": {
+            "episodes": 4,
+            "tp": 3,
+            "precision": 0.75
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 3,
+            "n": 3,
+            "value": 1,
+            "ci95": [
+              0.2924,
+              1
+            ]
+          },
+          ">=10": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 2,
+            "n": 2,
+            "value": 1,
+            "ci95": [
+              0.1581,
+              1
+            ]
+          },
+          "fever_with_rash": {
+            "k": 1,
+            "n": 1,
+            "value": 1,
+            "ci95": [
+              0.025,
+              1
+            ]
+          },
+          "jaundice": {
+            "k": 0,
+            "n": 1,
+            "value": 0,
+            "ci95": [
+              0,
+              0.975
+            ]
+          }
+        }
+      }
+    }
+  },
+  "held_out_replicates": {
+    "n": 200,
+    "summary": {
+      "detector": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 505,
+            "n": 800,
+            "value": 0.6313,
+            "ci95": [
+              0.5968,
+              0.6648
+            ]
+          },
+          "evaluable": {
+            "k": 505,
+            "n": 706,
+            "value": 0.7153,
+            "ci95": [
+              0.6804,
+              0.7483
+            ]
+          },
+          "lateOnly": 1
+        },
+        "delay": {
+          "n": 505,
+          "median": 2,
+          "q25": 2,
+          "q75": 4,
+          "mean": 3.11,
+          "normalizedMedian": 0.333
+        },
+        "episodes": {
+          "total": 594,
+          "tp": 504,
+          "fp": 90,
+          "precision": {
+            "k": 504,
+            "n": 594,
+            "value": 0.8485,
+            "ci95": [
+              0.8171,
+              0.8764
+            ]
+          },
+          "falsePerRun": {
+            "mean": 0.45,
+            "ci95": [
+              0.385,
+              0.52
+            ],
+            "max": 1,
+            "runsWithAny": 90
+          },
+          "falseSpurious": 0,
+          "falseDecoy": 90,
+          "fragmentsPerDetected": 0.024
+        },
+        "units": {
+          "negatives": 1127624,
+          "falsePositive": 1596,
+          "fpr": 0.0014153654054897733,
+          "fprCi95": [
+            0.001230145175613734,
+            0.001604986813000466
+          ],
+          "specificity": 0.9985846345945102,
+          "positiveUnits": 9245,
+          "unitSensitivity": 0.4229
+        },
+        "decoys": {
+          "all": {
+            "k": 307,
+            "n": 400,
+            "value": 0.7675,
+            "ci95": [
+              0.723,
+              0.808
+            ]
+          },
+          "byVariant": {
+            "bulk_import_1d": {
+              "k": 87,
+              "n": 89,
+              "value": 0.9775,
+              "ci95": [
+                0.9212,
+                0.9973
+              ]
+            },
+            "bulk_import_3d": {
+              "k": 110,
+              "n": 111,
+              "value": 0.991,
+              "ci95": [
+                0.9508,
+                0.9998
+              ]
+            },
+            "clinic_batch_1d": {
+              "k": 104,
+              "n": 104,
+              "value": 1,
+              "ci95": [
+                0.9652,
+                1
+              ]
+            },
+            "clinic_batch_3d": {
+              "k": 6,
+              "n": 96,
+              "value": 0.0625,
+              "ci95": [
+                0.0233,
+                0.1311
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 505,
+          "meanJaccard": 0.95,
+          "exactRate": 0.899,
+          "meanOverreach": 0.109,
+          "districtCorrect": 0.998
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 11,
+            "tp": 2,
+            "precision": 0.1818
+          },
+          "medium": {
+            "episodes": 132,
+            "tp": 51,
+            "precision": 0.3864
+          },
+          "high": {
+            "episodes": 451,
+            "tp": 451,
+            "precision": 1
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 180,
+            "n": 300,
+            "value": 0.6,
+            "ci95": [
+              0.5421,
+              0.6559
+            ]
+          },
+          "<6": {
+            "k": 66,
+            "n": 142,
+            "value": 0.4648,
+            "ci95": [
+              0.3807,
+              0.5503
+            ]
+          },
+          ">=10": {
+            "k": 259,
+            "n": 358,
+            "value": 0.7235,
+            "ci95": [
+              0.674,
+              0.7692
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 146,
+            "n": 162,
+            "value": 0.9012,
+            "ci95": [
+              0.8446,
+              0.9425
+            ]
+          },
+          "fever": {
+            "k": 156,
+            "n": 161,
+            "value": 0.9689,
+            "ci95": [
+              0.929,
+              0.9898
+            ]
+          },
+          "fever_with_rash": {
+            "k": 34,
+            "n": 157,
+            "value": 0.2166,
+            "ci95": [
+              0.1549,
+              0.2893
+            ]
+          },
+          "jaundice": {
+            "k": 25,
+            "n": 163,
+            "value": 0.1534,
+            "ci95": [
+              0.1018,
+              0.218
+            ]
+          },
+          "respiratory_illness": {
+            "k": 144,
+            "n": 157,
+            "value": 0.9172,
+            "ci95": [
+              0.8626,
+              0.9552
+            ]
+          }
+        }
+      },
+      "comparator:fixed_threshold": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 453,
+            "n": 800,
+            "value": 0.5663,
+            "ci95": [
+              0.5311,
+              0.6009
+            ]
+          },
+          "evaluable": {
+            "k": 453,
+            "n": 706,
+            "value": 0.6416,
+            "ci95": [
+              0.605,
+              0.6771
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 453,
+          "median": 1,
+          "q25": 1,
+          "q75": 3,
+          "mean": 2.35,
+          "normalizedMedian": 0.2
+        },
+        "episodes": {
+          "total": 4434,
+          "tp": 621,
+          "fp": 3813,
+          "precision": {
+            "k": 621,
+            "n": 4434,
+            "value": 0.1401,
+            "ci95": [
+              0.13,
+              0.1506
+            ]
+          },
+          "falsePerRun": {
+            "mean": 19.065,
+            "ci95": [
+              18.52,
+              19.62
+            ],
+            "max": 29,
+            "runsWithAny": 200
+          },
+          "falseSpurious": 3405,
+          "falseDecoy": 408,
+          "fragmentsPerDetected": 0.371
+        },
+        "units": {
+          "negatives": 1127624,
+          "falsePositive": 3388,
+          "fpr": 0.003004547615162501,
+          "fprCi95": [
+            0.002912337054477172,
+            0.003096310549617591
+          ],
+          "specificity": 0.9969954523848374,
+          "positiveUnits": 9245,
+          "unitSensitivity": 0.4193
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 400,
+            "value": 0,
+            "ci95": [
+              0,
+              0.0092
+            ]
+          },
+          "byVariant": {
+            "bulk_import_1d": {
+              "k": 0,
+              "n": 89,
+              "value": 0,
+              "ci95": [
+                0,
+                0.0406
+              ]
+            },
+            "bulk_import_3d": {
+              "k": 0,
+              "n": 111,
+              "value": 0,
+              "ci95": [
+                0,
+                0.0327
+              ]
+            },
+            "clinic_batch_1d": {
+              "k": 0,
+              "n": 104,
+              "value": 0,
+              "ci95": [
+                0,
+                0.0348
+              ]
+            },
+            "clinic_batch_3d": {
+              "k": 0,
+              "n": 96,
+              "value": 0,
+              "ci95": [
+                0,
+                0.0377
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 453,
+          "meanJaccard": 0.969,
+          "exactRate": 0.938,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "high": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 169,
+            "n": 300,
+            "value": 0.5633,
+            "ci95": [
+              0.5052,
+              0.6203
+            ]
+          },
+          "<6": {
+            "k": 67,
+            "n": 142,
+            "value": 0.4718,
+            "ci95": [
+              0.3876,
+              0.5573
+            ]
+          },
+          ">=10": {
+            "k": 217,
+            "n": 358,
+            "value": 0.6061,
+            "ci95": [
+              0.5534,
+              0.6571
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 147,
+            "n": 162,
+            "value": 0.9074,
+            "ci95": [
+              0.8519,
+              0.9472
+            ]
+          },
+          "fever": {
+            "k": 158,
+            "n": 161,
+            "value": 0.9814,
+            "ci95": [
+              0.9465,
+              0.9961
+            ]
+          },
+          "fever_with_rash": {
+            "k": 4,
+            "n": 157,
+            "value": 0.0255,
+            "ci95": [
+              0.007,
+              0.0639
+            ]
+          },
+          "jaundice": {
+            "k": 0,
+            "n": 163,
+            "value": 0,
+            "ci95": [
+              0,
+              0.0224
+            ]
+          },
+          "respiratory_illness": {
+            "k": 144,
+            "n": 157,
+            "value": 0.9172,
+            "ci95": [
+              0.8626,
+              0.9552
+            ]
+          }
+        }
+      },
+      "comparator:ears_c2": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 431,
+            "n": 800,
+            "value": 0.5387,
+            "ci95": [
+              0.5035,
+              0.5737
+            ]
+          },
+          "evaluable": {
+            "k": 431,
+            "n": 706,
+            "value": 0.6105,
+            "ci95": [
+              0.5734,
+              0.6466
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 431,
+          "median": 1,
+          "q25": 1,
+          "q75": 2,
+          "mean": 2,
+          "normalizedMedian": 0.167
+        },
+        "episodes": {
+          "total": 6599,
+          "tp": 573,
+          "fp": 6026,
+          "precision": {
+            "k": 573,
+            "n": 6599,
+            "value": 0.0868,
+            "ci95": [
+              0.0801,
+              0.0939
+            ]
+          },
+          "falsePerRun": {
+            "mean": 30.13,
+            "ci95": [
+              29.48,
+              30.825
+            ],
+            "max": 44,
+            "runsWithAny": 200
+          },
+          "falseSpurious": 5618,
+          "falseDecoy": 408,
+          "fragmentsPerDetected": 0.329
+        },
+        "units": {
+          "negatives": 1127624,
+          "falsePositive": 5616,
+          "fpr": 0.004980383532099352,
+          "fprCi95": [
+            0.004869094792802595,
+            0.0050920580836530446
+          ],
+          "specificity": 0.9950196164679006,
+          "positiveUnits": 9245,
+          "unitSensitivity": 0.2066
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 400,
+            "value": 0,
+            "ci95": [
+              0,
+              0.0092
+            ]
+          },
+          "byVariant": {
+            "bulk_import_1d": {
+              "k": 0,
+              "n": 89,
+              "value": 0,
+              "ci95": [
+                0,
+                0.0406
+              ]
+            },
+            "bulk_import_3d": {
+              "k": 0,
+              "n": 111,
+              "value": 0,
+              "ci95": [
+                0,
+                0.0327
+              ]
+            },
+            "clinic_batch_1d": {
+              "k": 0,
+              "n": 104,
+              "value": 0,
+              "ci95": [
+                0,
+                0.0348
+              ]
+            },
+            "clinic_batch_3d": {
+              "k": 0,
+              "n": 96,
+              "value": 0,
+              "ci95": [
+                0,
+                0.0377
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 431,
+          "meanJaccard": 0.955,
+          "exactRate": 0.91,
+          "meanOverreach": 0,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "high": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 161,
+            "n": 300,
+            "value": 0.5367,
+            "ci95": [
+              0.4784,
+              0.5942
+            ]
+          },
+          "<6": {
+            "k": 56,
+            "n": 142,
+            "value": 0.3944,
+            "ci95": [
+              0.3135,
+              0.4798
+            ]
+          },
+          ">=10": {
+            "k": 214,
+            "n": 358,
+            "value": 0.5978,
+            "ci95": [
+              0.5449,
+              0.649
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 139,
+            "n": 162,
+            "value": 0.858,
+            "ci95": [
+              0.7946,
+              0.9078
+            ]
+          },
+          "fever": {
+            "k": 150,
+            "n": 161,
+            "value": 0.9317,
+            "ci95": [
+              0.881,
+              0.9654
+            ]
+          },
+          "fever_with_rash": {
+            "k": 7,
+            "n": 157,
+            "value": 0.0446,
+            "ci95": [
+              0.0181,
+              0.0897
+            ]
+          },
+          "jaundice": {
+            "k": 0,
+            "n": 163,
+            "value": 0,
+            "ci95": [
+              0,
+              0.0224
+            ]
+          },
+          "respiratory_illness": {
+            "k": 135,
+            "n": 157,
+            "value": 0.8599,
+            "ci95": [
+              0.7956,
+              0.9101
+            ]
+          }
+        }
+      },
+      "ablation:no_gates": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 575,
+            "n": 800,
+            "value": 0.7188,
+            "ci95": [
+              0.6862,
+              0.7497
+            ]
+          },
+          "evaluable": {
+            "k": 575,
+            "n": 706,
+            "value": 0.8144,
+            "ci95": [
+              0.7838,
+              0.8425
+            ]
+          },
+          "lateOnly": 2
+        },
+        "delay": {
+          "n": 575,
+          "median": 2,
+          "q25": 1,
+          "q75": 3.5,
+          "mean": 2.42,
+          "normalizedMedian": 0.2
+        },
+        "episodes": {
+          "total": 993,
+          "tp": 572,
+          "fp": 421,
+          "precision": {
+            "k": 572,
+            "n": 993,
+            "value": 0.576,
+            "ci95": [
+              0.5446,
+              0.607
+            ]
+          },
+          "falsePerRun": {
+            "mean": 2.105,
+            "ci95": [
+              2.02,
+              2.195
+            ],
+            "max": 6,
+            "runsWithAny": 200
+          },
+          "falseSpurious": 46,
+          "falseDecoy": 375,
+          "fragmentsPerDetected": 0.019
+        },
+        "units": {
+          "negatives": 1127624,
+          "falsePositive": 6174,
+          "fpr": 0.00547522933176307,
+          "fprCi95": [
+            0.0053859080304512535,
+            0.0055663787437956495
+          ],
+          "specificity": 0.994524770668237,
+          "positiveUnits": 9245,
+          "unitSensitivity": 0.5421
+        },
+        "decoys": {
+          "all": {
+            "k": 24,
+            "n": 400,
+            "value": 0.06,
+            "ci95": [
+              0.0388,
+              0.088
+            ]
+          },
+          "byVariant": {
+            "bulk_import_1d": {
+              "k": 5,
+              "n": 89,
+              "value": 0.0562,
+              "ci95": [
+                0.0185,
+                0.1263
+              ]
+            },
+            "bulk_import_3d": {
+              "k": 8,
+              "n": 111,
+              "value": 0.0721,
+              "ci95": [
+                0.0316,
+                0.1371
+              ]
+            },
+            "clinic_batch_1d": {
+              "k": 4,
+              "n": 104,
+              "value": 0.0385,
+              "ci95": [
+                0.0106,
+                0.0956
+              ]
+            },
+            "clinic_batch_3d": {
+              "k": 7,
+              "n": 96,
+              "value": 0.0729,
+              "ci95": [
+                0.0298,
+                0.1445
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 575,
+          "meanJaccard": 0.936,
+          "exactRate": 0.871,
+          "meanOverreach": 0.108,
+          "districtCorrect": 0.997
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 253,
+            "tp": 6,
+            "precision": 0.0237
+          },
+          "medium": {
+            "episodes": 254,
+            "tp": 85,
+            "precision": 0.3346
+          },
+          "high": {
+            "episodes": 486,
+            "tp": 481,
+            "precision": 0.9897
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 203,
+            "n": 300,
+            "value": 0.6767,
+            "ci95": [
+              0.6205,
+              0.7293
+            ]
+          },
+          "<6": {
+            "k": 81,
+            "n": 142,
+            "value": 0.5704,
+            "ci95": [
+              0.4847,
+              0.6531
+            ]
+          },
+          ">=10": {
+            "k": 291,
+            "n": 358,
+            "value": 0.8128,
+            "ci95": [
+              0.7685,
+              0.8519
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 154,
+            "n": 162,
+            "value": 0.9506,
+            "ci95": [
+              0.905,
+              0.9784
+            ]
+          },
+          "fever": {
+            "k": 159,
+            "n": 161,
+            "value": 0.9876,
+            "ci95": [
+              0.9558,
+              0.9985
+            ]
+          },
+          "fever_with_rash": {
+            "k": 63,
+            "n": 157,
+            "value": 0.4013,
+            "ci95": [
+              0.324,
+              0.4824
+            ]
+          },
+          "jaundice": {
+            "k": 44,
+            "n": 163,
+            "value": 0.2699,
+            "ci95": [
+              0.2035,
+              0.345
+            ]
+          },
+          "respiratory_illness": {
+            "k": 155,
+            "n": 157,
+            "value": 0.9873,
+            "ci95": [
+              0.9547,
+              0.9985
+            ]
+          }
+        }
+      },
+      "ablation:no_bulk_gate": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 505,
+            "n": 800,
+            "value": 0.6313,
+            "ci95": [
+              0.5968,
+              0.6648
+            ]
+          },
+          "evaluable": {
+            "k": 505,
+            "n": 706,
+            "value": 0.7153,
+            "ci95": [
+              0.6804,
+              0.7483
+            ]
+          },
+          "lateOnly": 1
+        },
+        "delay": {
+          "n": 505,
+          "median": 2,
+          "q25": 2,
+          "q75": 4,
+          "mean": 3.09,
+          "normalizedMedian": 0.333
+        },
+        "episodes": {
+          "total": 696,
+          "tp": 504,
+          "fp": 192,
+          "precision": {
+            "k": 504,
+            "n": 696,
+            "value": 0.7241,
+            "ci95": [
+              0.6893,
+              0.7571
+            ]
+          },
+          "falsePerRun": {
+            "mean": 0.96,
+            "ci95": [
+              0.865,
+              1.05
+            ],
+            "max": 2,
+            "runsWithAny": 154
+          },
+          "falseSpurious": 0,
+          "falseDecoy": 192,
+          "fragmentsPerDetected": 0.024
+        },
+        "units": {
+          "negatives": 1127624,
+          "falsePositive": 3061,
+          "fpr": 0.0027145573347144084,
+          "fprCi95": [
+            0.0024889568064592215,
+            0.0029523530129215787
+          ],
+          "specificity": 0.9972854426652856,
+          "positiveUnits": 9245,
+          "unitSensitivity": 0.4241
+        },
+        "decoys": {
+          "all": {
+            "k": 205,
+            "n": 400,
+            "value": 0.5125,
+            "ci95": [
+              0.4623,
+              0.5625
+            ]
+          },
+          "byVariant": {
+            "bulk_import_1d": {
+              "k": 87,
+              "n": 89,
+              "value": 0.9775,
+              "ci95": [
+                0.9212,
+                0.9973
+              ]
+            },
+            "bulk_import_3d": {
+              "k": 8,
+              "n": 111,
+              "value": 0.0721,
+              "ci95": [
+                0.0316,
+                0.1371
+              ]
+            },
+            "clinic_batch_1d": {
+              "k": 104,
+              "n": 104,
+              "value": 1,
+              "ci95": [
+                0.9652,
+                1
+              ]
+            },
+            "clinic_batch_3d": {
+              "k": 6,
+              "n": 96,
+              "value": 0.0625,
+              "ci95": [
+                0.0233,
+                0.1311
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 505,
+          "meanJaccard": 0.95,
+          "exactRate": 0.899,
+          "meanOverreach": 0.109,
+          "districtCorrect": 0.998
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 116,
+            "tp": 5,
+            "precision": 0.0431
+          },
+          "medium": {
+            "episodes": 130,
+            "tp": 49,
+            "precision": 0.3769
+          },
+          "high": {
+            "episodes": 450,
+            "tp": 450,
+            "precision": 1
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 180,
+            "n": 300,
+            "value": 0.6,
+            "ci95": [
+              0.5421,
+              0.6559
+            ]
+          },
+          "<6": {
+            "k": 66,
+            "n": 142,
+            "value": 0.4648,
+            "ci95": [
+              0.3807,
+              0.5503
+            ]
+          },
+          ">=10": {
+            "k": 259,
+            "n": 358,
+            "value": 0.7235,
+            "ci95": [
+              0.674,
+              0.7692
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 146,
+            "n": 162,
+            "value": 0.9012,
+            "ci95": [
+              0.8446,
+              0.9425
+            ]
+          },
+          "fever": {
+            "k": 156,
+            "n": 161,
+            "value": 0.9689,
+            "ci95": [
+              0.929,
+              0.9898
+            ]
+          },
+          "fever_with_rash": {
+            "k": 34,
+            "n": 157,
+            "value": 0.2166,
+            "ci95": [
+              0.1549,
+              0.2893
+            ]
+          },
+          "jaundice": {
+            "k": 25,
+            "n": 163,
+            "value": 0.1534,
+            "ci95": [
+              0.1018,
+              0.218
+            ]
+          },
+          "respiratory_illness": {
+            "k": 144,
+            "n": 157,
+            "value": 0.9172,
+            "ci95": [
+              0.8626,
+              0.9552
+            ]
+          }
+        }
+      },
+      "ablation:no_burst_persistence_gate": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 564,
+            "n": 800,
+            "value": 0.705,
+            "ci95": [
+              0.6721,
+              0.7364
+            ]
+          },
+          "evaluable": {
+            "k": 564,
+            "n": 706,
+            "value": 0.7989,
+            "ci95": [
+              0.7674,
+              0.8278
+            ]
+          },
+          "lateOnly": 1
+        },
+        "delay": {
+          "n": 564,
+          "median": 2,
+          "q25": 1,
+          "q75": 4,
+          "mean": 2.51,
+          "normalizedMedian": 0.211
+        },
+        "episodes": {
+          "total": 780,
+          "tp": 559,
+          "fp": 221,
+          "precision": {
+            "k": 559,
+            "n": 780,
+            "value": 0.7167,
+            "ci95": [
+              0.6836,
+              0.7481
+            ]
+          },
+          "falsePerRun": {
+            "mean": 1.105,
+            "ci95": [
+              1.035,
+              1.175
+            ],
+            "max": 5,
+            "runsWithAny": 189
+          },
+          "falseSpurious": 30,
+          "falseDecoy": 191,
+          "fragmentsPerDetected": 0.02
+        },
+        "units": {
+          "negatives": 1127624,
+          "falsePositive": 3247,
+          "fpr": 0.0028795059346023145,
+          "fprCi95": [
+            0.002781967747329639,
+            0.0029746275517773427
+          ],
+          "specificity": 0.9971204940653977,
+          "positiveUnits": 9245,
+          "unitSensitivity": 0.5248
+        },
+        "decoys": {
+          "all": {
+            "k": 208,
+            "n": 400,
+            "value": 0.52,
+            "ci95": [
+              0.4698,
+              0.5699
+            ]
+          },
+          "byVariant": {
+            "bulk_import_1d": {
+              "k": 87,
+              "n": 89,
+              "value": 0.9775,
+              "ci95": [
+                0.9212,
+                0.9973
+              ]
+            },
+            "bulk_import_3d": {
+              "k": 110,
+              "n": 111,
+              "value": 0.991,
+              "ci95": [
+                0.9508,
+                0.9998
+              ]
+            },
+            "clinic_batch_1d": {
+              "k": 4,
+              "n": 104,
+              "value": 0.0385,
+              "ci95": [
+                0.0106,
+                0.0956
+              ]
+            },
+            "clinic_batch_3d": {
+              "k": 7,
+              "n": 96,
+              "value": 0.0729,
+              "ci95": [
+                0.0298,
+                0.1445
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 564,
+          "meanJaccard": 0.942,
+          "exactRate": 0.887,
+          "meanOverreach": 0.101,
+          "districtCorrect": 0.995
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 63,
+            "tp": 2,
+            "precision": 0.0317
+          },
+          "medium": {
+            "episodes": 228,
+            "tp": 73,
+            "precision": 0.3202
+          },
+          "high": {
+            "episodes": 489,
+            "tp": 484,
+            "precision": 0.9898
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 197,
+            "n": 300,
+            "value": 0.6567,
+            "ci95": [
+              0.5999,
+              0.7103
+            ]
+          },
+          "<6": {
+            "k": 78,
+            "n": 142,
+            "value": 0.5493,
+            "ci95": [
+              0.4636,
+              0.6328
+            ]
+          },
+          ">=10": {
+            "k": 289,
+            "n": 358,
+            "value": 0.8073,
+            "ci95": [
+              0.7625,
+              0.8468
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 152,
+            "n": 162,
+            "value": 0.9383,
+            "ci95": [
+              0.8894,
+              0.97
+            ]
+          },
+          "fever": {
+            "k": 159,
+            "n": 161,
+            "value": 0.9876,
+            "ci95": [
+              0.9558,
+              0.9985
+            ]
+          },
+          "fever_with_rash": {
+            "k": 57,
+            "n": 157,
+            "value": 0.3631,
+            "ci95": [
+              0.2879,
+              0.4435
+            ]
+          },
+          "jaundice": {
+            "k": 43,
+            "n": 163,
+            "value": 0.2638,
+            "ci95": [
+              0.198,
+              0.3384
+            ]
+          },
+          "respiratory_illness": {
+            "k": 153,
+            "n": 157,
+            "value": 0.9745,
+            "ci95": [
+              0.9361,
+              0.993
+            ]
+          }
+        }
+      },
+      "ablation:plugin_poisson": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 505,
+            "n": 800,
+            "value": 0.6313,
+            "ci95": [
+              0.5968,
+              0.6648
+            ]
+          },
+          "evaluable": {
+            "k": 505,
+            "n": 706,
+            "value": 0.7153,
+            "ci95": [
+              0.6804,
+              0.7483
+            ]
+          },
+          "lateOnly": 2
+        },
+        "delay": {
+          "n": 505,
+          "median": 2,
+          "q25": 2,
+          "q75": 4,
+          "mean": 3.1,
+          "normalizedMedian": 0.333
+        },
+        "episodes": {
+          "total": 593,
+          "tp": 504,
+          "fp": 89,
+          "precision": {
+            "k": 504,
+            "n": 593,
+            "value": 0.8499,
+            "ci95": [
+              0.8186,
+              0.8777
+            ]
+          },
+          "falsePerRun": {
+            "mean": 0.445,
+            "ci95": [
+              0.38,
+              0.515
+            ],
+            "max": 1,
+            "runsWithAny": 89
+          },
+          "falseSpurious": 0,
+          "falseDecoy": 89,
+          "fragmentsPerDetected": 0.024
+        },
+        "units": {
+          "negatives": 1127624,
+          "falsePositive": 2006,
+          "fpr": 0.00177896178158677,
+          "fprCi95": [
+            0.0015614342536258497,
+            0.00198883789376809
+          ],
+          "specificity": 0.9982210382184132,
+          "positiveUnits": 9245,
+          "unitSensitivity": 0.4244
+        },
+        "decoys": {
+          "all": {
+            "k": 308,
+            "n": 400,
+            "value": 0.77,
+            "ci95": [
+              0.7256,
+              0.8104
+            ]
+          },
+          "byVariant": {
+            "bulk_import_1d": {
+              "k": 87,
+              "n": 89,
+              "value": 0.9775,
+              "ci95": [
+                0.9212,
+                0.9973
+              ]
+            },
+            "bulk_import_3d": {
+              "k": 110,
+              "n": 111,
+              "value": 0.991,
+              "ci95": [
+                0.9508,
+                0.9998
+              ]
+            },
+            "clinic_batch_1d": {
+              "k": 104,
+              "n": 104,
+              "value": 1,
+              "ci95": [
+                0.9652,
+                1
+              ]
+            },
+            "clinic_batch_3d": {
+              "k": 7,
+              "n": 96,
+              "value": 0.0729,
+              "ci95": [
+                0.0298,
+                0.1445
+              ]
+            }
+          }
+        },
+        "localization": {
+          "n": 505,
+          "meanJaccard": 0.937,
+          "exactRate": 0.865,
+          "meanOverreach": 0.145,
+          "districtCorrect": 1
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 15,
+            "tp": 2,
+            "precision": 0.1333
+          },
+          "medium": {
+            "episodes": 98,
+            "tp": 22,
+            "precision": 0.2245
+          },
+          "high": {
+            "episodes": 480,
+            "tp": 480,
+            "precision": 1
+          }
+        },
+        "byMultiplier": {
+          "6-10": {
+            "k": 180,
+            "n": 300,
+            "value": 0.6,
+            "ci95": [
+              0.5421,
+              0.6559
+            ]
+          },
+          "<6": {
+            "k": 66,
+            "n": 142,
+            "value": 0.4648,
+            "ci95": [
+              0.3807,
+              0.5503
+            ]
+          },
+          ">=10": {
+            "k": 259,
+            "n": 358,
+            "value": 0.7235,
+            "ci95": [
+              0.674,
+              0.7692
+            ]
+          }
+        },
+        "bySyndrome": {
+          "acute_diarrhoeal_illness": {
+            "k": 146,
+            "n": 162,
+            "value": 0.9012,
+            "ci95": [
+              0.8446,
+              0.9425
+            ]
+          },
+          "fever": {
+            "k": 156,
+            "n": 161,
+            "value": 0.9689,
+            "ci95": [
+              0.929,
+              0.9898
+            ]
+          },
+          "fever_with_rash": {
+            "k": 34,
+            "n": 157,
+            "value": 0.2166,
+            "ci95": [
+              0.1549,
+              0.2893
+            ]
+          },
+          "jaundice": {
+            "k": 25,
+            "n": 163,
+            "value": 0.1534,
+            "ci95": [
+              0.1018,
+              0.218
+            ]
+          },
+          "respiratory_illness": {
+            "k": 144,
+            "n": 157,
+            "value": 0.9172,
+            "ci95": [
+              0.8626,
+              0.9552
+            ]
+          }
+        }
+      }
+    },
+    "decoy_gate_proof": {
+      "bulk_import_3d": {
+        "examined": 111,
+        "n": 111,
+        "reasons": {
+          "bulk": 111,
+          "burst": 111,
+          "persistence": 87,
+          "ratio": 32,
+          "concentration": 1
+        }
+      },
+      "clinic_batch_1d": {
+        "examined": 104,
+        "n": 104,
+        "reasons": {
+          "burst": 104,
+          "persistence": 104,
+          "ratio": 18,
+          "bulk": 6
+        }
+      },
+      "bulk_import_1d": {
+        "examined": 89,
+        "n": 89,
+        "reasons": {
+          "bulk": 89,
+          "burst": 89,
+          "persistence": 87,
+          "ratio": 25
+        }
+      },
+      "clinic_batch_3d": {
+        "examined": 96,
+        "n": 96,
+        "reasons": {
+          "burst": 96,
+          "persistence": 79,
+          "bulk": 7,
+          "ratio": 10
+        }
+      }
+    }
+  },
+  "null_calibration": {
+    "n": 200,
+    "summary": {
+      "detector": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "evaluable": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 0,
+          "median": null,
+          "q25": null,
+          "q75": null,
+          "mean": null,
+          "normalizedMedian": null
+        },
+        "episodes": {
+          "total": 2,
+          "tp": 0,
+          "fp": 2,
+          "precision": {
+            "k": 0,
+            "n": 2,
+            "value": 0,
+            "ci95": [
+              0,
+              0.8419
+            ]
+          },
+          "falsePerRun": {
+            "mean": 0.01,
+            "ci95": [
+              0,
+              0.025
+            ],
+            "max": 1,
+            "runsWithAny": 2
+          },
+          "falseSpurious": 2,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": null
+        },
+        "units": {
+          "negatives": 1152000,
+          "falsePositive": 7,
+          "fpr": 0.0000060763888888888885,
+          "fprCi95": [
+            0,
+            0.000015625
+          ],
+          "specificity": 0.9999939236111111,
+          "positiveUnits": 0,
+          "unitSensitivity": null
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "byVariant": {}
+        },
+        "localization": {
+          "n": 0,
+          "meanJaccard": null,
+          "exactRate": null,
+          "meanOverreach": null,
+          "districtCorrect": null
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 1,
+            "tp": 0,
+            "precision": 0
+          },
+          "high": {
+            "episodes": 1,
+            "tp": 0,
+            "precision": 0
+          }
+        },
+        "byMultiplier": {},
+        "bySyndrome": {}
+      },
+      "comparator:fixed_threshold": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "evaluable": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 0,
+          "median": null,
+          "q25": null,
+          "q75": null,
+          "mean": null,
+          "normalizedMedian": null
+        },
+        "episodes": {
+          "total": 3367,
+          "tp": 0,
+          "fp": 3367,
+          "precision": {
+            "k": 0,
+            "n": 3367,
+            "value": 0,
+            "ci95": [
+              0,
+              0.0011
+            ]
+          },
+          "falsePerRun": {
+            "mean": 16.835,
+            "ci95": [
+              16.27,
+              17.36
+            ],
+            "max": 28,
+            "runsWithAny": 200
+          },
+          "falseSpurious": 3367,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": null
+        },
+        "units": {
+          "negatives": 1152000,
+          "falsePositive": 2669,
+          "fpr": 0.002316840277777778,
+          "fprCi95": [
+            0.0022274088541666664,
+            0.0023993055555555556
+          ],
+          "specificity": 0.9976831597222222,
+          "positiveUnits": 0,
+          "unitSensitivity": null
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "byVariant": {}
+        },
+        "localization": {
+          "n": 0,
+          "meanJaccard": null,
+          "exactRate": null,
+          "meanOverreach": null,
+          "districtCorrect": null
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "high": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          }
+        },
+        "byMultiplier": {},
+        "bySyndrome": {}
+      },
+      "comparator:ears_c2": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "evaluable": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 0,
+          "median": null,
+          "q25": null,
+          "q75": null,
+          "mean": null,
+          "normalizedMedian": null
+        },
+        "episodes": {
+          "total": 5577,
+          "tp": 0,
+          "fp": 5577,
+          "precision": {
+            "k": 0,
+            "n": 5577,
+            "value": 0,
+            "ci95": [
+              0,
+              0.0007
+            ]
+          },
+          "falsePerRun": {
+            "mean": 27.885,
+            "ci95": [
+              27.125,
+              28.615
+            ],
+            "max": 41,
+            "runsWithAny": 200
+          },
+          "falseSpurious": 5577,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": null
+        },
+        "units": {
+          "negatives": 1152000,
+          "falsePositive": 4934,
+          "fpr": 0.0042829861111111115,
+          "fprCi95": [
+            0.004165690104166667,
+            0.004410590277777778
+          ],
+          "specificity": 0.9957170138888889,
+          "positiveUnits": 0,
+          "unitSensitivity": null
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "byVariant": {}
+        },
+        "localization": {
+          "n": 0,
+          "meanJaccard": null,
+          "exactRate": null,
+          "meanOverreach": null,
+          "districtCorrect": null
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "high": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          }
+        },
+        "byMultiplier": {},
+        "bySyndrome": {}
+      },
+      "ablation:no_gates": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "evaluable": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 0,
+          "median": null,
+          "q25": null,
+          "q75": null,
+          "mean": null,
+          "normalizedMedian": null
+        },
+        "episodes": {
+          "total": 63,
+          "tp": 0,
+          "fp": 63,
+          "precision": {
+            "k": 0,
+            "n": 63,
+            "value": 0,
+            "ci95": [
+              0,
+              0.0569
+            ]
+          },
+          "falsePerRun": {
+            "mean": 0.315,
+            "ci95": [
+              0.235,
+              0.395
+            ],
+            "max": 3,
+            "runsWithAny": 52
+          },
+          "falseSpurious": 63,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": null
+        },
+        "units": {
+          "negatives": 1152000,
+          "falsePositive": 206,
+          "fpr": 0.00017881944444444445,
+          "fprCi95": [
+            0.0001232638888888889,
+            0.00024131944444444445
+          ],
+          "specificity": 0.9998211805555556,
+          "positiveUnits": 0,
+          "unitSensitivity": null
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "byVariant": {}
+        },
+        "localization": {
+          "n": 0,
+          "meanJaccard": null,
+          "exactRate": null,
+          "meanOverreach": null,
+          "districtCorrect": null
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 9,
+            "tp": 0,
+            "precision": 0
+          },
+          "medium": {
+            "episodes": 46,
+            "tp": 0,
+            "precision": 0
+          },
+          "high": {
+            "episodes": 8,
+            "tp": 0,
+            "precision": 0
+          }
+        },
+        "byMultiplier": {},
+        "bySyndrome": {}
+      },
+      "ablation:no_bulk_gate": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "evaluable": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 0,
+          "median": null,
+          "q25": null,
+          "q75": null,
+          "mean": null,
+          "normalizedMedian": null
+        },
+        "episodes": {
+          "total": 3,
+          "tp": 0,
+          "fp": 3,
+          "precision": {
+            "k": 0,
+            "n": 3,
+            "value": 0,
+            "ci95": [
+              0,
+              0.7076
+            ]
+          },
+          "falsePerRun": {
+            "mean": 0.015,
+            "ci95": [
+              0,
+              0.035
+            ],
+            "max": 1,
+            "runsWithAny": 3
+          },
+          "falseSpurious": 3,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": null
+        },
+        "units": {
+          "negatives": 1152000,
+          "falsePositive": 8,
+          "fpr": 0.000006944444444444445,
+          "fprCi95": [
+            0,
+            0.000016493055555555554
+          ],
+          "specificity": 0.9999930555555555,
+          "positiveUnits": 0,
+          "unitSensitivity": null
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "byVariant": {}
+        },
+        "localization": {
+          "n": 0,
+          "meanJaccard": null,
+          "exactRate": null,
+          "meanOverreach": null,
+          "districtCorrect": null
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 2,
+            "tp": 0,
+            "precision": 0
+          },
+          "high": {
+            "episodes": 1,
+            "tp": 0,
+            "precision": 0
+          }
+        },
+        "byMultiplier": {},
+        "bySyndrome": {}
+      },
+      "ablation:no_burst_persistence_gate": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "evaluable": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 0,
+          "median": null,
+          "q25": null,
+          "q75": null,
+          "mean": null,
+          "normalizedMedian": null
+        },
+        "episodes": {
+          "total": 44,
+          "tp": 0,
+          "fp": 44,
+          "precision": {
+            "k": 0,
+            "n": 44,
+            "value": 0,
+            "ci95": [
+              0,
+              0.0804
+            ]
+          },
+          "falsePerRun": {
+            "mean": 0.22,
+            "ci95": [
+              0.16,
+              0.29
+            ],
+            "max": 2,
+            "runsWithAny": 39
+          },
+          "falseSpurious": 44,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": null
+        },
+        "units": {
+          "negatives": 1152000,
+          "falsePositive": 139,
+          "fpr": 0.00012065972222222222,
+          "fprCi95": [
+            0.0000763671875,
+            0.0001710286458333332
+          ],
+          "specificity": 0.9998793402777778,
+          "positiveUnits": 0,
+          "unitSensitivity": null
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "byVariant": {}
+        },
+        "localization": {
+          "n": 0,
+          "meanJaccard": null,
+          "exactRate": null,
+          "meanOverreach": null,
+          "districtCorrect": null
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 5,
+            "tp": 0,
+            "precision": 0
+          },
+          "medium": {
+            "episodes": 30,
+            "tp": 0,
+            "precision": 0
+          },
+          "high": {
+            "episodes": 9,
+            "tp": 0,
+            "precision": 0
+          }
+        },
+        "byMultiplier": {},
+        "bySyndrome": {}
+      },
+      "ablation:plugin_poisson": {
+        "runs": 200,
+        "clusters": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "evaluable": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "lateOnly": 0
+        },
+        "delay": {
+          "n": 0,
+          "median": null,
+          "q25": null,
+          "q75": null,
+          "mean": null,
+          "normalizedMedian": null
+        },
+        "episodes": {
+          "total": 2,
+          "tp": 0,
+          "fp": 2,
+          "precision": {
+            "k": 0,
+            "n": 2,
+            "value": 0,
+            "ci95": [
+              0,
+              0.8419
+            ]
+          },
+          "falsePerRun": {
+            "mean": 0.01,
+            "ci95": [
+              0,
+              0.025
+            ],
+            "max": 1,
+            "runsWithAny": 2
+          },
+          "falseSpurious": 2,
+          "falseDecoy": 0,
+          "fragmentsPerDetected": null
+        },
+        "units": {
+          "negatives": 1152000,
+          "falsePositive": 7,
+          "fpr": 0.0000060763888888888885,
+          "fprCi95": [
+            0,
+            0.000015625
+          ],
+          "specificity": 0.9999939236111111,
+          "positiveUnits": 0,
+          "unitSensitivity": null
+        },
+        "decoys": {
+          "all": {
+            "k": 0,
+            "n": 0,
+            "value": null,
+            "ci95": [
+              null,
+              null
+            ]
+          },
+          "byVariant": {}
+        },
+        "localization": {
+          "n": 0,
+          "meanJaccard": null,
+          "exactRate": null,
+          "meanOverreach": null,
+          "districtCorrect": null
+        },
+        "priorityBands": {
+          "low": {
+            "episodes": 0,
+            "tp": 0,
+            "precision": null
+          },
+          "medium": {
+            "episodes": 1,
+            "tp": 0,
+            "precision": 0
+          },
+          "high": {
+            "episodes": 1,
+            "tp": 0,
+            "precision": 0
+          }
+        },
+        "byMultiplier": {},
+        "bySyndrome": {}
+      }
+    }
+  }
+}
