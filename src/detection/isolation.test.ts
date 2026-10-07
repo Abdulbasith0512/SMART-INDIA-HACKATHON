@@ -18,7 +18,7 @@ describe("detector isolation (no ground-truth leakage)", () => {
       const text = readFileSync(join(DIR, f), "utf8");
       const imports = [...text.matchAll(/from\s+["']([^"']+)["']/g)].map((m) => m[1]);
       // Test files may use node built-ins (fs/crypto) but still must not reach the generator or oracle.
-      const banned = f.endsWith(".test.ts") ? /synthetic|evaluation|ground|\/data\/|supabase/i : /synthetic|evaluation|ground|\/data\/|supabase|node:/i;
+      const banned = f.endsWith(".test.ts") ? /synthetic|evaluation|evidence|ground|\/data\/|supabase/i : /synthetic|evaluation|evidence|ground|\/data\/|supabase|node:/i;
       for (const i of imports) expect(i, `${f} imports ${i}`).not.toMatch(banned);
     }
   });

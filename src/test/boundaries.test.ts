@@ -1,7 +1,7 @@
 // @vitest-environment node
 // M2 is deterministic infrastructure. This guards the stated boundary: no LLM, embedding, vector or
 // ML libraries and no AI-vendor calls in application code or dependencies.
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -16,6 +16,11 @@ function walk(dir: string, skip: Set<string>): string[] {
   });
 }
 
+// M4 amendment (narrow): provider endpoints / model clients may exist ONLY inside src/evidence/llm/.
+// Everything else (detector, ingestion, retrieval, ranking, UI, scripts) stays banned from LLM and embedding use.
+const LLM_DIR = join("src", "evidence", "llm");
+const isQuarantinedLlmFile = (f: string): boolean => relative(ROOT, f).startsWith(LLM_DIR + "\\") || relative(ROOT, f).startsWith(LLM_DIR + "/");
+
 describe("M2 boundary: no AI/ML/vector layer", () => {
   it("package.json declares no AI, embedding or vector dependencies", () => {
     const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
@@ -27,7 +32,7 @@ describe("M2 boundary: no AI/ML/vector layer", () => {
     const files = [
       ...walk(join(ROOT, "src"), new Set(["legacy", "node_modules"])),
       ...walk(join(ROOT, "scripts"), new Set()),
-    ].filter((f) => /\.(ts|tsx|mjs)$/.test(f) && !/\.test\.tsx?$/.test(f) && !f.endsWith("database.generated.ts"));
+    ].filter((f) => /\.(ts|tsx|mjs)$/.test(f) && !/\.test\.tsx?$/.test(f) && !f.endsWith("database.generated.ts") && !isQuarantinedLlmFile(f));
     const banned = /(from\s+["'](openai|@anthropic-ai\/[^"']+|@google\/(generative-ai|genai)|langchain[^"']*)["'])|generativelanguage\.googleapis\.com|api\.openai\.com|api\.anthropic\.com|\bembedding(s)?\b\s*[:(]|new\s+(OpenAI|Anthropic|GoogleGenerativeAI)\b/i;
     const offenders = files.filter((f) => banned.test(readFileSync(f, "utf8"))).map((f) => relative(ROOT, f));
     expect(offenders).toEqual([]);
@@ -47,5 +52,31 @@ describe("M2 boundary: no AI/ML/vector layer", () => {
     const sql = walk(join(ROOT, "supabase", "migrations"), new Set()).filter((f) => /m2_/.test(f)).map((f) => readFileSync(f, "utf8")).join("\n");
     const identifiers = sql.match(/\b(create\s+(?:table|type|function)\s+public\.\w+|\w+\s+(?:text|boolean|numeric|integer|uuid|timestamptz)\b)/gi) ?? [];
     expect(identifiers.filter((i) => /outbreak|confirmed_case|diagnos/i.test(i))).toEqual([]);
+  });
+});
+
+describe("M4 boundary: the LLM is quarantined", () => {
+  const llmFiles = () => (existsSync(join(ROOT, LLM_DIR)) ? walk(join(ROOT, LLM_DIR), new Set()) : []);
+
+  it("package.json still declares no AI SDK or vector package (providers are called with plain fetch)", () => {
+    const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
+    expect(Object.keys({ ...pkg.dependencies, ...pkg.devDependencies }).filter((d) => AI_PACKAGES.test(d))).toEqual([]);
+  });
+
+  it("the LLM directory never reads provider keys through VITE_* (browser-exposed) variables", () => {
+    for (const f of llmFiles()) expect(readFileSync(f, "utf8"), relative(ROOT, f)).not.toMatch(/VITE_[A-Z_]*(KEY|TOKEN|SECRET)/);
+  });
+
+  it("no LLM endpoint string appears anywhere outside the quarantined directory", () => {
+    const endpoint = /generativelanguage\.googleapis\.com|api\.openai\.com|api\.anthropic\.com/i;
+    const files = [...walk(join(ROOT, "src"), new Set(["legacy", "node_modules"])), ...walk(join(ROOT, "scripts"), new Set())]
+      .filter((f) => /\.(ts|tsx|mjs)$/.test(f) && !/\.test\.tsx?$/.test(f) && !isQuarantinedLlmFile(f));
+    expect(files.filter((f) => endpoint.test(readFileSync(f, "utf8"))).map((f) => relative(ROOT, f))).toEqual([]);
+  });
+
+  it("vector search stays banned in migrations until an explicit decision (the written upgrade trigger)", () => {
+    const sql = walk(join(ROOT, "supabase", "migrations"), new Set()).filter((f) => f.endsWith(".sql")).map((f) => readFileSync(f, "utf8")).join("\n");
+    expect(sql).not.toMatch(/create\s+extension[^;]*vector/i);
+    expect(sql).not.toMatch(/\bvector\s*\(\d+\)/i);
   });
 });
