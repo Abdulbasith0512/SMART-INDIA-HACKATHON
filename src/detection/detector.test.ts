@@ -184,16 +184,22 @@ describe("artifacts and weak evidence are rejected (and logged)", () => {
   });
 
   it("survival checks: a signal that depends on one day, or on bulk-source reports, does not survive; a genuine one does", () => {
-    const gate = (over: object) => evaluateGates(DETECTOR_V1, 5, { observed: 12, elevatedDays: 4, maxDayShare: 0.4, bulkShare: 0.1, ratio: 4, pLeaveOneDayOut: 0.001, pNonBulk: 0.001, ...over });
+    // Frozen v1: the remainder must still be an alarm on its own at the detection level (p <= 1e-4).
+    expect(DETECTOR_V1.evidence.leaveOneDayOutAlpha).toBe(1e-4);
+    expect(DETECTOR_V1.evidence.nonBulkAlpha).toBe(1e-4);
+    const gate = (over: object) => evaluateGates(DETECTOR_V1, 5, { observed: 12, elevatedDays: 4, maxDayShare: 0.4, bulkShare: 0.1, ratio: 4, pLeaveOneDayOut: 1e-6, pNonBulk: 1e-6, ...over });
     expect(gate({})).toEqual([]);
-    expect(gate({ pLeaveOneDayOut: 0.4 })).toEqual(["burst"]); // fails once its largest day is removed
-    expect(gate({ pNonBulk: 0.4 })).toEqual(["bulk"]); // fails once bulk-source reports are removed
+    expect(gate({ pLeaveOneDayOut: 1e-4 })).toEqual([]); // boundary: exactly at the level survives
+    expect(gate({ pLeaveOneDayOut: 0.001 })).toEqual(["burst"]); // 'somewhat elevated' is no longer enough
+    expect(gate({ pNonBulk: 0.001 })).toEqual(["bulk"]);
   });
 
   it("a statistically odd but sub-floor cluster is a 'watch' finding, never a candidate or a number shown to officers", () => {
     // 4 extra jaundice reports over 3 days in a quiet block: below the evidence floor of 5
     const inj: Inject[] = [{ block: "b4", syndrome: "jaundice", day: 70, n: 2, source: "mixed" }, { block: "b4", syndrome: "jaundice", day: 71, n: 2, source: "mixed" }];
-    const r = runDetector(makeInput({ seed: 8, inject: inj }), resolveConfig({ test: { alpha: 0.05 } }), { collectFindings: true });
+    // Permissive test-only config (NOT the frozen v1) so the evidence floor is the only failing gate.
+    const permissive = resolveConfig({ test: { alpha: 0.05 }, evidence: { leaveOneDayOutAlpha: 0.05, nonBulkAlpha: 0.05 } });
+    const r = runDetector(makeInput({ seed: 8, inject: inj }), permissive, { collectFindings: true });
     const watch = r.findings.filter((f) => f.test.decision === "watch");
     expect(watch.length).toBeGreaterThan(0);
     for (const e of r.state.episodes) expect(e.peak.observed).toBeGreaterThanOrEqual(5);
@@ -315,7 +321,7 @@ function strip(json: string): string {
 }
 
 describe("gates, scoring, config", () => {
-  const base = { observed: 12, elevatedDays: 4, maxDayShare: 0.4, bulkShare: 0.1, ratio: 4, pLeaveOneDayOut: 0.001, pNonBulk: 0.001 };
+  const base = { observed: 12, elevatedDays: 4, maxDayShare: 0.4, bulkShare: 0.1, ratio: 4, pLeaveOneDayOut: 1e-6, pNonBulk: 1e-6 };
 
   it("evaluateGates reports exactly the failing gates", () => {
     expect(evaluateGates(DETECTOR_V1, 5, base)).toEqual([]);

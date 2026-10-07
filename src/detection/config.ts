@@ -29,8 +29,11 @@ export const DETECTOR_V1: DetectorConfig = {
     elevatedDayFactor: 1.5,
     maxSingleDayShare: 0.7,
     maxBulkShare: 0.8,
-    leaveOneDayOutAlpha: 0.05,
-    nonBulkAlpha: 0.05,
+    // Survival checks use the SAME level as detection: after removing its largest day / its bulk-source reports,
+    // the remainder must still be an alarm on its own. (Initially 0.05; strengthened after dev diagnostics showed a
+    // bulk day plus a weak chance excess could pass a looser level. Disclosed in docs/M3-DETECTION.md.)
+    leaveOneDayOutAlpha: 1e-4,
+    nonBulkAlpha: 1e-4,
   },
   gates: { persistence: true, burst: true, bulk: true, ratio: true },
   bulkSources: ["imported_dataset", "system_generated"],

@@ -17,7 +17,10 @@
     "validate": "npm run lint && npm run typecheck && npm run test && npm run build && npm run check:secrets",
     "synth:export": "tsx scripts/export-synthetic.ts",
     "seed:synthetic": "tsx scripts/seed-synthetic.ts",
-    "verify:m2": "tsx scripts/verify-m2.ts"
+    "verify:m2": "tsx scripts/verify-m2.ts",
+    "eval:detector": "tsx scripts/eval-detector.ts",
+    "detect": "tsx scripts/run-detector.ts",
+    "verify:m3": "tsx scripts/verify-m3.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
