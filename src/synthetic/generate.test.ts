@@ -220,3 +220,44 @@ describe("normal background variation", () => {
     });
   });
 });
+
+describe("M3.0: parametrised generator (default output unchanged)", () => {
+  const lines = (d: ReturnType<typeof generateSyntheticDataset>) => d.reports.map(canonicalReportLine);
+
+  it("explicit default options reproduce the committed M2 dataset exactly", async () => {
+    const { SYNTHETIC_SEED, DEFAULT_EVENTS } = await import("./generate");
+    const explicit = generateSyntheticDataset({ seed: SYNTHETIC_SEED, events: DEFAULT_EVENTS, batch: SYNTHETIC_BATCH });
+    expect(lines(explicit)).toEqual(lines(ds));
+    expect(JSON.stringify(explicit.groundTruth)).toBe(JSON.stringify(ds.groundTruth));
+  });
+
+  it("a different seed gives a different, internally consistent dataset", () => {
+    const a = generateSyntheticDataset({ seed: 7, events: [], batch: "t-7" });
+    const b = generateSyntheticDataset({ seed: 8, events: [], batch: "t-8" });
+    expect(lines(a)).not.toEqual(lines(b));
+    expect(new Set(a.reports.map((r) => r.client_submission_id)).size).toBe(a.reports.length);
+    expect(a.reports.every((r) => r.synthetic_batch === "t-7")).toBe(true);
+    expect(lines(generateSyntheticDataset({ seed: 7, events: [], batch: "t-7" }))).toEqual(lines(a)); // reproducible
+  });
+
+  it("a null dataset (no events) has no ground truth and no injected artifacts", () => {
+    const n = generateSyntheticDataset({ seed: 3, events: [] });
+    expect(n.groundTruth).toEqual([]);
+    expect(n.reports.length).toBeGreaterThan(3000);
+  });
+
+  it("supports multi-day, single-source decoys for held-out evaluation", () => {
+    const decoy = {
+      id: "DX", kind: "decoy_reporting_artifact" as const, description: "3-day clinic batch", syndrome: "fever" as const,
+      region_codes: ["SYN-OD-PUR-SAT"], start_day: 40, end_day: 42, shape: "multi_day_burst" as const, multiplier: null,
+      severity_shift: false, burst_reports: 12, burst_source: "clinician" as const,
+    };
+    const base = generateSyntheticDataset({ seed: 3, events: [] });
+    const d = generateSyntheticDataset({ seed: 3, events: [decoy] });
+    expect(d.groundTruth).toHaveLength(1);
+    expect(d.groundTruth[0].injected_report_count).toBe(36);
+    expect(d.reports.length).toBe(base.reports.length + 36);
+    const extra = d.reports.filter((r) => !base.reports.some((x) => x.client_submission_id === r.client_submission_id && x.observed_at === r.observed_at));
+    expect(extra.every((r) => r.source_type === "clinician" && r.severity === "unknown")).toBe(true);
+  });
+});
