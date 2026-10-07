@@ -1,11 +1,13 @@
 # JanSanket
 
-Community Health Intelligence & Response Platform. Current state: **Milestone 2 (core health-signal data foundation)** on top of M1 (secure foundation). Deterministic infrastructure only — no AI, detection, RAG or maps yet.
+Community Health Intelligence & Response Platform. Current state: **Milestone 3 (statistical signal detection)** on top of M2 (health-signal data foundation) and M1 (secure foundation). Deterministic statistics only — no LLM, RAG, embeddings, ML models or maps.
 
-> LISTEN → DETECT → CORRELATE → EXPLAIN → VERIFY → INTERVENE → MEASURE → LEARN. M2 implements the foundation for LISTEN.
-> A health report is an **observation**, not a diagnosis. A signal candidate is a **hypothesis requiring verification**, never a confirmed outbreak.
+> LISTEN → DETECT → CORRELATE → EXPLAIN → VERIFY → INTERVENE → MEASURE → LEARN. M2 = LISTEN, M3 = DETECT.
+> A health report is an **observation**, not a diagnosis. A detected signal is an **emerging signal requiring verification**, never a confirmed outbreak. `signal_score` ranks priority; `confidence` measures evidence sufficiency; neither is a probability.
 
-Docs: [M2 architecture](docs/M2-ARCHITECTURE.md) · [ADR 0001: privacy-minimised population intelligence](docs/adr/0001-privacy-minimized-population-intelligence.md)
+Docs: [M2 architecture](docs/M2-ARCHITECTURE.md) · [M3 detection](docs/M3-DETECTION.md) · [M3 evaluation](docs/M3-EVALUATION.md) · [ADR 0001](docs/adr/0001-privacy-minimized-population-intelligence.md) · [ADR 0002](docs/adr/0002-transparent-statistical-detection-before-ml.md)
+
+The M3 benchmark is synthetic: it validates the implementation and its calibration, **not** real-world epidemiological performance.
 
 ## Setup
 
@@ -27,6 +29,9 @@ Docs: [M2 architecture](docs/M2-ARCHITECTURE.md) · [ADR 0001: privacy-minimised
 | `npm run validate` | All of the above |
 | `npm run verify:m1` / `npm run verify:m2` | End-to-end checks of auth, RLS, ingestion and the privacy tiers against the **live** project |
 | `npm run synth:export` | Regenerate the synthetic dataset manifest and planted-cluster ground truth |
+| `npm run detect` | Run the frozen detector (v1) over live deidentified data; idempotent upsert of signal candidates |
+| `npm run eval:detector -- --split=dev\|test` / `--persist` | Ground-truth evaluation (dev calibration, or the held-out run against the frozen config) / store results |
+| `npm run verify:m3` | Live checks: DB path equals in-memory detector, idempotency, privacy floor, wording, RLS, review boundary |
 | `npx supabase test db` | M1 pgTAP tests in `supabase/tests` (needs Docker + Supabase CLI) |
 
 Regenerate DB types after schema changes:
