@@ -132,6 +132,266 @@ export type Database = {
         }
         Relationships: []
       }
+      detector_findings: {
+        Row: {
+          as_of_date: string
+          block_ids: string[]
+          candidate_id: string | null
+          created_at: string
+          decision: string
+          district_id: string
+          expected: number
+          failed_gates: string[]
+          id: string
+          observed: number | null
+          p_value: number
+          ratio: number | null
+          run_id: string
+          scope: string
+          score: number | null
+          syndrome: Database["public"]["Enums"]["syndrome_category"]
+          window_days: number
+        }
+        Insert: {
+          as_of_date: string
+          block_ids: string[]
+          candidate_id?: string | null
+          created_at?: string
+          decision: string
+          district_id: string
+          expected: number
+          failed_gates?: string[]
+          id?: string
+          observed?: number | null
+          p_value: number
+          ratio?: number | null
+          run_id: string
+          scope: string
+          score?: number | null
+          syndrome: Database["public"]["Enums"]["syndrome_category"]
+          window_days: number
+        }
+        Update: {
+          as_of_date?: string
+          block_ids?: string[]
+          candidate_id?: string | null
+          created_at?: string
+          decision?: string
+          district_id?: string
+          expected?: number
+          failed_gates?: string[]
+          id?: string
+          observed?: number | null
+          p_value?: number
+          ratio?: number | null
+          run_id?: string
+          scope?: string
+          score?: number | null
+          syndrome?: Database["public"]["Enums"]["syndrome_category"]
+          window_days?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "detector_findings_candidate_id_fkey"
+            columns: ["candidate_id"]
+            isOneToOne: false
+            referencedRelation: "signal_candidates"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "detector_findings_district_id_fkey"
+            columns: ["district_id"]
+            isOneToOne: false
+            referencedRelation: "regions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "detector_findings_run_id_fkey"
+            columns: ["run_id"]
+            isOneToOne: false
+            referencedRelation: "detector_runs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      detector_runs: {
+        Row: {
+          as_of_from: string | null
+          as_of_to: string | null
+          code_version: string | null
+          config: Json
+          config_hash: string
+          data_from: string
+          data_to: string
+          detector_name: string
+          detector_version: string
+          error: string | null
+          evidence_floor: number
+          finished_at: string | null
+          id: string
+          input_hash: string | null
+          input_row_count: number
+          method_code: string
+          mode: string
+          privacy_k_applied: number
+          started_at: string
+          stats: Json
+          status: string
+        }
+        Insert: {
+          as_of_from?: string | null
+          as_of_to?: string | null
+          code_version?: string | null
+          config: Json
+          config_hash: string
+          data_from: string
+          data_to: string
+          detector_name: string
+          detector_version: string
+          error?: string | null
+          evidence_floor: number
+          finished_at?: string | null
+          id?: string
+          input_hash?: string | null
+          input_row_count?: number
+          method_code: string
+          mode: string
+          privacy_k_applied: number
+          started_at?: string
+          stats?: Json
+          status?: string
+        }
+        Update: {
+          as_of_from?: string | null
+          as_of_to?: string | null
+          code_version?: string | null
+          config?: Json
+          config_hash?: string
+          data_from?: string
+          data_to?: string
+          detector_name?: string
+          detector_version?: string
+          error?: string | null
+          evidence_floor?: number
+          finished_at?: string | null
+          id?: string
+          input_hash?: string | null
+          input_row_count?: number
+          method_code?: string
+          mode?: string
+          privacy_k_applied?: number
+          started_at?: string
+          stats?: Json
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "detector_runs_method_code_fkey"
+            columns: ["method_code"]
+            isOneToOne: false
+            referencedRelation: "detection_methods"
+            referencedColumns: ["code"]
+          },
+        ]
+      }
+      evaluation_event_results: {
+        Row: {
+          credited_date: string | null
+          decoy_alerted: boolean | null
+          delay_days: number | null
+          detected: boolean
+          evaluable: boolean
+          evaluation_run_id: string
+          event_id: string
+          gate_reasons: string[]
+          id: string
+          kind: string
+          late_detected: boolean
+          localization: Json | null
+        }
+        Insert: {
+          credited_date?: string | null
+          decoy_alerted?: boolean | null
+          delay_days?: number | null
+          detected: boolean
+          evaluable: boolean
+          evaluation_run_id: string
+          event_id: string
+          gate_reasons?: string[]
+          id?: string
+          kind: string
+          late_detected?: boolean
+          localization?: Json | null
+        }
+        Update: {
+          credited_date?: string | null
+          decoy_alerted?: boolean | null
+          delay_days?: number | null
+          detected?: boolean
+          evaluable?: boolean
+          evaluation_run_id?: string
+          event_id?: string
+          gate_reasons?: string[]
+          id?: string
+          kind?: string
+          late_detected?: boolean
+          localization?: Json | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evaluation_event_results_evaluation_run_id_fkey"
+            columns: ["evaluation_run_id"]
+            isOneToOne: false
+            referencedRelation: "evaluation_runs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evaluation_runs: {
+        Row: {
+          config_hash: string
+          created_at: string
+          dataset_hash: string | null
+          dataset_ref: string
+          detector_version: string
+          disclaimer: string
+          ground_truth_hash: string | null
+          id: string
+          kind: string
+          matching_rules_version: string
+          metrics: Json
+          n_datasets: number
+        }
+        Insert: {
+          config_hash: string
+          created_at?: string
+          dataset_hash?: string | null
+          dataset_ref: string
+          detector_version: string
+          disclaimer?: string
+          ground_truth_hash?: string | null
+          id?: string
+          kind: string
+          matching_rules_version: string
+          metrics: Json
+          n_datasets: number
+        }
+        Update: {
+          config_hash?: string
+          created_at?: string
+          dataset_hash?: string | null
+          dataset_ref?: string
+          detector_version?: string
+          disclaimer?: string
+          ground_truth_hash?: string | null
+          id?: string
+          kind?: string
+          matching_rules_version?: string
+          metrics?: Json
+          n_datasets?: number
+        }
+        Relationships: []
+      }
       evidence_items: {
         Row: {
           citation: string | null
@@ -453,8 +713,14 @@ export type Database = {
           created_by: string | null
           detection_method: string
           deviation: number | null
+          episode_key: string | null
+          evidence: Json | null
           explanation: string | null
+          first_detected_on: string | null
+          first_run_id: string | null
           id: string
+          last_run_id: string | null
+          last_seen_on: string | null
           minimum_sample_count: number
           observed_value: number
           origin: Database["public"]["Enums"]["signal_origin"]
@@ -464,6 +730,7 @@ export type Database = {
           reviewed_at: string | null
           reviewed_by: string | null
           sample_count: number | null
+          score_components: Json | null
           signal_score: number | null
           status: Database["public"]["Enums"]["signal_status"]
           syndrome: Database["public"]["Enums"]["syndrome_category"]
@@ -479,8 +746,14 @@ export type Database = {
           created_by?: string | null
           detection_method?: string
           deviation?: number | null
+          episode_key?: string | null
+          evidence?: Json | null
           explanation?: string | null
+          first_detected_on?: string | null
+          first_run_id?: string | null
           id?: string
+          last_run_id?: string | null
+          last_seen_on?: string | null
           minimum_sample_count?: number
           observed_value: number
           origin?: Database["public"]["Enums"]["signal_origin"]
@@ -490,6 +763,7 @@ export type Database = {
           reviewed_at?: string | null
           reviewed_by?: string | null
           sample_count?: number | null
+          score_components?: Json | null
           signal_score?: number | null
           status?: Database["public"]["Enums"]["signal_status"]
           syndrome: Database["public"]["Enums"]["syndrome_category"]
@@ -505,8 +779,14 @@ export type Database = {
           created_by?: string | null
           detection_method?: string
           deviation?: number | null
+          episode_key?: string | null
+          evidence?: Json | null
           explanation?: string | null
+          first_detected_on?: string | null
+          first_run_id?: string | null
           id?: string
+          last_run_id?: string | null
+          last_seen_on?: string | null
           minimum_sample_count?: number
           observed_value?: number
           origin?: Database["public"]["Enums"]["signal_origin"]
@@ -516,6 +796,7 @@ export type Database = {
           reviewed_at?: string | null
           reviewed_by?: string | null
           sample_count?: number | null
+          score_components?: Json | null
           signal_score?: number | null
           status?: Database["public"]["Enums"]["signal_status"]
           syndrome?: Database["public"]["Enums"]["syndrome_category"]
@@ -531,6 +812,20 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "detection_methods"
             referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "signal_candidates_first_run_id_fkey"
+            columns: ["first_run_id"]
+            isOneToOne: false
+            referencedRelation: "detector_runs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "signal_candidates_last_run_id_fkey"
+            columns: ["last_run_id"]
+            isOneToOne: false
+            referencedRelation: "detector_runs"
+            referencedColumns: ["id"]
           },
           {
             foreignKeyName: "signal_candidates_region_id_fkey"
@@ -679,6 +974,10 @@ export type Database = {
       }
       apply_report_retention: { Args: never; Returns: Json }
       deidentify_pending_reports: { Args: { _limit?: number }; Returns: number }
+      detection_daily_features: {
+        Args: { _from: string; _to: string }
+        Returns: Json
+      }
       get_report_aggregates: {
         Args: { _from: string; _region_id: string; _to: string }
         Returns: {
@@ -729,8 +1028,14 @@ export type Database = {
           created_by: string | null
           detection_method: string
           deviation: number | null
+          episode_key: string | null
+          evidence: Json | null
           explanation: string | null
+          first_detected_on: string | null
+          first_run_id: string | null
           id: string
+          last_run_id: string | null
+          last_seen_on: string | null
           minimum_sample_count: number
           observed_value: number
           origin: Database["public"]["Enums"]["signal_origin"]
@@ -740,6 +1045,7 @@ export type Database = {
           reviewed_at: string | null
           reviewed_by: string | null
           sample_count: number | null
+          score_components: Json | null
           signal_score: number | null
           status: Database["public"]["Enums"]["signal_status"]
           syndrome: Database["public"]["Enums"]["syndrome_category"]
@@ -755,6 +1061,7 @@ export type Database = {
           isSetofReturn: false
         }
       }
+      upsert_detected_signal: { Args: { _p: Json }; Returns: Json }
       write_audit: {
         Args: {
           _action: string
