@@ -45,6 +45,42 @@ export type Database = {
         }
         Relationships: []
       }
+      corpus_snapshots: {
+        Row: {
+          chunk_count: number
+          corpus_hash: string
+          corpus_version: string
+          created_at: string
+          id: string
+          includes_synthetic: boolean
+          is_active: boolean
+          item_count: number
+          notes: string | null
+        }
+        Insert: {
+          chunk_count: number
+          corpus_hash: string
+          corpus_version: string
+          created_at?: string
+          id?: string
+          includes_synthetic: boolean
+          is_active?: boolean
+          item_count: number
+          notes?: string | null
+        }
+        Update: {
+          chunk_count?: number
+          corpus_hash?: string
+          corpus_version?: string
+          created_at?: string
+          id?: string
+          includes_synthetic?: boolean
+          is_active?: boolean
+          item_count?: number
+          notes?: string | null
+        }
+        Relationships: []
+      }
       deidentified_observations: {
         Row: {
           age_band: Database["public"]["Enums"]["age_band"]
@@ -392,59 +428,600 @@ export type Database = {
         }
         Relationships: []
       }
+      evidence_bundle_items: {
+        Row: {
+          bundle_id: string
+          chunk_id: string
+          citation_id: string
+          evidence_version_id: string
+          facet: string
+          id: string
+          rank: number
+          score_components: Json
+          why: Json
+        }
+        Insert: {
+          bundle_id: string
+          chunk_id: string
+          citation_id: string
+          evidence_version_id: string
+          facet: string
+          id?: string
+          rank: number
+          score_components?: Json
+          why?: Json
+        }
+        Update: {
+          bundle_id?: string
+          chunk_id?: string
+          citation_id?: string
+          evidence_version_id?: string
+          facet?: string
+          id?: string
+          rank?: number
+          score_components?: Json
+          why?: Json
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_bundle_items_bundle_id_fkey"
+            columns: ["bundle_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_bundles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "evidence_bundle_items_chunk_id_fkey"
+            columns: ["chunk_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_chunks"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "evidence_bundle_items_evidence_version_id_fkey"
+            columns: ["evidence_version_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_versions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evidence_bundles: {
+        Row: {
+          bundle: Json
+          bundle_hash: string
+          conflict_count: number
+          created_at: string
+          gap_count: number
+          id: string
+          item_count: number
+          retrieval_run_id: string
+          schema_version: string
+          signal_candidate_id: string
+        }
+        Insert: {
+          bundle: Json
+          bundle_hash: string
+          conflict_count?: number
+          created_at?: string
+          gap_count?: number
+          id?: string
+          item_count?: number
+          retrieval_run_id: string
+          schema_version: string
+          signal_candidate_id: string
+        }
+        Update: {
+          bundle?: Json
+          bundle_hash?: string
+          conflict_count?: number
+          created_at?: string
+          gap_count?: number
+          id?: string
+          item_count?: number
+          retrieval_run_id?: string
+          schema_version?: string
+          signal_candidate_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_bundles_retrieval_run_id_fkey"
+            columns: ["retrieval_run_id"]
+            isOneToOne: false
+            referencedRelation: "retrieval_runs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "evidence_bundles_signal_candidate_id_fkey"
+            columns: ["signal_candidate_id"]
+            isOneToOne: false
+            referencedRelation: "signal_candidates"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evidence_chunks: {
+        Row: {
+          chunk_hash: string
+          created_at: string
+          id: string
+          kind: string
+          language: string
+          ordinal: number
+          text: string
+          version_id: string
+        }
+        Insert: {
+          chunk_hash: string
+          created_at?: string
+          id?: string
+          kind: string
+          language?: string
+          ordinal: number
+          text: string
+          version_id: string
+        }
+        Update: {
+          chunk_hash?: string
+          created_at?: string
+          id?: string
+          kind?: string
+          language?: string
+          ordinal?: number
+          text?: string
+          version_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_chunks_version_id_fkey"
+            columns: ["version_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_versions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evidence_evaluation_results: {
+        Row: {
+          id: string
+          metrics: Json
+          passed: boolean
+          run_id: string
+          scenario_id: string
+        }
+        Insert: {
+          id?: string
+          metrics?: Json
+          passed: boolean
+          run_id: string
+          scenario_id: string
+        }
+        Update: {
+          id?: string
+          metrics?: Json
+          passed?: boolean
+          run_id?: string
+          scenario_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_evaluation_results_run_id_fkey"
+            columns: ["run_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_evaluation_runs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evidence_evaluation_runs: {
+        Row: {
+          corpus_hash: string
+          created_at: string
+          disclaimer: string
+          id: string
+          kind: string
+          metrics: Json
+          n_scenarios: number
+          prompt_version: string | null
+          retrieval_config_hash: string
+          scenario_set_ref: string
+        }
+        Insert: {
+          corpus_hash: string
+          created_at?: string
+          disclaimer?: string
+          id?: string
+          kind: string
+          metrics: Json
+          n_scenarios: number
+          prompt_version?: string | null
+          retrieval_config_hash: string
+          scenario_set_ref: string
+        }
+        Update: {
+          corpus_hash?: string
+          created_at?: string
+          disclaimer?: string
+          id?: string
+          kind?: string
+          metrics?: Json
+          n_scenarios?: number
+          prompt_version?: string | null
+          retrieval_config_hash?: string
+          scenario_set_ref?: string
+        }
+        Relationships: []
+      }
       evidence_items: {
         Row: {
+          canonical_id: string | null
           citation: string | null
           content_hash: string | null
           created_at: string
           created_by: string | null
+          evidence_kind: Database["public"]["Enums"]["evidence_kind"] | null
+          geo_region_id: string | null
+          geo_scope: Database["public"]["Enums"]["evidence_geo_scope"] | null
           id: string
+          is_synthetic: boolean
           language: string | null
+          licence: string | null
           publication_date: string | null
           publisher: string
           reference_url: string | null
+          review_due: string | null
+          source_class: Database["public"]["Enums"]["evidence_source_class"]
+          source_domain: string | null
           source_type: Database["public"]["Enums"]["evidence_source_type"]
+          status: Database["public"]["Enums"]["evidence_status"]
+          supersedes_id: string | null
+          syndromes: Database["public"]["Enums"]["syndrome_category"][]
           title: string
+          topics: string[]
           trust_level: Database["public"]["Enums"]["evidence_trust_level"]
           updated_at: string
+          valid_from: string | null
+          valid_until: string | null
+          verification_basis: string[]
           verified_at: string | null
           verified_by: string | null
         }
         Insert: {
+          canonical_id?: string | null
           citation?: string | null
           content_hash?: string | null
           created_at?: string
           created_by?: string | null
+          evidence_kind?: Database["public"]["Enums"]["evidence_kind"] | null
+          geo_region_id?: string | null
+          geo_scope?: Database["public"]["Enums"]["evidence_geo_scope"] | null
           id?: string
+          is_synthetic?: boolean
           language?: string | null
+          licence?: string | null
           publication_date?: string | null
           publisher: string
           reference_url?: string | null
+          review_due?: string | null
+          source_class?: Database["public"]["Enums"]["evidence_source_class"]
+          source_domain?: string | null
           source_type: Database["public"]["Enums"]["evidence_source_type"]
+          status?: Database["public"]["Enums"]["evidence_status"]
+          supersedes_id?: string | null
+          syndromes?: Database["public"]["Enums"]["syndrome_category"][]
           title: string
+          topics?: string[]
           trust_level?: Database["public"]["Enums"]["evidence_trust_level"]
           updated_at?: string
+          valid_from?: string | null
+          valid_until?: string | null
+          verification_basis?: string[]
           verified_at?: string | null
           verified_by?: string | null
         }
         Update: {
+          canonical_id?: string | null
           citation?: string | null
           content_hash?: string | null
           created_at?: string
           created_by?: string | null
+          evidence_kind?: Database["public"]["Enums"]["evidence_kind"] | null
+          geo_region_id?: string | null
+          geo_scope?: Database["public"]["Enums"]["evidence_geo_scope"] | null
           id?: string
+          is_synthetic?: boolean
           language?: string | null
+          licence?: string | null
           publication_date?: string | null
           publisher?: string
           reference_url?: string | null
+          review_due?: string | null
+          source_class?: Database["public"]["Enums"]["evidence_source_class"]
+          source_domain?: string | null
           source_type?: Database["public"]["Enums"]["evidence_source_type"]
+          status?: Database["public"]["Enums"]["evidence_status"]
+          supersedes_id?: string | null
+          syndromes?: Database["public"]["Enums"]["syndrome_category"][]
           title?: string
+          topics?: string[]
           trust_level?: Database["public"]["Enums"]["evidence_trust_level"]
           updated_at?: string
+          valid_from?: string | null
+          valid_until?: string | null
+          verification_basis?: string[]
           verified_at?: string | null
           verified_by?: string | null
         }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_items_geo_region_id_fkey"
+            columns: ["geo_region_id"]
+            isOneToOne: false
+            referencedRelation: "regions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "evidence_items_supersedes_id_fkey"
+            columns: ["supersedes_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evidence_topics: {
+        Row: {
+          active: boolean
+          code: string
+          created_at: string
+          description: string
+          label_en: string
+        }
+        Insert: {
+          active?: boolean
+          code: string
+          created_at?: string
+          description: string
+          label_en: string
+        }
+        Update: {
+          active?: boolean
+          code?: string
+          created_at?: string
+          description?: string
+          label_en?: string
+        }
         Relationships: []
+      }
+      evidence_translations: {
+        Row: {
+          abstract: string | null
+          created_at: string
+          evidence_item_id: string
+          id: string
+          language: string
+          provenance: string
+          review_status: string
+          reviewed_at: string | null
+          reviewed_by: string | null
+          title: string
+        }
+        Insert: {
+          abstract?: string | null
+          created_at?: string
+          evidence_item_id: string
+          id?: string
+          language: string
+          provenance: string
+          review_status?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          title: string
+        }
+        Update: {
+          abstract?: string | null
+          created_at?: string
+          evidence_item_id?: string
+          id?: string
+          language?: string
+          provenance?: string
+          review_status?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_translations_evidence_item_id_fkey"
+            columns: ["evidence_item_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evidence_versions: {
+        Row: {
+          abstract: string | null
+          content_hash: string
+          created_at: string
+          evidence_item_id: string
+          fetch_status: string
+          id: string
+          is_current: boolean
+          licence_note: string | null
+          retrieved_at: string | null
+          source_last_modified: string | null
+          version_label: string
+        }
+        Insert: {
+          abstract?: string | null
+          content_hash: string
+          created_at?: string
+          evidence_item_id: string
+          fetch_status?: string
+          id?: string
+          is_current?: boolean
+          licence_note?: string | null
+          retrieved_at?: string | null
+          source_last_modified?: string | null
+          version_label: string
+        }
+        Update: {
+          abstract?: string | null
+          content_hash?: string
+          created_at?: string
+          evidence_item_id?: string
+          fetch_status?: string
+          id?: string
+          is_current?: boolean
+          licence_note?: string | null
+          retrieved_at?: string | null
+          source_last_modified?: string | null
+          version_label?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_versions_evidence_item_id_fkey"
+            columns: ["evidence_item_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      explanation_citations: {
+        Row: {
+          anchor_verified: boolean
+          bundle_item_id: string
+          claim_index: number
+          created_at: string
+          explanation_id: string
+          id: string
+          quote: string | null
+          support_check: Json
+        }
+        Insert: {
+          anchor_verified?: boolean
+          bundle_item_id: string
+          claim_index: number
+          created_at?: string
+          explanation_id: string
+          id?: string
+          quote?: string | null
+          support_check?: Json
+        }
+        Update: {
+          anchor_verified?: boolean
+          bundle_item_id?: string
+          claim_index?: number
+          created_at?: string
+          explanation_id?: string
+          id?: string
+          quote?: string | null
+          support_check?: Json
+        }
+        Relationships: [
+          {
+            foreignKeyName: "explanation_citations_bundle_item_id_fkey"
+            columns: ["bundle_item_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_bundle_items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "explanation_citations_explanation_id_fkey"
+            columns: ["explanation_id"]
+            isOneToOne: false
+            referencedRelation: "generated_explanations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      generated_explanation_raw: {
+        Row: {
+          created_at: string
+          explanation_id: string
+          raw: string
+        }
+        Insert: {
+          created_at?: string
+          explanation_id: string
+          raw: string
+        }
+        Update: {
+          created_at?: string
+          explanation_id?: string
+          raw?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "generated_explanation_raw_explanation_id_fkey"
+            columns: ["explanation_id"]
+            isOneToOne: true
+            referencedRelation: "generated_explanations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      generated_explanations: {
+        Row: {
+          bundle_id: string
+          citation_status: string
+          created_at: string
+          id: string
+          input_hash: string
+          language: string
+          model: string
+          model_version: string | null
+          output: Json | null
+          params: Json
+          prompt_version: string
+          provider: string
+          status: string
+          validation_report: Json
+        }
+        Insert: {
+          bundle_id: string
+          citation_status?: string
+          created_at?: string
+          id?: string
+          input_hash: string
+          language?: string
+          model: string
+          model_version?: string | null
+          output?: Json | null
+          params?: Json
+          prompt_version: string
+          provider: string
+          status: string
+          validation_report?: Json
+        }
+        Update: {
+          bundle_id?: string
+          citation_status?: string
+          created_at?: string
+          id?: string
+          input_hash?: string
+          language?: string
+          model?: string
+          model_version?: string | null
+          output?: Json | null
+          params?: Json
+          prompt_version?: string
+          provider?: string
+          status?: string
+          validation_report?: Json
+        }
+        Relationships: [
+          {
+            foreignKeyName: "generated_explanations_bundle_id_fkey"
+            columns: ["bundle_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_bundles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       health_reports: {
         Row: {
@@ -698,6 +1275,69 @@ export type Database = {
           },
           {
             foreignKeyName: "report_signal_links_signal_candidate_id_fkey"
+            columns: ["signal_candidate_id"]
+            isOneToOne: false
+            referencedRelation: "signal_candidates"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      retrieval_runs: {
+        Row: {
+          as_of_date: string
+          corpus_snapshot_id: string
+          error: string | null
+          finished_at: string | null
+          id: string
+          queries: Json
+          query_vocab_version: string
+          retrieval_config_hash: string
+          retrieval_version: string
+          signal_candidate_id: string
+          started_at: string
+          stats: Json
+          status: string
+        }
+        Insert: {
+          as_of_date: string
+          corpus_snapshot_id: string
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          queries?: Json
+          query_vocab_version: string
+          retrieval_config_hash: string
+          retrieval_version: string
+          signal_candidate_id: string
+          started_at?: string
+          stats?: Json
+          status?: string
+        }
+        Update: {
+          as_of_date?: string
+          corpus_snapshot_id?: string
+          error?: string | null
+          finished_at?: string | null
+          id?: string
+          queries?: Json
+          query_vocab_version?: string
+          retrieval_config_hash?: string
+          retrieval_version?: string
+          signal_candidate_id?: string
+          started_at?: string
+          stats?: Json
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "retrieval_runs_corpus_snapshot_id_fkey"
+            columns: ["corpus_snapshot_id"]
+            isOneToOne: false
+            referencedRelation: "corpus_snapshots"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "retrieval_runs_signal_candidate_id_fkey"
             columns: ["signal_candidate_id"]
             isOneToOne: false
             referencedRelation: "signal_candidates"
@@ -1082,6 +1722,28 @@ export type Database = {
         | "age_60_plus"
         | "age_unknown"
       app_role: "citizen" | "clinician" | "officer" | "admin"
+      evidence_geo_scope:
+        | "global"
+        | "regional"
+        | "national"
+        | "state"
+        | "district"
+      evidence_kind:
+        | "operational_guidance"
+        | "case_definition"
+        | "clinical_epidemiology_reference"
+        | "situation_report"
+        | "surveillance_data"
+        | "research"
+      evidence_source_class:
+        | "intergovernmental_health_authority"
+        | "national_government_health_agency"
+        | "state_government_health_agency"
+        | "peer_reviewed_literature"
+        | "recognized_institution"
+        | "professional_society_guideline"
+        | "other_verified"
+        | "unverified"
       evidence_source_type:
         | "guideline"
         | "government_advisory"
@@ -1089,6 +1751,13 @@ export type Database = {
         | "situation_report"
         | "dataset"
         | "other"
+      evidence_status:
+        | "draft"
+        | "quarantined"
+        | "current"
+        | "superseded"
+        | "withdrawn"
+        | "historical"
       evidence_trust_level: "unreviewed" | "reviewed" | "trusted"
       privacy_level: "raw" | "deidentified" | "aggregated"
       processing_status: "received" | "validated" | "deidentified" | "rejected"
@@ -1262,6 +1931,31 @@ export const Constants = {
         "age_unknown",
       ],
       app_role: ["citizen", "clinician", "officer", "admin"],
+      evidence_geo_scope: [
+        "global",
+        "regional",
+        "national",
+        "state",
+        "district",
+      ],
+      evidence_kind: [
+        "operational_guidance",
+        "case_definition",
+        "clinical_epidemiology_reference",
+        "situation_report",
+        "surveillance_data",
+        "research",
+      ],
+      evidence_source_class: [
+        "intergovernmental_health_authority",
+        "national_government_health_agency",
+        "state_government_health_agency",
+        "peer_reviewed_literature",
+        "recognized_institution",
+        "professional_society_guideline",
+        "other_verified",
+        "unverified",
+      ],
       evidence_source_type: [
         "guideline",
         "government_advisory",
@@ -1269,6 +1963,14 @@ export const Constants = {
         "situation_report",
         "dataset",
         "other",
+      ],
+      evidence_status: [
+        "draft",
+        "quarantined",
+        "current",
+        "superseded",
+        "withdrawn",
+        "historical",
       ],
       evidence_trust_level: ["unreviewed", "reviewed", "trusted"],
       privacy_level: ["raw", "deidentified", "aggregated"],

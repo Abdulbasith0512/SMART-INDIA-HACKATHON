@@ -44,8 +44,15 @@ beforeAll(async () => {
   sig.t3 = await newSignal(IDS.b1a, "2026-09-13");
   sig.t4 = await newSignal(IDS.b1a, "2026-09-14");
 
-  ev.trusted = (await run<{ id: string }>(db, `insert into public.evidence_items (title, publisher, source_type, citation, trust_level, verified_at)
-    values ('Trusted guideline', 'Test Publisher', 'guideline', 'cit-trusted', 'trusted', now()) returning id`)).rows[0].id;
+  // M4 tightened evidence visibility: only CURRENT documents are readable outside admin curation. The trusted
+  // fixture is therefore a fully described, real (non-synthetic) current document with a current version.
+  ev.trusted = (await run<{ id: string }>(db, `insert into public.evidence_items (title, publisher, source_type, citation, trust_level, verified_at,
+      source_class, evidence_kind, topics, geo_scope, canonical_id, source_domain, verification_basis)
+    values ('Trusted guideline', 'Test Publisher', 'guideline', 'cit-trusted', 'trusted', now(),
+      'national_government_health_agency', 'operational_guidance', array['outbreak_investigation'], 'national', 'rls-trusted-guideline', 'example.org', array['domain_allowlist'])
+    returning id`)).rows[0].id;
+  await run(db, `insert into public.evidence_versions (evidence_item_id, version_label, content_hash, is_current) values ('${ev.trusted}', '1', '${"a".repeat(64)}', true)`);
+  await run(db, `update public.evidence_items set status = 'current' where id = '${ev.trusted}'`);
   ev.unreviewed = (await run<{ id: string }>(db, `insert into public.evidence_items (title, publisher, source_type, citation)
     values ('Unreviewed note', 'Test Publisher', 'other', 'cit-unreviewed') returning id`)).rows[0].id;
   await run(db, `insert into public.signal_evidence (signal_candidate_id, evidence_item_id) values ('${sig.d1}', '${ev.trusted}')`);
@@ -102,7 +109,7 @@ describe("citizen", () => {
     expect(other.affected).toBe(0);
   });
 
-  it("reads only trusted evidence", async () => {
+  it("reads only current, trusted, non-synthetic evidence", async () => {
     const r = await asUser(db, IDS.citizenA, () => run<{ id: string }>(db, `select id from public.evidence_items`));
     expect(r.rows.map((x) => x.id)).toEqual([ev.trusted]);
   });
@@ -205,9 +212,9 @@ describe("officer: region boundaries and no raw access", () => {
     expect(l2.rows).toHaveLength(0);
   });
 
-  it("can read all evidence, but cannot write it", async () => {
+  it("can read current evidence (not drafts), but cannot write it", async () => {
     const r = await asUser(db, IDS.officer1, () => run(db, `select id from public.evidence_items`));
-    expect(r.rows).toHaveLength(2);
+    expect(r.rows).toHaveLength(1); // the unreviewed draft fixture is admin-only since M4
     const w = await asUser(db, IDS.officer1, () => run(db, `insert into public.evidence_items (title, publisher, source_type, citation) values ('x','y','other','z')`));
     expect(code(w)).toBe("42501");
   });

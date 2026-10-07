@@ -283,10 +283,13 @@ async function main() {
   if (ev.data) createdEvidence.push(ev.data.id);
   const evId = ev.data?.id as string;
   const evSees = async (u: TestUser) => ((await u.client.from("evidence_items").select("id").eq("id", evId)).data ?? []).length;
-  check("unreviewed evidence hidden from citizens, visible to officers/clinicians/admin", (await evSees(citizenA)) === 0 && (await evSees(officerK)) === 1 && (await evSees(clinician)) === 1 && (await evSees(admin)) === 1);
+  // M4 tightened this deliberately: only CURRENT evidence is readable outside admin curation (drafts are admin-only).
+  check("draft evidence hidden from citizens, officers and clinicians; visible to admin", (await evSees(citizenA)) === 0 && (await evSees(officerK)) === 0 && (await evSees(clinician)) === 0 && (await evSees(admin)) === 1);
   check("non-admins cannot create evidence", denied((await officerK.client.from("evidence_items").insert({ title: "x", publisher: "y", source_type: "other", citation: "z" })).error));
-  await admin.client.from("evidence_items").update({ trust_level: "trusted", verified_at: new Date().toISOString() }).eq("id", evId);
-  check("trusted evidence becomes visible to citizens", (await evSees(citizenA)) === 1);
+  await admin.client.from("evidence_items").update({ trust_level: "trusted", verified_at: new Date().toISOString(), source_class: "national_government_health_agency", evidence_kind: "operational_guidance", topics: ["outbreak_investigation"], geo_scope: "national", canonical_id: `m2-verify-${stamp}`, source_domain: "example.org", verification_basis: ["domain_allowlist"] }).eq("id", evId);
+  await service.from("evidence_versions").insert({ evidence_item_id: evId, version_label: "1", content_hash: "b".repeat(64), is_current: true });
+  const promote = await service.from("evidence_items").update({ status: "current" }).eq("id", evId);
+  check("trusted, described, current evidence becomes visible to citizens and officers", !promote.error && (await evSees(citizenA)) === 1 && (await evSees(officerK)) === 1, promote.error?.message);
   await service.from("signal_evidence").insert({ signal_candidate_id: sK, evidence_item_id: evId });
   check("signal_evidence visible exactly where the signal is", ((await officerK.client.from("signal_evidence").select("signal_candidate_id").eq("signal_candidate_id", sK)).data ?? []).length === 1 && ((await officerG.client.from("signal_evidence").select("signal_candidate_id").eq("signal_candidate_id", sK)).data ?? []).length === 0);
 

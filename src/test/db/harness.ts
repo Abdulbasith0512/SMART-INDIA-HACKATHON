@@ -32,15 +32,18 @@ const SUPABASE_STUBS = `
 
 export type Db = PGlite;
 
-export async function createDb(): Promise<Db> {
+/** `stopBefore`: apply only migrations whose file name sorts before this prefix (schema-snapshot comparisons). */
+export async function createDb(opts: { stopBefore?: string } = {}): Promise<Db> {
   const db = new PGlite();
   await db.exec(SUPABASE_STUBS);
-  const files = readdirSync(MIGRATIONS_DIR).filter((f) => f.endsWith(".sql")).sort();
+  const files = readdirSync(MIGRATIONS_DIR)
+    .filter((f) => f.endsWith(".sql") && (!opts.stopBefore || f < opts.stopBefore))
+    .sort();
   for (const f of files) {
     await db.exec(readFileSync(join(MIGRATIONS_DIR, f), "utf8"));
   }
   // Test-the-tests hook: apply a deliberate weakening (mutation) and confirm the suite goes red.
-  if (process.env.DB_TEST_MUTATION) await db.exec(process.env.DB_TEST_MUTATION);
+  if (process.env.DB_TEST_MUTATION && !opts.stopBefore) await db.exec(process.env.DB_TEST_MUTATION);
   return db;
 }
 
