@@ -1,0 +1,31 @@
+{
+  "batch": "m2-odisha-v1",
+  "seed": 20261007,
+  "start_date": "2026-06-15",
+  "days": 90,
+  "region_count": 54,
+  "report_count": 4893,
+  "case_count": 5975,
+  "reports_by_source": {
+    "citizen": 2654,
+    "clinician": 553,
+    "environmental": 47,
+    "health_facility": 904,
+    "imported_dataset": 229,
+    "public_health_officer": 201,
+    "survey": 214,
+    "system_generated": 91
+  },
+  "reports_by_syndrome": {
+    "acute_diarrhoeal_illness": 1335,
+    "fever": 1508,
+    "fever_with_rash": 221,
+    "jaundice": 116,
+    "other": 652,
+    "respiratory_illness": 1061
+  },
+  "reports_sha256": "4016bab33f274a51748ad1be971c19779164a986df285fa352af6f7b4461a9c6",
+  "regions_sha256": "b1bc0bc9b94795a93e1aaa09ec491b9fe54f0c386a404505888dfb3b7ac79364",
+  "ground_truth_sha256": "832ff9bad67dd1f5ec33907dcba508ba2cbed5e73ce582f0dbfe17a1df345a0e",
+  "note": "Entirely synthetic. No real patients, no real personal data. Administrative codes are fictional (SYN-*)."
+}

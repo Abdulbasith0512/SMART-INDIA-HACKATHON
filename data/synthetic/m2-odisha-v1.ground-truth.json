@@ -1,0 +1,74 @@
+[
+  {
+    "id": "P1",
+    "kind": "true_cluster",
+    "description": "Acute diarrhoeal illness surge in one block (clear, single-block plateau)",
+    "syndrome": "acute_diarrhoeal_illness",
+    "region_codes": [
+      "SYN-OD-KHO-BAL"
+    ],
+    "shape": "plateau",
+    "multiplier": 7,
+    "start_date": "2026-08-24",
+    "end_date": "2026-08-31",
+    "injected_report_count": 37
+  },
+  {
+    "id": "P2",
+    "kind": "true_cluster",
+    "description": "Fever-with-rash cluster spreading across two adjacent blocks",
+    "syndrome": "fever_with_rash",
+    "region_codes": [
+      "SYN-OD-GAN-ASK",
+      "SYN-OD-GAN-BHA"
+    ],
+    "shape": "plateau",
+    "multiplier": 6,
+    "start_date": "2026-07-25",
+    "end_date": "2026-08-02",
+    "injected_report_count": 22
+  },
+  {
+    "id": "P3",
+    "kind": "true_cluster",
+    "description": "Sparse jaundice cluster (low counts: exercises small-cell suppression and low-sample confidence)",
+    "syndrome": "jaundice",
+    "region_codes": [
+      "SYN-OD-PUR-NIM"
+    ],
+    "shape": "plateau",
+    "multiplier": 15,
+    "start_date": "2026-08-12",
+    "end_date": "2026-08-22",
+    "injected_report_count": 9
+  },
+  {
+    "id": "P4",
+    "kind": "true_cluster",
+    "description": "Gradually ramping diarrhoeal cluster across two blocks of one district",
+    "syndrome": "acute_diarrhoeal_illness",
+    "region_codes": [
+      "SYN-OD-CTC-ATH",
+      "SYN-OD-CTC-BAR"
+    ],
+    "shape": "ramp",
+    "multiplier": 6,
+    "start_date": "2026-07-13",
+    "end_date": "2026-07-21",
+    "injected_report_count": 55
+  },
+  {
+    "id": "D1",
+    "kind": "decoy_reporting_artifact",
+    "description": "One-day bulk import of fever reports (data-entry artifact, NOT a true signal)",
+    "syndrome": "fever",
+    "region_codes": [
+      "SYN-OD-GAN-DIG"
+    ],
+    "shape": "single_day_burst",
+    "multiplier": null,
+    "start_date": "2026-08-04",
+    "end_date": "2026-08-04",
+    "injected_report_count": 40
+  }
+]
