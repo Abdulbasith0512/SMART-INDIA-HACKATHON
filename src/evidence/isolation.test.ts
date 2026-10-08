@@ -27,7 +27,7 @@ describe("evidence engine / statistical engine isolation", () => {
   });
 
   it("only the quarantined LLM directory and its approved consumers may reference it", () => {
-    const allowedConsumers = [join("src", "evidence", "generation"), join("src", "evidence", "llm"), join("scripts", "explain-signal.ts"), join("scripts", "eval-evidence.ts"), join("scripts", "verify-m4.ts")];
+    const allowedConsumers = [join("src", "evidence", "generation"), join("src", "evidence", "llm"), join("scripts", "explain-signal.ts"), join("scripts", "eval-evidence.ts"), join("scripts", "verify-m4.ts"), join("scripts", "verify-m4-5.ts"), join("scripts", "smoke-gemini.ts")];
     const files = [...sources("src"), ...walk(join(ROOT, "scripts")).filter((f) => /\.tsx?$/.test(f))].filter((f) => !f.includes(join("src", "legacy")));
     const offenders = files
       .filter((f) => importsOf(f).some((i) => /evidence\/llm|\.\/llm|\.\.\/llm/.test(i)))
