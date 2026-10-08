@@ -86,7 +86,7 @@ const TRUST_ORDER = ["unreviewed", "reviewed", "trusted"];
 const COMPARED = [
   "title", "publisher", "source_type", "reference_url", "citation", "publication_date", "language", "source_class", "evidence_kind",
   "topics", "syndromes", "geo_scope", "geo_region_id", "valid_from", "valid_until", "review_due", "licence", "source_domain",
-  "verification_basis", "supersedes_id",
+  "verification_basis", "supersedes_id", "question_key", "position",
 ];
 
 function norm(v: unknown): unknown {
@@ -104,7 +104,7 @@ export function desiredItem(p: PreparedDocument, regionId: string | null, supers
     source_class: d.source_class, evidence_kind: d.evidence_kind, topics: [...d.topics].sort(), syndromes: [...d.syndromes].sort(),
     geo_scope: d.geo_scope, geo_region_id: regionId, canonical_id: d.canonical_id, valid_from: d.valid_from, valid_until: d.valid_until,
     review_due: d.review_due, supersedes_id: supersedesId, licence: p.fields.licence, source_domain: d.source_domain,
-    verification_basis: [...d.verification_basis].sort(), is_synthetic: d.is_synthetic,
+    verification_basis: [...d.verification_basis].sort(), is_synthetic: d.is_synthetic, question_key: d.question_key, position: d.position,
   };
 }
 

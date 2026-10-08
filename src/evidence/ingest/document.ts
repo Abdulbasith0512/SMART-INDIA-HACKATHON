@@ -57,6 +57,9 @@ export const corpusDocumentSchema = z
     trust_level: z.enum(["unreviewed", "reviewed", "trusted"]),
     declared_status: z.enum(EVIDENCE_STATUSES),
     supersedes: z.string().regex(CANONICAL_ID_RE).nullable().default(null),
+    /** Curator-authored conflict tags (M4.3): documents sharing a question_key with different positions are reported as a conflict. */
+    question_key: z.string().regex(/^[a-z][a-z0-9_.-]{2,80}$/).nullable().default(null),
+    position: z.string().regex(/^[a-z][a-z0-9_.-]{0,59}$/).nullable().default(null),
     curator_reviewed: z.object({ on: isoDate }).nullable().default(null),
     /** SHA-256 of the sanitised source text as fetched (printed by `npm run evidence:fetch`). Real documents only. */
     source_content_hash: z.string().regex(/^[0-9a-f]{64}$/).nullable().default(null),
@@ -85,6 +88,7 @@ export const corpusDocumentSchema = z
     if (new Set(d.topics).size !== d.topics.length) bad("topics", "duplicate topics");
     if (d.valid_from && d.valid_until && d.valid_until < d.valid_from) bad("valid_until", "valid_until is before valid_from");
     if (d.supersedes === d.canonical_id) bad("supersedes", "a document cannot supersede itself");
+    if ((d.question_key === null) !== (d.position === null)) bad("position", "question_key and position must be set together or not at all");
     if (!d.abstract.trim() && d.excerpts.length === 0) bad("abstract", "an abstract or at least one excerpt is required");
 
     const urlHost = d.reference_url ? hostOf(d.reference_url) : null;

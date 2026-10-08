@@ -53,7 +53,7 @@ describe("evidence engine / statistical engine isolation", () => {
   });
 
   it("retrieval and ingestion modules never import generation or the LLM", () => {
-    const dirs = ["retrieval", "ingest", "rank", "bundle", "net", "devcorpus"].map((d) => join("src", "evidence", d));
+    const dirs = ["retrieval", "ingest", "rank", "ranking", "bundle", "net", "devcorpus"].map((d) => join("src", "evidence", d));
     const files = sources("src/evidence").filter((f) => dirs.some((d) => relative(ROOT, f).startsWith(d)));
     const offenders = files.filter((f) => importsOf(f).some((i) => /generation|llm/.test(i))).map((f) => relative(ROOT, f));
     expect(offenders).toEqual([]);

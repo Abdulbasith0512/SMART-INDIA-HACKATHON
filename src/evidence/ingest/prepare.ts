@@ -97,6 +97,8 @@ export function prepareDocument(doc: CorpusDocument, allowlist: Allowlist = EMPT
     review_due: doc.review_due, reference_url: doc.reference_url, source_domain: doc.source_domain,
     verification_basis: [...doc.verification_basis].sort(), is_synthetic: doc.is_synthetic, trust_level: decision.trustLevel,
     supersedes: doc.supersedes, translations: fields.translations,
+    // Conflict tags are hashed only when present, so the hash of every untagged document is unchanged.
+    ...(doc.question_key !== null ? { question_key: doc.question_key, position: doc.position } : {}),
   });
 
   return { doc, fields, chunks, contentHash, metadataHash, scan, decision, sanitise: totals, errors };

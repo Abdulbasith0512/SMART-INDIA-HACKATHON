@@ -35,6 +35,12 @@ export interface CorpusItem {
   validUntil: string | null;
   isSynthetic: boolean;
   supersedesId: string | null;
+  /**
+   * Curator-authored conflict tags (M4.3). Loaded for the ranking stage only: they are NOT part of retrieval
+   * (M4.2 neither reads nor hashes them), so they never change a retrieval result or the corpus digest.
+   */
+  questionKey?: string | null;
+  position?: string | null;
   version: { id: string; contentHash: string; fetchStatus: string } | null;
   /** Chunks of the CURRENT version only; empty for documents whose text was not loaded (not current). */
   chunks: CorpusChunk[];
@@ -54,6 +60,7 @@ export interface CorpusView {
 export const ITEM_COLUMNS = [
   "id", "canonical_id", "title", "publisher", "source_class", "evidence_kind", "trust_level", "status", "topics", "syndromes", "geo_scope",
   "geo_region_id", "language", "publication_date", "valid_from", "valid_until", "is_synthetic", "supersedes_id",
+  "question_key", "position",
 ] as const;
 export const VERSION_COLUMNS = ["id", "evidence_item_id", "content_hash", "fetch_status", "is_current"] as const;
 export const CHUNK_COLUMNS = ["id", "version_id", "ordinal", "kind", "text", "chunk_hash", "language"] as const;
@@ -110,6 +117,8 @@ export async function loadCorpusView(db: EvidenceDb, opts: { textStatuses?: read
         validUntil: day(r.valid_until),
         isSynthetic: r.is_synthetic === true,
         supersedesId: (r.supersedes_id as string | null) ?? null,
+        questionKey: (r.question_key as string | null) ?? null,
+        position: (r.position as string | null) ?? null,
         version: v ? { id: v.id as string, contentHash: String(v.content_hash), fetchStatus: String(v.fetch_status) } : null,
         chunks: v ? [...(chunksByVersion.get(v.id as string) ?? [])].sort((a, b) => a.ordinal - b.ordinal) : [],
       };

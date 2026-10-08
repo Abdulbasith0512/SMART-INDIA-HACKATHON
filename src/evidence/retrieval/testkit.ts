@@ -35,13 +35,15 @@ export function devPrepared(): PreparedDocument[] {
 }
 
 /** What loadCorpusView would return after ingestion: text only for status `current`, current version only. */
-export function viewFromPrepared(prepared: readonly PreparedDocument[] = devPrepared(), snapshot: CorpusView["activeSnapshot"] = null): CorpusView {
+export function viewFromPrepared(
+  prepared: readonly PreparedDocument[] = devPrepared(), snapshot: CorpusView["activeSnapshot"] = null, textStatuses: readonly string[] = ["current"],
+): CorpusView {
   const idOf = new Map(prepared.map((p) => [p.doc.canonical_id, uid(`item:${p.doc.canonical_id}`)]));
   const items = prepared.map((p): CorpusItem => {
     const d = p.doc;
     const status = p.decision.status;
     const chunks: CorpusChunk[] =
-      status === "current"
+      textStatuses.includes(status)
         ? p.chunks.map((c) => ({ id: uid(`chunk:${d.canonical_id}:${c.ordinal}`), ordinal: c.ordinal, kind: c.kind, text: c.text, chunkHash: c.chunk_hash, language: d.language }))
         : [];
     return {
@@ -49,10 +51,19 @@ export function viewFromPrepared(prepared: readonly PreparedDocument[] = devPrep
       evidenceKind: d.evidence_kind, trustLevel: p.decision.trustLevel, status, topics: [...d.topics], syndromes: [...d.syndromes], geoScope: d.geo_scope,
       geoRegionId: d.geo_region_code ? REGION_BY_CODE[d.geo_region_code] : null, language: d.language, publicationDate: d.publication_date,
       validFrom: d.valid_from, validUntil: d.valid_until, isSynthetic: d.is_synthetic, supersedesId: d.supersedes ? idOf.get(d.supersedes) ?? null : null,
+      questionKey: d.question_key, position: d.position,
       version: { id: uid(`version:${d.canonical_id}`), contentHash: p.contentHash, fetchStatus: "not_fetched" }, chunks,
     };
   });
   return { items, activeSnapshot: snapshot };
+}
+
+/** The view for the historical pass: text of superseded and historical documents (what loadCorpusView would load). */
+export const historicalViewFromPrepared = (prepared: readonly PreparedDocument[] = devPrepared()): CorpusView => viewFromPrepared(prepared, null, ["superseded", "historical"]);
+
+/** Apply curator conflict tags to a view (as a curator would in the database); other items are left untouched. */
+export function withTags(view: CorpusView, tags: Record<string, { questionKey: string; position: string }>): CorpusView {
+  return { ...view, items: view.items.map((i) => (i.canonicalId && tags[i.canonicalId] ? { ...i, ...tags[i.canonicalId] } : i)) };
 }
 
 export interface FactsOverrides {

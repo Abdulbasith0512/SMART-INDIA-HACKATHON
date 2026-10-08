@@ -1,0 +1,527 @@
+{
+  "schema": "ranking-sensitivity/1",
+  "notice": "Class factors are policy constants, not estimates. This measures how much the ORDER of eligible evidence moves if they were slightly different; it does not validate them, and a synthetic corpus cannot show real-world robustness.",
+  "baseline": {
+    "rankingConfigHash": "f288734e732142d6bbab1afeeb8acc6e5a47aee0fcd97a3ef07e6ccc44c19d5d",
+    "retrievalConfigHash": "029b517ac9986c47588303c98a594a2fc9819371f3f3f201f3e199894bccda7f",
+    "corpusDigest": "cbd9f2ab2beb450d2a4813d7fa70e782ffc899f9f392d6c1f4c54da6d840014a"
+  },
+  "scenarios": [
+    "acute_diarrhoeal_illness@khordha",
+    "acute_diarrhoeal_illness@ganjam",
+    "acute_diarrhoeal_illness@other_state",
+    "fever@khordha",
+    "fever@ganjam",
+    "fever@other_state",
+    "fever_with_rash@khordha",
+    "fever_with_rash@ganjam",
+    "fever_with_rash@other_state",
+    "jaundice@khordha",
+    "jaundice@ganjam",
+    "jaundice@other_state",
+    "respiratory_illness@khordha",
+    "respiratory_illness@ganjam",
+    "respiratory_illness@other_state"
+  ],
+  "perturbations": [
+    {
+      "id": "class_single_half_step:intergovernmental_health_authority:-0.025",
+      "family": "class_single_half_step",
+      "description": "intergovernmental_health_authority factor 1 -> 0.975"
+    },
+    {
+      "id": "class_single_half_step:national_government_health_agency:+0.025",
+      "family": "class_single_half_step",
+      "description": "national_government_health_agency factor 0.95 -> 0.975"
+    },
+    {
+      "id": "class_single_half_step:national_government_health_agency:-0.025",
+      "family": "class_single_half_step",
+      "description": "national_government_health_agency factor 0.95 -> 0.925"
+    },
+    {
+      "id": "class_single_half_step:state_government_health_agency:+0.025",
+      "family": "class_single_half_step",
+      "description": "state_government_health_agency factor 0.9 -> 0.925"
+    },
+    {
+      "id": "class_single_half_step:state_government_health_agency:-0.025",
+      "family": "class_single_half_step",
+      "description": "state_government_health_agency factor 0.9 -> 0.875"
+    },
+    {
+      "id": "class_single_half_step:peer_reviewed_literature:+0.025",
+      "family": "class_single_half_step",
+      "description": "peer_reviewed_literature factor 0.85 -> 0.875"
+    },
+    {
+      "id": "class_single_half_step:peer_reviewed_literature:-0.025",
+      "family": "class_single_half_step",
+      "description": "peer_reviewed_literature factor 0.85 -> 0.825"
+    },
+    {
+      "id": "class_single_half_step:recognized_institution:+0.025",
+      "family": "class_single_half_step",
+      "description": "recognized_institution factor 0.8 -> 0.825"
+    },
+    {
+      "id": "class_single_half_step:recognized_institution:-0.025",
+      "family": "class_single_half_step",
+      "description": "recognized_institution factor 0.8 -> 0.775"
+    },
+    {
+      "id": "class_single_half_step:professional_society_guideline:+0.025",
+      "family": "class_single_half_step",
+      "description": "professional_society_guideline factor 0.75 -> 0.775"
+    },
+    {
+      "id": "class_single_half_step:professional_society_guideline:-0.025",
+      "family": "class_single_half_step",
+      "description": "professional_society_guideline factor 0.75 -> 0.725"
+    },
+    {
+      "id": "class_single_half_step:other_verified:+0.025",
+      "family": "class_single_half_step",
+      "description": "other_verified factor 0.7 -> 0.725"
+    },
+    {
+      "id": "class_single_half_step:other_verified:-0.025",
+      "family": "class_single_half_step",
+      "description": "other_verified factor 0.7 -> 0.675"
+    },
+    {
+      "id": "class_single_full_step:intergovernmental_health_authority:-0.05",
+      "family": "class_single_full_step",
+      "description": "intergovernmental_health_authority factor 1 -> 0.95"
+    },
+    {
+      "id": "class_single_full_step:national_government_health_agency:+0.05",
+      "family": "class_single_full_step",
+      "description": "national_government_health_agency factor 0.95 -> 1"
+    },
+    {
+      "id": "class_single_full_step:national_government_health_agency:-0.05",
+      "family": "class_single_full_step",
+      "description": "national_government_health_agency factor 0.95 -> 0.9"
+    },
+    {
+      "id": "class_single_full_step:state_government_health_agency:+0.05",
+      "family": "class_single_full_step",
+      "description": "state_government_health_agency factor 0.9 -> 0.95"
+    },
+    {
+      "id": "class_single_full_step:state_government_health_agency:-0.05",
+      "family": "class_single_full_step",
+      "description": "state_government_health_agency factor 0.9 -> 0.85"
+    },
+    {
+      "id": "class_single_full_step:peer_reviewed_literature:+0.05",
+      "family": "class_single_full_step",
+      "description": "peer_reviewed_literature factor 0.85 -> 0.9"
+    },
+    {
+      "id": "class_single_full_step:peer_reviewed_literature:-0.05",
+      "family": "class_single_full_step",
+      "description": "peer_reviewed_literature factor 0.85 -> 0.8"
+    },
+    {
+      "id": "class_single_full_step:recognized_institution:+0.05",
+      "family": "class_single_full_step",
+      "description": "recognized_institution factor 0.8 -> 0.85"
+    },
+    {
+      "id": "class_single_full_step:recognized_institution:-0.05",
+      "family": "class_single_full_step",
+      "description": "recognized_institution factor 0.8 -> 0.75"
+    },
+    {
+      "id": "class_single_full_step:professional_society_guideline:+0.05",
+      "family": "class_single_full_step",
+      "description": "professional_society_guideline factor 0.75 -> 0.8"
+    },
+    {
+      "id": "class_single_full_step:professional_society_guideline:-0.05",
+      "family": "class_single_full_step",
+      "description": "professional_society_guideline factor 0.75 -> 0.7"
+    },
+    {
+      "id": "class_single_full_step:other_verified:+0.05",
+      "family": "class_single_full_step",
+      "description": "other_verified factor 0.7 -> 0.75"
+    },
+    {
+      "id": "class_single_full_step:other_verified:-0.05",
+      "family": "class_single_full_step",
+      "description": "other_verified factor 0.7 -> 0.65"
+    },
+    {
+      "id": "class_ladder_spacing:0.025",
+      "family": "class_ladder_spacing",
+      "description": "tier spacing 0.05 -> 0.025"
+    },
+    {
+      "id": "class_ladder_spacing:0.075",
+      "family": "class_ladder_spacing",
+      "description": "tier spacing 0.05 -> 0.075"
+    },
+    {
+      "id": "class_ladder_spacing:0.1",
+      "family": "class_ladder_spacing",
+      "description": "tier spacing 0.05 -> 0.1"
+    },
+    {
+      "id": "class_flat",
+      "family": "class_flat",
+      "description": "all source classes weighted equally (class ladder removed)"
+    },
+    {
+      "id": "relevance_floor:0.05",
+      "family": "relevance_floor",
+      "description": "relevance floor 0.1 -> 0.05"
+    },
+    {
+      "id": "relevance_floor:0.2",
+      "family": "relevance_floor",
+      "description": "relevance floor 0.1 -> 0.2"
+    }
+  ],
+  "totals": {
+    "cases": 1920,
+    "casesWithEvidence": 1856,
+    "emptyFacetCases": 64
+  },
+  "byFamily": [
+    {
+      "family": "class_single_half_step",
+      "cases": 754,
+      "meanTau": 0.996903,
+      "minTau": 0.904762,
+      "meanSelectedJaccard": 0.995137,
+      "minSelectedJaccard": 0.666667,
+      "selectedOrderIdentical": 730,
+      "leadChanged": 0
+    },
+    {
+      "family": "class_single_full_step",
+      "cases": 754,
+      "meanTau": 0.995368,
+      "minTau": 0.904762,
+      "meanSelectedJaccard": 0.993369,
+      "minSelectedJaccard": 0.666667,
+      "selectedOrderIdentical": 718,
+      "leadChanged": 0
+    },
+    {
+      "family": "class_ladder_spacing",
+      "cases": 174,
+      "meanTau": 0.963922,
+      "minTau": 0.738562,
+      "meanSelectedJaccard": 0.957033,
+      "minSelectedJaccard": 0.428571,
+      "selectedOrderIdentical": 137,
+      "leadChanged": 0
+    },
+    {
+      "family": "class_flat",
+      "cases": 58,
+      "meanTau": 0.94957,
+      "minTau": 0.619048,
+      "meanSelectedJaccard": 0.925287,
+      "minSelectedJaccard": 0.666667,
+      "selectedOrderIdentical": 41,
+      "leadChanged": 3
+    },
+    {
+      "family": "relevance_floor",
+      "cases": 116,
+      "meanTau": 1,
+      "minTau": 1,
+      "meanSelectedJaccard": 0.928736,
+      "minSelectedJaccard": 0.4,
+      "selectedOrderIdentical": 88,
+      "leadChanged": 0
+    }
+  ],
+  "byPerturbation": [
+    {
+      "id": "class_single_half_step:intergovernmental_health_authority:-0.025",
+      "cases": 58,
+      "meanTau": 0.990275,
+      "minTau": 0.904762,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:national_government_health_agency:+0.025",
+      "cases": 58,
+      "meanTau": 0.995582,
+      "minTau": 0.904762,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:national_government_health_agency:-0.025",
+      "cases": 58,
+      "meanTau": 0.994485,
+      "minTau": 0.904762,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:state_government_health_agency:+0.025",
+      "cases": 58,
+      "meanTau": 0.999654,
+      "minTau": 0.989474,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:state_government_health_agency:-0.025",
+      "cases": 58,
+      "meanTau": 0.999819,
+      "minTau": 0.989474,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:peer_reviewed_literature:+0.025",
+      "cases": 58,
+      "meanTau": 0.99179,
+      "minTau": 0.904762,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:peer_reviewed_literature:-0.025",
+      "cases": 58,
+      "meanTau": 1,
+      "minTau": 1,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:recognized_institution:+0.025",
+      "cases": 58,
+      "meanTau": 0.998912,
+      "minTau": 0.976608,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:recognized_institution:-0.025",
+      "cases": 58,
+      "meanTau": 0.999269,
+      "minTau": 0.978261,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:professional_society_guideline:+0.025",
+      "cases": 58,
+      "meanTau": 1,
+      "minTau": 1,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:professional_society_guideline:-0.025",
+      "cases": 58,
+      "meanTau": 0.996491,
+      "minTau": 0.976608,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:other_verified:+0.025",
+      "cases": 58,
+      "meanTau": 0.995036,
+      "minTau": 0.953216,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_half_step:other_verified:-0.025",
+      "cases": 58,
+      "meanTau": 0.998424,
+      "minTau": 0.980952,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:intergovernmental_health_authority:-0.05",
+      "cases": 58,
+      "meanTau": 0.989159,
+      "minTau": 0.904762,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:national_government_health_agency:+0.05",
+      "cases": 58,
+      "meanTau": 0.993229,
+      "minTau": 0.904762,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:national_government_health_agency:-0.05",
+      "cases": 58,
+      "meanTau": 0.994051,
+      "minTau": 0.904762,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:state_government_health_agency:+0.05",
+      "cases": 58,
+      "meanTau": 0.999473,
+      "minTau": 0.978947,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:state_government_health_agency:-0.05",
+      "cases": 58,
+      "meanTau": 0.999291,
+      "minTau": 0.978947,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:peer_reviewed_literature:+0.05",
+      "cases": 58,
+      "meanTau": 0.99179,
+      "minTau": 0.904762,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:peer_reviewed_literature:-0.05",
+      "cases": 58,
+      "meanTau": 1,
+      "minTau": 1,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:recognized_institution:+0.05",
+      "cases": 58,
+      "meanTau": 0.996184,
+      "minTau": 0.961905,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:recognized_institution:-0.05",
+      "cases": 58,
+      "meanTau": 0.993759,
+      "minTau": 0.921569,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:professional_society_guideline:+0.05",
+      "cases": 58,
+      "meanTau": 0.999348,
+      "minTau": 0.986928,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:professional_society_guideline:-0.05",
+      "cases": 58,
+      "meanTau": 0.996491,
+      "minTau": 0.976608,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:other_verified:+0.05",
+      "cases": 58,
+      "meanTau": 0.993037,
+      "minTau": 0.947368,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_single_full_step:other_verified:-0.05",
+      "cases": 58,
+      "meanTau": 0.99397,
+      "minTau": 0.947368,
+      "minSelectedJaccard": 1,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_ladder_spacing:0.025",
+      "cases": 58,
+      "meanTau": 0.97291,
+      "minTau": 0.809524,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_ladder_spacing:0.075",
+      "cases": 58,
+      "meanTau": 0.973486,
+      "minTau": 0.882353,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_ladder_spacing:0.1",
+      "cases": 58,
+      "meanTau": 0.94537,
+      "minTau": 0.738562,
+      "minSelectedJaccard": 0.428571,
+      "leadChanged": 0
+    },
+    {
+      "id": "class_flat",
+      "cases": 58,
+      "meanTau": 0.94957,
+      "minTau": 0.619048,
+      "minSelectedJaccard": 0.666667,
+      "leadChanged": 3
+    },
+    {
+      "id": "relevance_floor:0.05",
+      "cases": 58,
+      "meanTau": 1,
+      "minTau": 1,
+      "minSelectedJaccard": 0.4,
+      "leadChanged": 0
+    },
+    {
+      "id": "relevance_floor:0.2",
+      "cases": 58,
+      "meanTau": 1,
+      "minTau": 1,
+      "minSelectedJaccard": 0.6,
+      "leadChanged": 0
+    }
+  ],
+  "leadChanges": [
+    {
+      "scenario": "acute_diarrhoeal_illness@ganjam",
+      "facet": "verification_guidance",
+      "perturbation": "class_flat",
+      "from": "syn-ads-verification-guidance#0",
+      "to": "syn-ads-verification-near-duplicate#0"
+    },
+    {
+      "scenario": "acute_diarrhoeal_illness@khordha",
+      "facet": "verification_guidance",
+      "perturbation": "class_flat",
+      "from": "syn-ads-verification-guidance#0",
+      "to": "syn-ads-verification-near-duplicate#0"
+    },
+    {
+      "scenario": "acute_diarrhoeal_illness@other_state",
+      "facet": "verification_guidance",
+      "perturbation": "class_flat",
+      "from": "syn-ads-verification-guidance#0",
+      "to": "syn-ads-verification-near-duplicate#0"
+    }
+  ],
+  "hash": "39022ee8cea3b216190c360fe6c97b7bb08ca3a0247e65c69f4bdcace6d1619e"
+}

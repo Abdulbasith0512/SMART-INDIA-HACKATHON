@@ -28,7 +28,11 @@
     "evidence:linkcheck": "tsx scripts/check-evidence-links.ts",
     "evidence:retrieve": "tsx scripts/retrieve-evidence.ts",
     "verify:m41": "tsx scripts/verify-m4-1.ts",
-    "verify:m42": "tsx scripts/verify-m4-2.ts"
+    "evidence:rank": "tsx scripts/rank-evidence.ts",
+    "evidence:sensitivity": "tsx scripts/analyse-ranking-sensitivity.ts",
+    "verify:m42": "tsx scripts/verify-m4-2.ts",
+    "verify:m43": "tsx scripts/verify-m4-3.ts",
+    "test:mutation:m43": "tsx scripts/mutation-m4-3.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

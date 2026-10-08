@@ -666,8 +666,10 @@ export type Database = {
           is_synthetic: boolean
           language: string | null
           licence: string | null
+          position: string | null
           publication_date: string | null
           publisher: string
+          question_key: string | null
           reference_url: string | null
           review_due: string | null
           source_class: Database["public"]["Enums"]["evidence_source_class"]
@@ -699,8 +701,10 @@ export type Database = {
           is_synthetic?: boolean
           language?: string | null
           licence?: string | null
+          position?: string | null
           publication_date?: string | null
           publisher: string
+          question_key?: string | null
           reference_url?: string | null
           review_due?: string | null
           source_class?: Database["public"]["Enums"]["evidence_source_class"]
@@ -732,8 +736,10 @@ export type Database = {
           is_synthetic?: boolean
           language?: string | null
           licence?: string | null
+          position?: string | null
           publication_date?: string | null
           publisher?: string
+          question_key?: string | null
           reference_url?: string | null
           review_due?: string | null
           source_class?: Database["public"]["Enums"]["evidence_source_class"]
