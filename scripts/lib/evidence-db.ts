@@ -1,6 +1,6 @@
 // supabase-js (service role) implementation of the ingestion engine's table interface.
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { EvidenceDb, Row } from "../../src/evidence/ingest/ingest";
+import { JsonValue, type EvidenceDb, type Row } from "../../src/evidence/ingest/ingest";
 
 interface Result {
   data: Row[] | null;
@@ -17,8 +17,12 @@ interface Loose {
     select(columns: string): Query;
     insert(rows: Row[]): Query;
     update(patch: Row): Query;
+    delete(): Query;
   };
 }
+
+/** jsonb values are sent as JSON; PostgREST takes the plain value. */
+const unwrap = (row: Row): Row => Object.fromEntries(Object.entries(row).map(([k, v]) => [k, v instanceof JsonValue ? v.value : v]));
 
 async function done(table: string, q: PromiseLike<Result>): Promise<Row[]> {
   const { data, error } = await q;
@@ -32,7 +36,8 @@ export function supabaseEvidenceDb(client: SupabaseClient): EvidenceDb {
     Object.entries(match).reduce((acc, [k, v]) => (v === null ? acc.is(k, null) : Array.isArray(v) ? acc.in(k, v) : acc.eq(k, v)), q);
   return {
     select: (table, match = {}, columns) => done(table, filter(c.from(table).select(columns?.length ? columns.join(",") : "*"), match)),
-    insert: (table, rows) => done(table, c.from(table).insert(rows).select("*")),
-    update: async (table, match, patch) => (await done(table, filter(c.from(table).update(patch), match).select("id"))).length,
+    insert: (table, rows) => done(table, c.from(table).insert(rows.map(unwrap)).select("*")),
+    update: async (table, match, patch) => (await done(table, filter(c.from(table).update(unwrap(patch)), match).select("*"))).length,
+    delete: async (table, match) => (await done(table, filter(c.from(table).delete(), match).select("*"))).length,
   };
 }

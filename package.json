@@ -32,7 +32,10 @@
     "evidence:sensitivity": "tsx scripts/analyse-ranking-sensitivity.ts",
     "verify:m42": "tsx scripts/verify-m4-2.ts",
     "verify:m43": "tsx scripts/verify-m4-3.ts",
-    "test:mutation:m43": "tsx scripts/mutation-m4-3.ts"
+    "test:mutation:m43": "tsx scripts/mutation-m4-3.ts",
+    "evidence:bundle": "tsx scripts/bundle-evidence.ts",
+    "verify:m44": "tsx scripts/verify-m4-4.ts",
+    "test:mutation:m44": "tsx scripts/mutation-m4-4.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

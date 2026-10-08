@@ -1,6 +1,6 @@
 // PGlite implementation of the ingestion engine's table interface (tests run ingestion against the REAL
 // migrated schema as the privileged connection, which is what the service role is in production).
-import type { EvidenceDb, Row } from "@/evidence/ingest/ingest";
+import { JsonValue, type EvidenceDb, type Row } from "@/evidence/ingest/ingest";
 import type { Db } from "./harness";
 
 const ident = (s: string): string => {
@@ -10,7 +10,10 @@ const ident = (s: string): string => {
 
 /** Arrays go in as Postgres array literals so enum[] / text[] columns coerce them. */
 const param = (v: unknown): unknown =>
-  Array.isArray(v) ? `{${v.map((x) => `"${String(x).replace(/(["\\])/g, "\\$1")}"`).join(",")}}` : v === undefined ? null : v;
+  v instanceof JsonValue ? JSON.stringify(v.value) : Array.isArray(v) ? `{${v.map((x) => `"${String(x).replace(/(["\\])/g, "\\$1")}"`).join(",")}}` : v === undefined ? null : v;
+
+/** jsonb values are cast explicitly; everything else is inferred from the column. */
+const slot = (n: number, v: unknown): string => (v instanceof JsonValue ? `$${n}::jsonb` : `$${n}`);
 
 function where(match: Row, offset = 0): { sql: string; params: unknown[] } {
   const keys = Object.keys(match);
@@ -46,7 +49,7 @@ export function pgliteEvidenceDb(db: Db): EvidenceDb {
       for (const row of rows) {
         const keys = Object.keys(row);
         const r = await db.query<Row>(
-          `insert into public.${ident(table)} (${keys.map(ident).join(", ")}) values (${keys.map((_, i) => `$${i + 1}`).join(", ")}) returning *`,
+          `insert into public.${ident(table)} (${keys.map(ident).join(", ")}) values (${keys.map((k, i) => slot(i + 1, row[k])).join(", ")}) returning *`,
           keys.map((k) => param(row[k])),
         );
         out.push(arrays(r.rows[0]));
@@ -57,9 +60,14 @@ export function pgliteEvidenceDb(db: Db): EvidenceDb {
       const keys = Object.keys(patch);
       const w = where(match, keys.length);
       const r = await db.query(
-        `update public.${ident(table)} set ${keys.map((k, i) => `${ident(k)} = $${i + 1}`).join(", ")}${w.sql}`,
+        `update public.${ident(table)} set ${keys.map((k, i) => `${ident(k)} = ${slot(i + 1, patch[k])}`).join(", ")}${w.sql}`,
         [...keys.map((k) => param(patch[k])), ...w.params],
       );
+      return r.affectedRows ?? 0;
+    },
+    async delete(table, match) {
+      const w = where(match);
+      const r = await db.query(`delete from public.${ident(table)}${w.sql}`, w.params);
       return r.affectedRows ?? 0;
     },
   };

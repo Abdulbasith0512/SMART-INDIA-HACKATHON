@@ -14,6 +14,15 @@ import { buildManifest, ingestOrder, type CorpusManifest } from "./manifest";
 
 export type Row = Record<string, unknown>;
 
+/**
+ * Marks a value to be written to a `jsonb` column as JSON. Plain arrays are ambiguous (Postgres `text[]` vs `jsonb`),
+ * so writers wrap jsonb values explicitly; adapters unwrap them in the way their driver needs.
+ */
+export class JsonValue {
+  constructor(readonly value: unknown) {}
+}
+export const asJson = (value: unknown): JsonValue => new JsonValue(value);
+
 export interface EvidenceDb {
   /**
    * `match` values are equality filters; an ARRAY value means "column IN (...)". `columns` limits what is read
@@ -22,6 +31,8 @@ export interface EvidenceDb {
   select(table: string, match?: Row, columns?: readonly string[]): Promise<Row[]>;
   insert(table: string, rows: Row[]): Promise<Row[]>;
   update(table: string, match: Row, patch: Row): Promise<number>;
+  /** Used only by the bundle writer to keep the signal_evidence mirror equal to the latest bundle. Optional so read-only fakes stay valid. */
+  delete?(table: string, match: Row): Promise<number>;
 }
 
 export interface IngestOptions {
