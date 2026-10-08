@@ -10,3 +10,6 @@ supabase/.branches
 .DS_Store
 *.log
 coverage
+
+# M4.6 opt-in provider experiments (raw model output; admin inspection only)
+data/evidence/eval/experiments/

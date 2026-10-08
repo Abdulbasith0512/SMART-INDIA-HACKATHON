@@ -39,7 +39,10 @@
     "evidence:explain": "tsx scripts/explain-signal.ts",
     "smoke:gemini": "tsx scripts/smoke-gemini.ts",
     "verify:m45": "tsx scripts/verify-m4-5.ts",
-    "test:mutation:m45": "tsx scripts/mutation-m4-5.ts"
+    "test:mutation:m45": "tsx scripts/mutation-m4-5.ts",
+    "eval:evidence": "tsx scripts/eval-evidence.ts",
+    "verify:m46": "tsx scripts/verify-m4-6.ts",
+    "test:mutation:m46": "tsx scripts/mutation-m4-6.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

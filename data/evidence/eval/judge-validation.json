@@ -1,0 +1,41 @@
+{
+  "policy_version": "judge-policy/1.0.0",
+  "judge": {
+    "id": "lexical-baseline",
+    "version": "lexical-baseline/1.0.0",
+    "kind": "lexical_baseline"
+  },
+  "gate": {
+    "min_pairs": 100,
+    "min_raters": 2,
+    "min_kappa": 0.61,
+    "min_agreement": 0.8,
+    "max_invalid_rate": 0.05
+  },
+  "pairs": {
+    "total": 120,
+    "human": 0,
+    "constructed": 120
+  },
+  "raters": 0,
+  "human_validation": null,
+  "machinery_check": {
+    "evaluated": 120,
+    "agreement": {
+      "k": 92,
+      "n": 120,
+      "value": 0.766667,
+      "ci95": [
+        0.680723,
+        0.839008
+      ]
+    },
+    "kappa": 0.65,
+    "note": "Constructed pairs are sentences from the synthetic corpus recombined by rule. Agreement on them is by construction and says nothing about a judge's real accuracy."
+  },
+  "status": "not_validated",
+  "reportable": false,
+  "reasons": [
+    "no human-labelled claim-passage pairs exist, so the judge has not been validated against humans"
+  ]
+}

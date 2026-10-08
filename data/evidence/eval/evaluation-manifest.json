@@ -1,0 +1,146 @@
+{
+  "artefact": "m4-6-evaluation-manifest",
+  "schema": "m4-eval-manifest/1",
+  "evaluation_version": "m4-eval/1.0.0",
+  "disclaimer": "Synthetic corpus and synthetic reference judgments authored from the same controlled vocabulary as the pipeline. These results demonstrate pipeline correctness, deterministic behaviour, regression detection and metric implementation. They are NOT evidence of real-world retrieval quality, clinical accuracy or public-health usefulness.",
+  "hashes": {
+    "scenario_set_hash": "d4e652b2535b682303e8bf7437e45de1afa381b3832e79063e03f9c0f4c633d9",
+    "judgments_hash": "30a93d20dbf095cf1653fd8642d8455c7f43793b97dca528c0f5ac0476f37235",
+    "doc_roles_hash": "4c98367951cd13fb8701ecebfa6a9a0d4f0edf06171ef4615638987d4a8af0cd",
+    "corpus_hash": "a66e0364a6b0c216381cfa9a6f0db846aa672f4b918587592cbcfe2ddfd497d2",
+    "retrieval_config_hash_dev": "029b517ac9986c47588303c98a594a2fc9819371f3f3f201f3e199894bccda7f",
+    "retrieval_config_hash_production": "1e0705bdeec1d940159da695bf27814f68c6339a69636d9e34c211c1a24903b1",
+    "ranking_config_hash": "f288734e732142d6bbab1afeeb8acc6e5a47aee0fcd97a3ef07e6ccc44c19d5d",
+    "query_vocab_version": "query-vocab/1.0.0",
+    "bundle_schema_version": "evidence-bundle/1",
+    "bundle_schema_hash": "a405a33c3c8495271a17cf787d3231cdd25b20df3ed192f64f047c2786614337",
+    "prompt_version": "grounded-explanation/1.0.0",
+    "prompt_hash": "1188dfe92dd7965d78fb1ea4220c9283fec7ca591374be96af73fbf2988b00c1",
+    "production_sources_hash": "b32d274438ef66dc574bd5771e971c701d17a01a730fcf0e69917ba4adc827b5",
+    "m3_detector_config_hash": "23188f021f80bd84113165469456f72165be682522243f908cbb715793d104ba"
+  },
+  "frozen": {
+    "matches_frozen_config": true
+  },
+  "scenario_set": {
+    "version": "1.0.0",
+    "total": 64,
+    "dev": 36,
+    "test": 28,
+    "m3_derived": 40,
+    "edge_cases": 24,
+    "split_rule": "Scenarios are grouped by category. Within each group they are ordered by SHA-256 of 'm4.6-split|<id>' and alternately assigned dev, test, dev, ... (a one-scenario group goes to dev when the first byte of that hash is even, otherwise to test). The split is fixed here, before any result exists, and is part of the scenario-set hash."
+  },
+  "judgments": {
+    "label": "synthetic_reference_judgment",
+    "rows": 3784,
+    "expert_judgments": false
+  },
+  "generation": {
+    "provider": "mock",
+    "model": "mock-1",
+    "kind": "scripted deterministic MockProvider; stored outputs replayed through the real pipeline",
+    "live_provider_run": false,
+    "prompt_version": "grounded-explanation/1.0.0",
+    "prompt_hash": "1188dfe92dd7965d78fb1ea4220c9283fec7ca591374be96af73fbf2988b00c1"
+  },
+  "evaluation_code": {
+    "version": "m4-eval/1.0.0",
+    "sources_hash": "1e6c1fc2f5e8c4cac47c92dd793191077ebc0a606748a9bd3794badf1307132a"
+  },
+  "artifacts": {
+    "scenario-set.json": {
+      "hash": "d4e652b2535b682303e8bf7437e45de1afa381b3832e79063e03f9c0f4c633d9",
+      "kind": "json"
+    },
+    "judgments.json": {
+      "hash": "30a93d20dbf095cf1653fd8642d8455c7f43793b97dca528c0f5ac0476f37235",
+      "kind": "json"
+    },
+    "doc-roles.json": {
+      "hash": "4c98367951cd13fb8701ecebfa6a9a0d4f0edf06171ef4615638987d4a8af0cd",
+      "kind": "json"
+    },
+    "frozen-config.json": {
+      "hash": "961aa194b560b7bf497b76a0dd307c453569a72de8de41ff8d379c2a4108c5cc",
+      "kind": "json"
+    },
+    "dev-results.json": {
+      "hash": "3f5597ec48ab4d54f5ead9024d1067682ec36546ab0dc06b59774ce34f6fc799",
+      "kind": "json"
+    },
+    "test-results.json": {
+      "hash": "52a2e53fce21b25a9afac555664a8112fcee30b5379476bb800a972592a00d36",
+      "kind": "json"
+    },
+    "adversarial-results.json": {
+      "hash": "5a5b390a50f6c3f0e4b1002f815cc711df258076a5102673beac1c71628fd81d",
+      "kind": "json"
+    },
+    "metrics.json": {
+      "hash": "c794fa803e09020378a0c7f1c123096320b59ed0ef756123ca81a96f0e1127c4",
+      "kind": "json"
+    },
+    "judge-validation.json": {
+      "hash": "0ca697ae73c782120206675f95da58c22d12502812a54c595a4a4ed8a791017c",
+      "kind": "json"
+    },
+    "review-dataset.json": {
+      "hash": "c5de6a76d843da81bfc2e0a27f3d32d08ee8a11aad48730f3d2bf3a4d6e2be02",
+      "kind": "json"
+    },
+    "review-items.csv": {
+      "hash": "eac37dab3bb8698af659ba36a6c5bfbc8aba1a5ae51f24fba0d0131dd12bc9a6",
+      "kind": "csv"
+    },
+    "review-claims.csv": {
+      "hash": "72e7936a7b786492453bc6112aa5b1d92d7c7058802bed3533b8123452d19ef3",
+      "kind": "csv"
+    }
+  },
+  "adversarial": {
+    "cases": 2880,
+    "fixtures": 45,
+    "unsafe_accepted": 0,
+    "cases_hash": "11573abe168a7be5ae76dee98ae23fc8d12bd9357103cc640f33bf258a4f9905"
+  },
+  "invariants": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0,
+    "not_exercised": 0,
+    "critical_failures": []
+  },
+  "judge": {
+    "status": "not_validated",
+    "reportable": false,
+    "policy_version": "judge-policy/1.0.0",
+    "reasons": [
+      "no human-labelled claim-passage pairs exist, so the judge has not been validated against humans"
+    ]
+  },
+  "human_evaluation": {
+    "status": "pending",
+    "items": [
+      "real_corpus_relevance",
+      "clinical_epidemiological_accuracy",
+      "verifier_usefulness",
+      "source_tier_appropriateness",
+      "hindi_odia_quality"
+    ]
+  },
+  "determinism": {
+    "rerun_identical": true,
+    "compared": [
+      "dev-results.json",
+      "test-results.json",
+      "adversarial-results.json"
+    ]
+  },
+  "limitations": [
+    "The corpus and the relevance judgments are synthetic and were authored from the same controlled vocabulary the pipeline uses, so agreement between them is expected and is not evidence of real-world retrieval quality.",
+    "Scenarios were authored by the same project that wrote the pipeline, with knowledge of the corpus; the held-out split protects against tuning on test results but is not a blind test.",
+    "Generation metrics describe the pipeline driven by a scripted provider, not any language model. Factual consistency is not measured.",
+    "No expert judgments, clinical or epidemiological review, or Hindi/Odia evaluation exists; all are pending."
+  ]
+}

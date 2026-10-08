@@ -1,0 +1,21 @@
+{
+  "artefact": "m4-6-frozen-config",
+  "schema": "m4-eval-frozen/1",
+  "note": "Frozen BEFORE the held-out test split was run. The test split refuses to run, and `eval:evidence --check` fails, if any value here differs from the code and data being evaluated. Re-freezing is a new evaluation version, not a tuning step.",
+  "hashes": {
+    "scenario_set_hash": "d4e652b2535b682303e8bf7437e45de1afa381b3832e79063e03f9c0f4c633d9",
+    "judgments_hash": "30a93d20dbf095cf1653fd8642d8455c7f43793b97dca528c0f5ac0476f37235",
+    "doc_roles_hash": "4c98367951cd13fb8701ecebfa6a9a0d4f0edf06171ef4615638987d4a8af0cd",
+    "corpus_hash": "a66e0364a6b0c216381cfa9a6f0db846aa672f4b918587592cbcfe2ddfd497d2",
+    "retrieval_config_hash_dev": "029b517ac9986c47588303c98a594a2fc9819371f3f3f201f3e199894bccda7f",
+    "retrieval_config_hash_production": "1e0705bdeec1d940159da695bf27814f68c6339a69636d9e34c211c1a24903b1",
+    "ranking_config_hash": "f288734e732142d6bbab1afeeb8acc6e5a47aee0fcd97a3ef07e6ccc44c19d5d",
+    "query_vocab_version": "query-vocab/1.0.0",
+    "bundle_schema_version": "evidence-bundle/1",
+    "bundle_schema_hash": "a405a33c3c8495271a17cf787d3231cdd25b20df3ed192f64f047c2786614337",
+    "prompt_version": "grounded-explanation/1.0.0",
+    "prompt_hash": "1188dfe92dd7965d78fb1ea4220c9283fec7ca591374be96af73fbf2988b00c1",
+    "production_sources_hash": "b32d274438ef66dc574bd5771e971c701d17a01a730fcf0e69917ba4adc827b5",
+    "m3_detector_config_hash": "23188f021f80bd84113165469456f72165be682522243f908cbb715793d104ba"
+  }
+}
