@@ -18,7 +18,8 @@ function where(match: Row, offset = 0): { sql: string; params: unknown[] } {
   const parts = keys.map((k) => {
     if (match[k] === null) return `${ident(k)} is null`;
     params.push(param(match[k]));
-    return `${ident(k)} = $${offset + params.length}`;
+    // An array value is an IN filter (compared as text so uuid / text / enum columns all work).
+    return Array.isArray(match[k]) ? `${ident(k)}::text = any($${offset + params.length}::text[])` : `${ident(k)} = $${offset + params.length}`;
   });
   return { sql: parts.length ? ` where ${parts.join(" and ")}` : "", params };
 }
@@ -35,9 +36,10 @@ function arrays(row: Row): Row {
 
 export function pgliteEvidenceDb(db: Db): EvidenceDb {
   return {
-    async select(table, match = {}) {
+    async select(table, match = {}, columns) {
       const w = where(match);
-      return (await db.query<Row>(`select * from public.${ident(table)}${w.sql}`, w.params)).rows.map(arrays);
+      const cols = columns?.length ? columns.map(ident).join(", ") : "*";
+      return (await db.query<Row>(`select ${cols} from public.${ident(table)}${w.sql}`, w.params)).rows.map(arrays);
     },
     async insert(table, rows) {
       const out: Row[] = [];

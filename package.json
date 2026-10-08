@@ -26,7 +26,9 @@
     "evidence:ingest": "tsx scripts/ingest-evidence.ts",
     "evidence:fetch": "tsx scripts/fetch-evidence-source.ts",
     "evidence:linkcheck": "tsx scripts/check-evidence-links.ts",
-    "verify:m41": "tsx scripts/verify-m4-1.ts"
+    "evidence:retrieve": "tsx scripts/retrieve-evidence.ts",
+    "verify:m41": "tsx scripts/verify-m4-1.ts",
+    "verify:m42": "tsx scripts/verify-m4-2.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

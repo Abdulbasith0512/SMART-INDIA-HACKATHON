@@ -15,7 +15,11 @@ import { buildManifest, ingestOrder, type CorpusManifest } from "./manifest";
 export type Row = Record<string, unknown>;
 
 export interface EvidenceDb {
-  select(table: string, match?: Row): Promise<Row[]>;
+  /**
+   * `match` values are equality filters; an ARRAY value means "column IN (...)". `columns` limits what is read
+   * (data minimisation: retrieval names exactly the columns it needs); omitted means all columns.
+   */
+  select(table: string, match?: Row, columns?: readonly string[]): Promise<Row[]>;
   insert(table: string, rows: Row[]): Promise<Row[]>;
   update(table: string, match: Row, patch: Row): Promise<number>;
 }
